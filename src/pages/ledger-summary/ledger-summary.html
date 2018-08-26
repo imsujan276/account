@@ -1,0 +1,103 @@
+<!--
+  Generated template for the LedgerSummaryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Ledger Summary</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+      
+  <ion-searchbar 
+          (ionInput)="search($event)" 
+          placeholder="Search by Ledger"
+          (ionCancel)="onSearchCancel($event)"
+          >
+  </ion-searchbar>
+
+  <ion-card *ngFor="let l of ledger" (click)="viewLedgerDetail(l)">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row >
+          <ion-col col-12>
+            Ledger Name: <span class="pull-right"> {{l.ledger_name}} </span>
+          </ion-col>
+          <ion-col col-12>
+            Opening DR: <span class="pull-right"> {{l.opening_dr}} </span>
+          </ion-col>
+          <ion-col col-12>
+            Opening CR: <span class="pull-right"> {{l.opening_cr}} </span>
+          </ion-col>
+          <ion-col col-12>
+            DR Amount: <span class="pull-right"> {{l.dr_amount}} </span>
+          </ion-col>
+          <ion-col col-12>
+            CR Amount: <span class="pull-right"> {{l.cr_amount}} </span>
+          </ion-col>
+          <ion-col col-12>
+            Balance: <span class="pull-right"> {{l.balance}} </span>
+          </ion-col>
+        </ion-row>
+        <!-- <hr> -->
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row >
+          <ion-col col-12  style="text-align:center; font-weight:600; font-size:18px">
+            Total
+            <hr>
+          </ion-col>
+          <ion-col col-12>
+            Opening DR: <span class="pull-right"> {{opening_dr}} </span>
+          </ion-col>
+          <ion-col col-12>
+            Opening CR: <span class="pull-right"> {{opening_cr}} </span>
+          </ion-col>
+          <ion-col col-12>
+            DR Amount: <span class="pull-right"> {{dr_amount}} </span>
+          </ion-col>
+          <ion-col col-12>
+            CR Amount: <span class="pull-right"> {{cr_amount}} </span>
+          </ion-col>
+          <ion-col col-12>
+            Balance: <span class="pull-right"> {{balance}} </span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+<!-- 
+  <ion-footer padding class="footer">
+    <ion-grid>
+      <ion-row >
+        <ion-col col-6>
+          Opening DR: <span class="pull-right"> {{opening_dr}} </span>
+        </ion-col>
+        <ion-col col-6>
+          Opening CR: <span class="pull-right"> {{opening_cr}} </span>
+        </ion-col>
+        <ion-col col-6>
+          DR Amount: <span class="pull-right"> {{dr_amount}} </span>
+        </ion-col>
+        <ion-col col-6>
+          CR Amount: <span class="pull-right"> {{cr_amount}} </span>
+        </ion-col>
+        <ion-col col-6>
+          Balance: <span class="pull-right"> {{balance}} </span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-footer>
+   -->
+</ion-content>

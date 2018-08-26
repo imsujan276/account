@@ -1,0 +1,46 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>User Login</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+<ion-content padding>
+
+	<ion-grid style="padding-top: 10%">
+		<ion-row>
+			<ion-col col-12>
+				<p style="font-size: 25px; text-align: center;">
+					Log In to View Your Reports.
+				</p>
+			</ion-col>
+			<ion-col col-12>
+				<p *ngIf="error" style="color:red; text-align:center"> {{error}} </p>
+				<form (ngSubmit)="login()">
+					<ion-item>
+				        <ion-label floating>Email</ion-label>
+				        <ion-input type="email" [(ngModel)]="email" required name="email"></ion-input>
+				     </ion-item>
+				     <ion-item>
+				        <ion-label floating>Password</ion-label>
+				        <ion-input type="password" [(ngModel)]="password" required name="password"></ion-input>
+						 </ion-item>
+						 <!-- <ion-item>
+							<ion-label floating>Company ID</ion-label>
+							<ion-input type="text" [(ngModel)]="company_id" required name="password"></ion-input>
+					 </ion-item> -->
+				     <br>
+				     <button ion-button type="submit" block>Login</button>
+				</form>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+</ion-content>
