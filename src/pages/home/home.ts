@@ -8,8 +8,9 @@ import { LedgerSummaryPage } from '../ledger-summary/ledger-summary';
 })
 export class HomePage {
 
+  company;
   constructor(public navCtrl: NavController) {
-
+    this.company = localStorage.getItem('company_id') ? localStorage.getItem('company_id') : ''
   }
 
   gotoLedgerSummary(){

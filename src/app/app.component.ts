@@ -32,7 +32,6 @@ export class MyApp {
       { title: 'Stock Summary Report ', component: StockSummaryPage },
       { title: 'Change Company', component: SelectCompanyModalPage }
     ];
-
     // this.checkUserLogin()
   }
 

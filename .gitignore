@@ -3,3 +3,5 @@ platforms/
 plugins/
 plugins/android.json
 plugins/ios.json
+.sourcemaps
+www/build
