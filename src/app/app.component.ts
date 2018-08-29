@@ -6,11 +6,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { LedgerSummaryPage } from '../pages/ledger-summary/ledger-summary';
 import { StockSummaryPage } from '../pages/stock-summary/stock-summary';
 import { DaybookReportPage } from '../pages/daybook-report/daybook-report';
-import { SelectCompanyModalPage } from '../pages/select-company-modal/select-company-modal';
 
 import { LoginPage } from '../pages/login/login';
 
 import { AuthProvider } from '../providers/auth/auth';
+import { SelectCompanyModalPage } from '../pages/select-company-modal/select-company-modal';
 
 @Component({
   templateUrl: 'app.html'
@@ -29,8 +29,7 @@ export class MyApp {
     this.pages = [
       { title: 'Ledger Summary Report', component: LedgerSummaryPage },
       { title: 'Daybook Report ', component: DaybookReportPage },
-      { title: 'Stock Summary Report ', component: StockSummaryPage },
-      { title: 'Change Company', component: SelectCompanyModalPage }
+      { title: 'Stock Summary Report ', component: StockSummaryPage }
     ];
     // this.checkUserLogin()
   }
@@ -48,6 +47,10 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.push(page.component);
+  }
+
+  changeCompany(){
+    this.nav.push(SelectCompanyModalPage, {refresh: true})
   }
 
   logout(){

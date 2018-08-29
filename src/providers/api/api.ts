@@ -10,18 +10,23 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ApiProvider {
 
-  url = "http://www.progressive.nepgeeks.com/api/app/"
-  user_id = localStorage.getItem('user_id');
-  company_id = localStorage.getItem('company_id');
+  user_id;
+  company_id;
 
+  url = "http://www.progressive.nepgeeks.com/api/app/"
   getCompanies = this.url+ "getCompanies";
   ledgerSummaryReportApi = this.url+ 'ledgerSummaryReport';
   ledgerDetailApi = this.url+ 'ledgerDetail';
   
   constructor(public http: HttpClient) {
-    console.log('Hello ApiProvider Provider');
   }
 
+  getUserId(){
+    return localStorage.getItem('user_id');
+  }
+  getCompanyId(){
+    return localStorage.getItem('company_id');
+  }
 
   // return new Promise( resolve => {
   //   this.http.post(this.update_vehicle_damage_api, info, { headers: headers})
@@ -38,15 +43,15 @@ export class ApiProvider {
 
   ledgerSummaryReport(){
     let p= new HttpParams().
-    set("user_id", this.user_id).
-    set("company_id", this.company_id);
+    set("user_id", this.getUserId()).
+    set("company_id", this.getCompanyId());
     return this.http.get(this.ledgerSummaryReportApi, {params: p});
   }
 
   ledgerDetail(ledger_summary_id, ledger_name){
     let p= new HttpParams().
-    set("user_id", this.user_id).
-    set("company_id", this.company_id).
+    set("user_id", this.getUserId()).
+    set("company_id", this.getCompanyId()).
     set('ledger_summary_id', ledger_summary_id).
     set("ledger_name", ledger_name);
 

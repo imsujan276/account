@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
+import { HomePage } from '../home/home';
 /**
  * Generated class for the SelectCompanyModalPage page.
  *
@@ -18,6 +19,7 @@ export class SelectCompanyModalPage {
   company;
   companies;
   user_id;
+  refresh = false;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
@@ -25,6 +27,7 @@ export class SelectCompanyModalPage {
               public api: ApiProvider,
               ) {
     this.user_id = this.navParams.get('user_id') ? this.navParams.get('user_id') : localStorage.getItem('user_id');
+    this.refresh = this.navParams.get('refresh') ? true : false;
     this.getCompanies(this.user_id);
   }
 
@@ -51,7 +54,11 @@ export class SelectCompanyModalPage {
     if(data['status'] == true){
       localStorage.setItem('company_id', this.company)
     }
-    this.viewCtrl.dismiss(data);
+    if(this.refresh){
+      this.navCtrl.setRoot(HomePage)
+    }else{
+      this.viewCtrl.dismiss(data);
+    }
   }
 
 }
