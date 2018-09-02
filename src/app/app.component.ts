@@ -20,16 +20,16 @@ export class MyApp {
 
   rootPage: any = LoginPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{logo: string ,title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public auth: AuthProvider) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Ledger Summary Report', component: LedgerSummaryPage },
-      { title: 'Daybook Report ', component: DaybookReportPage },
-      { title: 'Stock Summary Report ', component: StockSummaryPage }
+      { logo:'document', title: 'Ledger Summary Report', component: LedgerSummaryPage },
+      { logo:'book', title: 'Daybook Report ', component: DaybookReportPage },
+      { logo:'logo-buffer', title: 'Stock Summary Report ', component: StockSummaryPage }
     ];
     // this.checkUserLogin()
   }

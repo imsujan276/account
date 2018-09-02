@@ -12,14 +12,17 @@
 
 </ion-header> -->
 
-<ion-content padding>
+<ion-content padding style="border-top: 20px solid #FE5E00;border-bottom: 20px solid #FE5E00;">
 
-	<ion-grid style="padding-top: 10%">
+	<ion-grid style="padding-top: 10%;">
 		<ion-row>
-			<ion-col col-12>
+			<!-- <ion-col col-12>
 				<p style="font-size: 25px; text-align: center;">
 					Log In to View Your Reports.
 				</p>
+			</ion-col> -->
+			<ion-col col-8 offset-2>
+				<img src="/assets/icon/pflogo.png">
 			</ion-col>
 			<ion-col col-12>
 				<p *ngIf="error" style="color:red; text-align:center"> {{error}} </p>

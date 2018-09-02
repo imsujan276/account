@@ -14,8 +14,12 @@
 
 
 <ion-content padding>
-  <h3 style="text-align:center; padding-top:25px">
-    Select the Company You Want to Have the Report
+  <h3 style="text-align:center;     
+              background: #FE5E00;
+              color: white;
+              padding: 10px;
+              border-radius: 5px;">
+    Select Company
   </h3>
 <hr>
 <br>
@@ -32,7 +36,7 @@
         <button ion-button color="danger" (click)="dismiss()" block>Cancel</button>
     </ion-col>
     <ion-col offset-2 col-5>
-        <button ion-button (click)="dismissWithData()" block>Select</button>
+        <button ion-button (click)="dismissWithData()" block style="background-color:#FE5E00;">Select</button>
     </ion-col>
   </ion-row>
 </ion-grid>
