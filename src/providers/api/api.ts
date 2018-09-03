@@ -17,6 +17,7 @@ export class ApiProvider {
   getCompanies = this.url+ "getCompanies";
   ledgerSummaryReportApi = this.url+ 'ledgerSummaryReport';
   ledgerDetailApi = this.url+ 'ledgerDetail';
+  stockSummaryReportApi = this.url + 'stockSummaryReport';
   
   constructor(public http: HttpClient) {
   }
@@ -68,6 +69,22 @@ export class ApiProvider {
     });
   }
 
+  stockSummaryReport(){
+    let p= new HttpParams().
+    set("user_id", this.getUserId()).
+    set("company_id", this.getCompanyId());
+    return new Promise(resolve => {
+      this.http.get(this.stockSummaryReportApi, {params: p})
+        .subscribe(
+          data => {
+            resolve(data);
+          },
+          error => {
+            resolve(error.statusText);
+          }
+        );
+    });
+  }
 
 
 }

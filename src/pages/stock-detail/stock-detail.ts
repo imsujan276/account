@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {  NavController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the StockDetailPage page.
@@ -8,14 +8,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-stock-detail',
   templateUrl: 'stock-detail.html',
 })
 export class StockDetailPage {
 
+  stock;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.stock = this.navParams.get('stock');
   }
 
   ionViewDidLoad() {

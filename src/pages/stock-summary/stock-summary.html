@@ -14,5 +14,53 @@
 
 
 <ion-content padding>
+  <ion-searchbar 
+    (ionInput)="search($event)" 
+    placeholder="Search by Stock Name"
+    (ionCancel)="onSearchCancel($event)"
+    >
+  </ion-searchbar>
 
+  <ion-card *ngFor="let s of stock" (click)="viewStockDetail(s)">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row >
+
+          <ion-col col-12 style="text-align:center;">
+            <strong>Stock Name: <span> {{s.stock_name}} </span></strong>
+            <hr>
+          </ion-col>
+          <ion-col col-12>
+            IN Quantity: <span class="pull-right"> {{s.in_quantity}} </span>
+          </ion-col>
+          <ion-col col-12>
+            IN Value: <span class="pull-right"> {{s.in_value}} </span>
+          </ion-col>
+          <ion-col col-12>
+            OUT Quantity: <span class="pull-right"> {{s.out_quantity}} </span>
+          </ion-col>
+          <ion-col col-12>
+            OUT Value: <span class="pull-right"> {{s.out_value}} </span>
+          </ion-col>
+          <ion-col col-12>
+            Opening Quantity: <span class="pull-right"> {{s.opening_quantity}} </span>
+          </ion-col>
+          <ion-col col-12>
+            Opening Value: <span class="pull-right"> {{s.opening_value}} </span>
+          </ion-col>
+          <ion-col col-12>
+            Rate: <span class="pull-right"> {{s.rate}} </span>
+          </ion-col>
+          <ion-col col-12>
+            Balance Quantity: <span class="pull-right"> {{s.balance_quantity}} </span>
+          </ion-col>
+          <ion-col col-12>
+            Balance Value: <span class="pull-right"> {{s.balance_value}} </span>
+          </ion-col>
+
+        </ion-row>
+        <!-- <hr> -->
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

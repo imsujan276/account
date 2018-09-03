@@ -13,7 +13,9 @@ export class HomePage {
 
   company;
   constructor(public navCtrl: NavController, public api: ApiProvider) {
-    this.company = this.api.getCompanyId();
+    setInterval(() => {
+      this.company = this.api.getCompanyId();
+    }, 500)
   }
 
   gotoLedgerSummary(){
