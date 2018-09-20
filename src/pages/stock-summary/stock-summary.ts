@@ -1,3 +1,4 @@
+import { customFunctions } from './../../providers/functions';
 import { Component } from '@angular/core';
 import {  NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
@@ -20,7 +21,19 @@ export class StockSummaryPage {
   stock;
   filterData;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public api: ApiProvider) {
+  data= {
+    in_quantity: 0,
+    in_value: 0,
+    out_quantity: 0,
+    out_value: 0,
+    opening_quantity: 0,
+    opening_value: 0,
+    rate: 0,
+    balance_quantity: 0,
+    balance_value: 0
+  }
+
+  constructor(public navCtrl: NavController, public func: customFunctions, public navParams: NavParams, public api: ApiProvider) {
     this.getstockSummaryReport()
   }
 
@@ -29,9 +42,10 @@ export class StockSummaryPage {
   }
 
   getstockSummaryReport(){
+    this.func.presentLoading('Loading Stock Summaries...')
     this.api.stockSummaryReport()
       .then(data => {
-        console.log(data);
+        this.func.dismissLoading();
         this.stock = data;
         this.filterData = data;
          this.getTotal(data)
@@ -39,14 +53,18 @@ export class StockSummaryPage {
   }
 
   getTotal(stock){
-    // this.opening_dr = 0; this.opening_cr = 0;this.dr_amount = 0;this.cr_amount = 0;this.balance  =  0;
-    // for(let data of stock) {
-    //   this.opening_dr += parseFloat(data.opening_dr);
-    //   this.opening_cr += parseFloat(data.opening_cr);
-    //   this.dr_amount += parseFloat(data.dr_amount);
-    //   this.cr_amount += parseFloat(data.cr_amount);
-    //   this.balance += parseFloat(data.balance);
-    // }
+    console.log(stock);
+    for(let data of stock) {
+      this.data.in_quantity += parseFloat(data.in_quantity);
+      this.data.in_value += parseFloat(data.in_value);
+      this.data.out_quantity += parseFloat(data.out_quantity);
+      this.data.out_value += parseFloat(data.out_value);
+      this.data.opening_quantity += parseFloat(data.opening_quantity);
+      this.data.opening_value += parseFloat(data.opening_value);
+      this.data.rate += parseFloat(data.rate);
+      this.data.balance_quantity += parseFloat(data.balance_quantity);
+      this.data.balance_value += parseFloat(data.balance_value);
+    }
   }
 
   search(ev: any) {

@@ -13,6 +13,50 @@
 </ion-header>
 
 
-<ion-content padding>
 
+<ion-content padding>
+  
+    <ion-card *ngFor="let d of daybook">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row >
+  
+            <ion-col col-12 style="text-align:center;">
+              <strong>Ledger Name: <span> {{d.ledger_name}} </span></strong>
+              <hr>
+            </ion-col>
+            <ion-col col-12>
+                Miti: <span class="pull-right"> {{d.miti}} </span>
+            </ion-col>
+            <ion-col col-12>
+                Reference Number: <span class="pull-right"> {{d.reference_number}} </span>
+            </ion-col>
+            <ion-col col-12>
+                Page From: <span class="pull-right"> {{d.page_from}} </span>
+            </ion-col>
+            <ion-col col-12>
+                Open Close: <span class="pull-right"> {{d.open_close}} </span>
+            </ion-col>
+            <ion-col col-12>
+                DR Amount: <span class="pull-right"> {{d.dr_amount}} </span>
+            </ion-col>
+            <ion-col col-12>
+                CR Amount: <span class="pull-right"> {{d.cr_amount}} </span>
+            </ion-col>
+            <ion-col col-12>
+              Rate: <span class="pull-right"> {{d.rate}} </span>
+            </ion-col>
+            <ion-col col-12>
+              Narration: <span class="pull-right"> {{d.narration}} </span>
+            </ion-col>
+          </ion-row>
+          <!-- <hr> -->
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+     </ion-infinite-scroll>
+  
 </ion-content>

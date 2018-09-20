@@ -11,6 +11,7 @@ import { LoginPage } from '../pages/login/login';
 
 import { AuthProvider } from '../providers/auth/auth';
 import { SelectCompanyModalPage } from '../pages/select-company-modal/select-company-modal';
+import { customFunctions } from '../providers/functions';
 
 @Component({
   templateUrl: 'app.html'
@@ -22,7 +23,7 @@ export class MyApp {
 
   pages: Array<{logo: string ,title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public auth: AuthProvider) {
+  constructor(public func:customFunctions, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public auth: AuthProvider) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -54,7 +55,11 @@ export class MyApp {
   }
 
   logout(){
-    this.auth.logout();
+    this.func.presentLoading('Logging Out...')
+    setTimeout(()=>{
+      this.func.dismissLoading();
+      this.auth.logout();
+    }, 1000)
   }
 
   checkUserLogin(){

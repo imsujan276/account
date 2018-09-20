@@ -1,5 +1,6 @@
+import { customFunctions } from './../../providers/functions';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { LedgerDetailPage } from '../ledger-detail/ledger-detail';
 /**
@@ -24,15 +25,11 @@ export class LedgerSummaryPage {
     dr_amount;
     cr_amount;
     balance;
-  
-  loading = this.loadingCtrl.create({
-    content: 'Please wait...'
-  });
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public api: ApiProvider, 
-              public loadingCtrl: LoadingController
+              public func: customFunctions
               ) {
     this.getLedgerSummaryReport();
   }
@@ -42,10 +39,10 @@ export class LedgerSummaryPage {
   }
 
   getLedgerSummaryReport(){
-    // this.loading.present();
+    this.func.presentLoading('Loading Ledger Summaries...');
     this.api.ledgerSummaryReport()
       .subscribe(data => {
-        // this.loading.dismiss();
+        this.func.dismissLoading();
         console.log(data);
         this.ledger = data;
         this.filterData = data;

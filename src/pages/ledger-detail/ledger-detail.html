@@ -64,4 +64,11 @@
       </ion-grid>
     </ion-card-content>
   </ion-card>
+
+  <span *ngIf="current_page <= last_page" >
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </span>
+
 </ion-content>

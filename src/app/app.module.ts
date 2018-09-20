@@ -19,6 +19,7 @@ import { AuthProvider } from '../providers/auth/auth';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ApiProvider } from '../providers/api/api'; 
+import { customFunctions } from '../providers/functions';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ApiProvider } from '../providers/api/api';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
-    ApiProvider
+    ApiProvider,
+    customFunctions
   ]
 })
 export class AppModule {}

@@ -18,6 +18,7 @@ export class ApiProvider {
   ledgerSummaryReportApi = this.url+ 'ledgerSummaryReport';
   ledgerDetailApi = this.url+ 'ledgerDetail';
   stockSummaryReportApi = this.url + 'stockSummaryReport';
+  dayBookReportApi = this.url + 'dayBookReport';
   
   constructor(public http: HttpClient) {
   }
@@ -49,12 +50,13 @@ export class ApiProvider {
     return this.http.get(this.ledgerSummaryReportApi, {params: p});
   }
 
-  ledgerDetail(ledger_summary_id, ledger_name){
+  ledgerDetail(ledger_summary_id, ledger_name, page){
     let p= new HttpParams().
     set("user_id", this.getUserId()).
     set("company_id", this.getCompanyId()).
     set('ledger_summary_id', ledger_summary_id).
-    set("ledger_name", ledger_name);
+    set("ledger_name", ledger_name).
+    set('page', page);
 
     return new Promise(resolve => {
       this.http.get(this.ledgerDetailApi, {params: p})
@@ -85,6 +87,43 @@ export class ApiProvider {
         );
     });
   }
+
+
+  dayBookReport(page){
+    let p= new HttpParams().
+    set("user_id", this.getUserId()).
+    set("company_id", this.getCompanyId()).
+    set('page', page);
+    return new Promise(resolve => {
+      this.http.get(this.dayBookReportApi, {params: p})
+        .subscribe(
+          data => {
+            resolve(data);
+          },
+          error => {
+            resolve(error.statusText);
+          }
+        );
+    });
+  }
+
+  // dayBookReportNext(page){
+  //   let p= new HttpParams().
+  //   set("user_id", this.getUserId()).
+  //   set("company_id", this.getCompanyId()).
+  //   set('page', page);
+  //   return new Promise(resolve => {
+  //     this.http.get(this.dayBookReportApi, {params: p})
+  //       .subscribe(
+  //         data => {
+  //           resolve(data);
+  //         },
+  //         error => {
+  //           resolve(error.statusText);
+  //         }
+  //       );
+  //   });
+  // }
 
 
 }

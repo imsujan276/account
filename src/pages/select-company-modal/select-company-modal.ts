@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { HomePage } from '../home/home';
+import { customFunctions } from '../../providers/functions';
 /**
  * Generated class for the SelectCompanyModalPage page.
  *
@@ -25,6 +26,7 @@ export class SelectCompanyModalPage {
               public navParams: NavParams, 
               public viewCtrl: ViewController,
               public api: ApiProvider,
+              public func: customFunctions
               ) {
     this.user_id = this.navParams.get('user_id') ? this.navParams.get('user_id') : localStorage.getItem('user_id');
     this.refresh = this.navParams.get('refresh') ? true : false;
@@ -51,14 +53,19 @@ export class SelectCompanyModalPage {
 
   dismissWithData() {
     let data = this.company == undefined ? { 'status': false} : { 'status': true};
-    if(data['status'] == true){
-      localStorage.setItem('company_id', this.company)
-    }
-    if(this.refresh){
-      this.navCtrl.setRoot(HomePage)
-    }else{
-      this.viewCtrl.dismiss(data);
-    }
+    this.func.presentLoading('Setting Company Name...')
+    setTimeout(()=>{
+      this.func.dismissLoading();
+      if(data['status'] == true){
+        localStorage.setItem('company_id', this.company)
+      }
+      if(this.refresh){
+        this.navCtrl.setRoot(HomePage)
+      }else{
+        this.viewCtrl.dismiss(data);
+      }
+    }, 1000)
+
   }
 
 }
