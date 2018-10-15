@@ -1,15 +1,33 @@
-    ion-content, .toolbar-background-md{
-        // background: orange !important;
+
+    .content-container{
+        padding: 8px;
+        
+        .header .col, .footer .col {
+            background-color:#fba36f;
+        }
+        
+        
+        .col {
+            border: solid 1px grey;
+            border-bottom-style: none;
+            border-right-style: none;
+        }
+        
+        .col:last-child {
+            border-right: solid 1px grey;
+        }
+        
+        .row:last-child .col {
+            border-bottom: solid 1px grey;
+        }
     }
+
+    
     ion-scroll {
         white-space: nowrap;
         height: 200px;
         overflow: hidden;
       }
-      /* Hide ion-content scrollbar */
-    // ::-webkit-scrollbar{
-    //     display:none;
-    // }
 
     hr{
         background: orange !important;
@@ -19,12 +37,6 @@
     }
     .pull-right {
         float: right;
-    }
-
-    .footer{
-    background: grey;
-      min-height: 20px;
-      height: auto;
     }
 
     .toolbar-title-md {

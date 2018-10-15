@@ -7,8 +7,8 @@ webpackJsonp([4],{
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LedgerDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -159,6 +159,8 @@ module.exports = webpackAsyncContext;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StockDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -170,6 +172,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 /**
  * Generated class for the StockDetailPage page.
  *
@@ -177,19 +181,70 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var StockDetailPage = /** @class */ (function () {
-    function StockDetailPage(navCtrl, navParams) {
+    function StockDetailPage(navCtrl, navParams, api, func) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.api = api;
+        this.func = func;
+        this.current_page = 1;
+        this.last_page = 1;
         this.stock = this.navParams.get('stock');
+        this.getstockDetail();
     }
     StockDetailPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad StockDetailPage');
+        console.log('ionViewDidLoad stockDetailPage');
+    };
+    StockDetailPage.prototype.getstockDetail = function () {
+        var _this = this;
+        this.func.presentLoading('Loading ' + this.stock.stock_name + ' Details...');
+        this.api.stockDetailReport(this.stock.stock_summary_id, this.stock.stock_name, this.current_page)
+            .then(function (data) {
+            console.log(data);
+            _this.func.dismissLoading();
+            _this.stockDetail = data['data'];
+            _this.current_page = parseInt(data['current_page']);
+            _this.last_page = parseInt(data['last_page']);
+            _this.getTotal(data['data']);
+        });
+    };
+    StockDetailPage.prototype.doInfinite = function (event) {
+        var _this = this;
+        this.api.stockDetailReport(this.stock.stock_summary_id, this.stock.stock_name, this.current_page + 1)
+            .then(function (data) {
+            console.log(data);
+            if (data['data'].length > 0) {
+                _this.stockDetail = _this.stockDetail.concat(data['data']);
+                _this.current_page = parseInt(data['current_page']);
+                _this.last_page = parseInt(data['last_page']);
+                _this.getTotal(_this.stockDetail);
+            }
+            event.complete();
+        }, function (err) {
+            event.complete();
+        });
+    };
+    StockDetailPage.prototype.getTotal = function (stockDetail) {
+        this.in_quantity = 0;
+        this.out_quantity = 0;
+        this.in_value = 0;
+        this.out_value = 0;
+        this.balance_quantity = 0;
+        this.balance_value = 0;
+        for (var _i = 0, stockDetail_1 = stockDetail; _i < stockDetail_1.length; _i++) {
+            var data = stockDetail_1[_i];
+            this.in_quantity += parseFloat(data.in_quantity);
+            this.out_quantity += parseFloat(data.out_quantity);
+            this.in_value += parseFloat(data.in_value);
+            this.out_value += parseFloat(data.out_value);
+            this.balance_quantity += parseFloat(data.balance_quantity);
+            this.balance_value += parseFloat(data.balance_value);
+        }
     };
     StockDetailPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-stock-detail',template:/*ion-inline-start:"D:\Sujan\ionic\account\src\pages\stock-detail\stock-detail.html"*/'<!--\n\n  Generated template for the StockDetailPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title> {{stock.stock_name}} - Detail</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\Sujan\ionic\account\src\pages\stock-detail\stock-detail.html"*/,
+            selector: 'page-stock-detail',template:/*ion-inline-start:"D:\Sujan\ionic\account\src\pages\stock-detail\stock-detail.html"*/'\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{stock.stock_name}} - Detail</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content fullscreen>\n\n  <ion-card *ngFor="let s of stockDetail">\n\n    <ion-card-content>\n\n      <ion-grid>\n\n        <ion-row >\n\n          <ion-col col-12  style="text-align:center;">\n\n            Miti: <span> {{s.nepali_date}} ({{s.date}}) </span>\n\n            <hr>\n\n          </ion-col>\n\n          <ion-col col-5 >\n\n            IN Quantity: <span class="pull-right"> {{s.in_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-5 offset-2>\n\n            OUT Quantity: <span class="pull-right"> {{s.out_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-5>\n\n            IN Value: <span class="pull-right"> {{s.in_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-5 offset-2>\n\n            OUT Value: <span class="pull-right"> {{s.out_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-5>\n\n            IN rate: <span class="pull-right"> {{s.in_rate}} </span>\n\n          </ion-col>\n\n          <ion-col col-6></ion-col>\n\n          <ion-col col-12>\n\n            Category: <span class="pull-right"> {{s.page_name}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Quantity: <span class="pull-right"> {{s.balance_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Value: <span class="pull-right"> {{s.balance_value}} </span>\n\n          </ion-col>\n\n        </ion-row>\n\n        <!-- <hr> -->\n\n      </ion-grid>\n\n    </ion-card-content>\n\n  </ion-card>\n\n\n\n  <ion-card *ngIf="stockDetail">\n\n    <ion-card-content>\n\n      <ion-grid>\n\n        <ion-row >\n\n          <ion-col col-12  style="text-align:center; font-weight:600; font-size:18px;background: #fe5e00;\n\n          color: #fff;">\n\n            Total\n\n          </ion-col>\n\n          <ion-col col-12 >\n\n            IN Quantity: <span class="pull-right"> {{in_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            OUT Quantity: <span class="pull-right"> {{out_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            IN Value: <span class="pull-right"> {{in_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            OUT Value: <span class="pull-right"> {{out_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Quantity: <span class="pull-right"> {{balance_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Value: <span class="pull-right"> {{balance_value}} </span>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </ion-card-content>\n\n  </ion-card>\n\n\n\n  <span *ngIf="current_page <= last_page" >\n\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n        <ion-infinite-scroll-content></ion-infinite-scroll-content>\n\n    </ion-infinite-scroll>\n\n  </span>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\Sujan\ionic\account\src\pages\stock-detail\stock-detail.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_functions__["a" /* customFunctions */]])
     ], StockDetailPage);
     return StockDetailPage;
 }());
@@ -234,8 +289,8 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_splash_screen__ = __webpack_require__(207);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_auth_auth__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_common_http__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_api_api__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_functions__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_api_api__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_functions__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -320,6 +375,235 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 26:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/*
+  Generated class for the ApiProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var ApiProvider = /** @class */ (function () {
+    function ApiProvider(http) {
+        this.http = http;
+        this.url = "http://www.progressive.nepgeeks.com/api/app/";
+        this.getCompanies = this.url + "getCompanies";
+        this.ledgerSummaryReportApi = this.url + 'ledgerSummaryReport';
+        this.ledgerDetailApi = this.url + 'ledgerDetail';
+        this.stockSummaryReportApi = this.url + 'stockSummaryReport';
+        this.stockDetailReportApi = this.url + 'stockSummaryDetail';
+        this.dayBookReportApi = this.url + 'dayBookReport';
+    }
+    ApiProvider.prototype.getUserId = function () {
+        return localStorage.getItem('user_id');
+    };
+    ApiProvider.prototype.getCompanyId = function () {
+        return localStorage.getItem('company_id');
+    };
+    // return new Promise( resolve => {
+    //   this.http.post(this.update_vehicle_damage_api, info, { headers: headers})
+    //     .subscribe( data => {
+    //         resolve(data['message']);
+    //     });
+    // });
+    ApiProvider.prototype.getUserCompanies = function (user_id) {
+        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
+            set("user_id", user_id);
+        return this.http.get(this.getCompanies, { params: p });
+    };
+    ApiProvider.prototype.ledgerSummaryReport = function () {
+        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
+            set("user_id", this.getUserId()).
+            set("company_id", this.getCompanyId());
+        return this.http.get(this.ledgerSummaryReportApi, { params: p });
+    };
+    ApiProvider.prototype.ledgerDetail = function (ledger_summary_id, ledger_name, page) {
+        var _this = this;
+        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
+            set("user_id", this.getUserId()).
+            set("company_id", this.getCompanyId()).
+            set('ledger_summary_id', ledger_summary_id).
+            set("ledger_name", ledger_name).
+            set('page', page);
+        return new Promise(function (resolve) {
+            _this.http.get(_this.ledgerDetailApi, { params: p })
+                .subscribe(function (data) {
+                resolve(data);
+            }, function (error) {
+                resolve(error.statusText);
+            });
+        });
+    };
+    ApiProvider.prototype.stockDetailReport = function (stock_summary_id, stock_name, page) {
+        var _this = this;
+        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
+            set("user_id", this.getUserId()).
+            set("company_id", this.getCompanyId()).
+            set('stock_summary_id', stock_summary_id).
+            set("stock_name", stock_name).
+            set('page', page);
+        return new Promise(function (resolve) {
+            _this.http.get(_this.stockDetailReportApi, { params: p })
+                .subscribe(function (data) {
+                resolve(data);
+            }, function (error) {
+                resolve(error.statusText);
+            });
+        });
+    };
+    ApiProvider.prototype.stockSummaryReport = function () {
+        var _this = this;
+        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
+            set("user_id", this.getUserId()).
+            set("company_id", this.getCompanyId());
+        return new Promise(function (resolve) {
+            _this.http.get(_this.stockSummaryReportApi, { params: p })
+                .subscribe(function (data) {
+                resolve(data);
+            }, function (error) {
+                resolve(error.statusText);
+            });
+        });
+    };
+    ApiProvider.prototype.dayBookReport = function (page) {
+        var _this = this;
+        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
+            set("user_id", this.getUserId()).
+            set("company_id", this.getCompanyId()).
+            set('page', page);
+        return new Promise(function (resolve) {
+            _this.http.get(_this.dayBookReportApi, { params: p })
+                .subscribe(function (data) {
+                resolve(data);
+            }, function (error) {
+                resolve(error.statusText);
+            });
+        });
+    };
+    ApiProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+    ], ApiProvider);
+    return ApiProvider;
+}());
+
+//# sourceMappingURL=api.js.map
+
+/***/ }),
+
+/***/ 27:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return customFunctions; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var customFunctions = /** @class */ (function () {
+    function customFunctions(alert, loadingController, toastCtrl, platform) {
+        this.alert = alert;
+        this.loadingController = loadingController;
+        this.toastCtrl = toastCtrl;
+        this.platform = platform;
+    }
+    customFunctions.prototype.showAlert = function (title, text) {
+        var alert = this.alert.create({
+            title: title,
+            subTitle: text,
+            buttons: ['OK']
+        });
+        alert.present();
+    };
+    customFunctions.prototype.presentLoading = function (text) {
+        var loadingText = "Please wait...";
+        if (text) {
+            loadingText = text;
+        }
+        this.loader = this.loadingController.create({
+            content: loadingText
+        });
+        this.loader.present();
+    };
+    customFunctions.prototype.dismissLoading = function () {
+        this.loader.dismiss();
+    };
+    customFunctions.prototype.presentToast = function (message, duration, position) {
+        var toastMessage = "Done";
+        var toastDuration = 3000;
+        var toastPosition = 'bottom';
+        if (message) {
+            toastMessage = message;
+        }
+        if (duration) {
+            toastDuration = duration;
+        }
+        if (position) {
+            toastPosition = position;
+        }
+        var toast = this.toastCtrl.create({
+            message: toastMessage,
+            duration: toastDuration,
+            position: toastPosition
+        });
+        toast.onDidDismiss(function () {
+            //console.log('Dismissed toast');
+        });
+        toast.present();
+    };
+    customFunctions.prototype.getEncodedFormUrl = function (toConvert) {
+        var formBody = [];
+        for (var property in toConvert) {
+            var encodedKey = encodeURIComponent(property);
+            var encodedValue = encodeURIComponent(toConvert[property]);
+            formBody.push(encodedKey + '=' + encodedValue);
+        }
+        return formBody.join('&');
+    };
+    customFunctions.prototype.isEmptyObject = function (obj) {
+        for (var key in obj) {
+            if (obj.hasOwnProperty(key))
+                return false;
+        }
+        return true;
+    };
+    customFunctions = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]])
+    ], customFunctions);
+    return customFunctions;
+}());
+
+//# sourceMappingURL=functions.js.map
+
+/***/ }),
+
 /***/ 276:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -335,7 +619,7 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_auth_auth__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_select_company_modal_select_company_modal__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_functions__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_functions__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -476,226 +760,15 @@ var ListPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 29:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/*
-  Generated class for the ApiProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var ApiProvider = /** @class */ (function () {
-    function ApiProvider(http) {
-        this.http = http;
-        this.url = "http://www.progressive.nepgeeks.com/api/app/";
-        this.getCompanies = this.url + "getCompanies";
-        this.ledgerSummaryReportApi = this.url + 'ledgerSummaryReport';
-        this.ledgerDetailApi = this.url + 'ledgerDetail';
-        this.stockSummaryReportApi = this.url + 'stockSummaryReport';
-        this.dayBookReportApi = this.url + 'dayBookReport';
-    }
-    ApiProvider.prototype.getUserId = function () {
-        return localStorage.getItem('user_id');
-    };
-    ApiProvider.prototype.getCompanyId = function () {
-        return localStorage.getItem('company_id');
-    };
-    // return new Promise( resolve => {
-    //   this.http.post(this.update_vehicle_damage_api, info, { headers: headers})
-    //     .subscribe( data => {
-    //         resolve(data['message']);
-    //     });
-    // });
-    ApiProvider.prototype.getUserCompanies = function (user_id) {
-        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
-            set("user_id", user_id);
-        return this.http.get(this.getCompanies, { params: p });
-    };
-    ApiProvider.prototype.ledgerSummaryReport = function () {
-        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
-            set("user_id", this.getUserId()).
-            set("company_id", this.getCompanyId());
-        return this.http.get(this.ledgerSummaryReportApi, { params: p });
-    };
-    ApiProvider.prototype.ledgerDetail = function (ledger_summary_id, ledger_name, page) {
-        var _this = this;
-        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
-            set("user_id", this.getUserId()).
-            set("company_id", this.getCompanyId()).
-            set('ledger_summary_id', ledger_summary_id).
-            set("ledger_name", ledger_name).
-            set('page', page);
-        return new Promise(function (resolve) {
-            _this.http.get(_this.ledgerDetailApi, { params: p })
-                .subscribe(function (data) {
-                resolve(data);
-            }, function (error) {
-                resolve(error.statusText);
-            });
-        });
-    };
-    ApiProvider.prototype.stockSummaryReport = function () {
-        var _this = this;
-        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
-            set("user_id", this.getUserId()).
-            set("company_id", this.getCompanyId());
-        return new Promise(function (resolve) {
-            _this.http.get(_this.stockSummaryReportApi, { params: p })
-                .subscribe(function (data) {
-                resolve(data);
-            }, function (error) {
-                resolve(error.statusText);
-            });
-        });
-    };
-    ApiProvider.prototype.dayBookReport = function (page) {
-        var _this = this;
-        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
-            set("user_id", this.getUserId()).
-            set("company_id", this.getCompanyId()).
-            set('page', page);
-        return new Promise(function (resolve) {
-            _this.http.get(_this.dayBookReportApi, { params: p })
-                .subscribe(function (data) {
-                resolve(data);
-            }, function (error) {
-                resolve(error.statusText);
-            });
-        });
-    };
-    ApiProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
-    ], ApiProvider);
-    return ApiProvider;
-}());
-
-//# sourceMappingURL=api.js.map
-
-/***/ }),
-
-/***/ 30:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return customFunctions; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var customFunctions = /** @class */ (function () {
-    function customFunctions(alert, loadingController, toastCtrl, platform) {
-        this.alert = alert;
-        this.loadingController = loadingController;
-        this.toastCtrl = toastCtrl;
-        this.platform = platform;
-    }
-    customFunctions.prototype.showAlert = function (title, text) {
-        var alert = this.alert.create({
-            title: title,
-            subTitle: text,
-            buttons: ['OK']
-        });
-        alert.present();
-    };
-    customFunctions.prototype.presentLoading = function (text) {
-        var loadingText = "Please wait...";
-        if (text) {
-            loadingText = text;
-        }
-        this.loader = this.loadingController.create({
-            content: loadingText
-        });
-        this.loader.present();
-    };
-    customFunctions.prototype.dismissLoading = function () {
-        this.loader.dismiss();
-    };
-    customFunctions.prototype.presentToast = function (message, duration, position) {
-        var toastMessage = "Done";
-        var toastDuration = 3000;
-        var toastPosition = 'bottom';
-        if (message) {
-            toastMessage = message;
-        }
-        if (duration) {
-            toastDuration = duration;
-        }
-        if (position) {
-            toastPosition = position;
-        }
-        var toast = this.toastCtrl.create({
-            message: toastMessage,
-            duration: toastDuration,
-            position: toastPosition
-        });
-        toast.onDidDismiss(function () {
-            //console.log('Dismissed toast');
-        });
-        toast.present();
-    };
-    customFunctions.prototype.getEncodedFormUrl = function (toConvert) {
-        var formBody = [];
-        for (var property in toConvert) {
-            var encodedKey = encodeURIComponent(property);
-            var encodedValue = encodeURIComponent(toConvert[property]);
-            formBody.push(encodedKey + '=' + encodedValue);
-        }
-        return formBody.join('&');
-    };
-    customFunctions.prototype.isEmptyObject = function (obj) {
-        for (var key in obj) {
-            if (obj.hasOwnProperty(key))
-                return false;
-        }
-        return true;
-    };
-    customFunctions = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]])
-    ], customFunctions);
-    return customFunctions;
-}());
-
-//# sourceMappingURL=functions.js.map
-
-/***/ }),
-
 /***/ 52:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LedgerSummaryPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_functions__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_functions__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ledger_detail_ledger_detail__ = __webpack_require__(109);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -914,9 +987,9 @@ var LoginPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelectCompanyModalPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_functions__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_functions__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1007,7 +1080,7 @@ var SelectCompanyModalPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ledger_summary_ledger_summary__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__stock_summary_stock_summary__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__daybook_report_daybook_report__ = __webpack_require__(85);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1061,10 +1134,10 @@ var HomePage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StockSummaryPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_functions__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_functions__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__stock_detail_stock_detail__ = __webpack_require__(164);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1175,8 +1248,8 @@ var StockSummaryPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DaybookReportPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);

@@ -21,6 +21,28 @@
     >
   </ion-searchbar>
 
+    <!-- <div class="content-container">
+      <div class="row header">
+        <div class="col">Stock</div>
+        <div class="col">IN</div>
+        <div class="col">OUT</div>
+        <div class="col">Bal</div>
+        <div class="col">Amt</div>
+      </div>
+      <div class="row" *ngFor="let s of stock" (click)="viewStockDetail(s)">
+        <div class="col">{{s.ledger_name}}</div>
+        <div class="col">{{s.dr_amount}}</div>
+        <div class="col">{{s.cr_amount}}</div>
+        <div class="col">{{s.balance}}</div>
+      </div>
+      <div class="row footer" *ngIf="stock">
+        <div class="col">Total</div>
+        <div class="col">{{dr_amount}}</div>
+        <div class="col">{{cr_amount}}</div>
+        <div class="col">{{balance}}</div>
+      </div>
+    </div> -->
+
   <ion-card *ngFor="let s of stock" (click)="viewStockDetail(s)">
     <ion-card-content>
       <ion-grid>

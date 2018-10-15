@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Sep 18 20:18:45 NPT 2018
+#Tue Oct 02 19:45:31 NPT 2018
 76.base=D\:\\Sujan\\ionic\\account\\platforms\\android\\app\\build\\intermediates\\res\\release\\resources-release.ap_
 5.base=D\:\\Sujan\\ionic\\account\\platforms\\android\\app\\build\\intermediates\\assets\\release
 42.base=D\:\\Sujan\\ionic\\account\\platforms\\android\\app\\build\\intermediates\\assets\\release
@@ -44,7 +44,7 @@
 16.base=D\:\\Sujan\\ionic\\account\\platforms\\android\\app\\build\\intermediates\\res\\release\\resources-release.ap_
 49.file=D\:\\Sujan\\ionic\\account\\platforms\\android\\app\\build\\intermediates\\assets\\release\\www\\assets\\fonts\\ionicons.svg
 31.file=D\:\\Sujan\\ionic\\account\\platforms\\android\\app\\build\\intermediates\\assets\\release\\www\\assets\\fonts\\roboto-medium.ttf
-59.file=D\:\\Sujan\\ionic\\account\\platforms\\android\\app\\build\\intermediates\\res\\release\\resources-release.ap_\\res\\mipmap-xxxhdpi-v4\\icon.png
+59.file=D\:\\Sujan\\ionic\\account\\platforms\\android\\app\\build\\intermediates\\res\\release\\resources-release.ap_\\res\\drawable-land-hdpi-v4\\screen.png
 24.set=ASSET
 75.set=ASSET
 25.file=D\:\\Sujan\\ionic\\account\\platforms\\android\\app\\build\\intermediates\\assets\\release\\www\\cordova-js-src\\android\\nativeapiprovider.js
@@ -205,7 +205,7 @@ count=78
 50.file=D\:\\Sujan\\ionic\\account\\platforms\\android\\app\\build\\intermediates\\assets\\release\\www\\assets\\fonts\\ionicons.woff
 47.set=ASSET
 19.base=D\:\\Sujan\\ionic\\account\\platforms\\android\\app\\build\\intermediates\\transforms\\dex\\release\\0
-60.file=D\:\\Sujan\\ionic\\account\\platforms\\android\\app\\build\\intermediates\\res\\release\\resources-release.ap_\\res\\drawable-land-hdpi-v4\\screen.png
+60.file=D\:\\Sujan\\ionic\\account\\platforms\\android\\app\\build\\intermediates\\res\\release\\resources-release.ap_\\res\\mipmap-xxxhdpi-v4\\icon.png
 29.base=D\:\\Sujan\\ionic\\account\\platforms\\android\\app\\build\\intermediates\\res\\release\\resources-release.ap_
 7.file=D\:\\Sujan\\ionic\\account\\platforms\\android\\app\\build\\intermediates\\assets\\release\\www\\manifest.json
 11.base=D\:\\Sujan\\ionic\\account\\platforms\\android\\app\\build\\intermediates\\assets\\release

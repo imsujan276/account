@@ -14,9 +14,22 @@
 
 
 
-<ion-content padding>
-  
-    <ion-card *ngFor="let d of daybook">
+<ion-content fullscreen>
+    <div class="content-container">
+        <!-- <p>Miti: {{d.miti}}</p> -->
+        <div class="row header">
+          <div class="col">Daybook</div>
+          <div class="col">DR</div>
+          <div class="col">CR</div>
+        </div>
+        <div class="row" *ngFor="let d of daybook">
+          <div class="col">{{d.ledger_name}}</div>
+          <div class="col">{{d.dr_amount}}</div>
+          <div class="col">{{d.cr_amount}}</div>
+        </div>
+    </div>
+
+    <!-- <ion-card *ngFor="let d of daybook">
       <ion-card-content>
         <ion-grid>
           <ion-row >
@@ -49,11 +62,9 @@
             <ion-col col-12>
               Narration: <span class="pull-right"> {{d.narration}} </span>
             </ion-col>
-          </ion-row>
-          <!-- <hr> -->
         </ion-grid>
       </ion-card-content>
-    </ion-card>
+    </ion-card> -->
 
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
         <ion-infinite-scroll-content></ion-infinite-scroll-content>

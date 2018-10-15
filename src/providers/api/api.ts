@@ -18,6 +18,7 @@ export class ApiProvider {
   ledgerSummaryReportApi = this.url+ 'ledgerSummaryReport';
   ledgerDetailApi = this.url+ 'ledgerDetail';
   stockSummaryReportApi = this.url + 'stockSummaryReport';
+  stockDetailReportApi = this.url + 'stockSummaryDetail';
   dayBookReportApi = this.url + 'dayBookReport';
   
   constructor(public http: HttpClient) {
@@ -70,6 +71,28 @@ export class ApiProvider {
         );
     });
   }
+
+  stockDetailReport(stock_summary_id, stock_name, page){
+    let p= new HttpParams().
+    set("user_id", this.getUserId()).
+    set("company_id", this.getCompanyId()).
+    set('stock_summary_id', stock_summary_id).
+    set("stock_name", stock_name).
+    set('page', page);
+
+    return new Promise(resolve => {
+      this.http.get(this.stockDetailReportApi, {params: p})
+        .subscribe(
+          data => {
+            resolve(data);
+          },
+          error => {
+            resolve(error.statusText);
+          }
+        );
+    });
+  }
+
 
   stockSummaryReport(){
     let p= new HttpParams().

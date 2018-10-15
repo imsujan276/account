@@ -1,18 +1,88 @@
-<!--
-  Generated template for the StockDetailPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title> {{stock.stock_name}} - Detail</ion-title>
+    <ion-title>{{stock.stock_name}} - Detail</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content fullscreen>
+  <ion-card *ngFor="let s of stockDetail">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row >
+          <ion-col col-12  style="text-align:center;">
+            Miti: <span> {{s.nepali_date}} ({{s.date}}) </span>
+            <hr>
+          </ion-col>
+          <ion-col col-5 >
+            IN Quantity: <span class="pull-right"> {{s.in_quantity}} </span>
+          </ion-col>
+          <ion-col col-5 offset-2>
+            OUT Quantity: <span class="pull-right"> {{s.out_quantity}} </span>
+          </ion-col>
+          <ion-col col-5>
+            IN Value: <span class="pull-right"> {{s.in_value}} </span>
+          </ion-col>
+          <ion-col col-5 offset-2>
+            OUT Value: <span class="pull-right"> {{s.out_value}} </span>
+          </ion-col>
+          <ion-col col-5>
+            IN rate: <span class="pull-right"> {{s.in_rate}} </span>
+          </ion-col>
+          <ion-col col-6></ion-col>
+          <ion-col col-12>
+            Category: <span class="pull-right"> {{s.page_name}} </span>
+          </ion-col>
+          <ion-col col-12>
+            Balance Quantity: <span class="pull-right"> {{s.balance_quantity}} </span>
+          </ion-col>
+          <ion-col col-12>
+            Balance Value: <span class="pull-right"> {{s.balance_value}} </span>
+          </ion-col>
+        </ion-row>
+        <!-- <hr> -->
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="stockDetail">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row >
+          <ion-col col-12  style="text-align:center; font-weight:600; font-size:18px;background: #fe5e00;
+          color: #fff;">
+            Total
+          </ion-col>
+          <ion-col col-12 >
+            IN Quantity: <span class="pull-right"> {{in_quantity}} </span>
+          </ion-col>
+          <ion-col col-12>
+            OUT Quantity: <span class="pull-right"> {{out_quantity}} </span>
+          </ion-col>
+          <ion-col col-12>
+            IN Value: <span class="pull-right"> {{in_value}} </span>
+          </ion-col>
+          <ion-col col-12>
+            OUT Value: <span class="pull-right"> {{out_value}} </span>
+          </ion-col>
+          <ion-col col-12>
+            Balance Quantity: <span class="pull-right"> {{balance_quantity}} </span>
+          </ion-col>
+          <ion-col col-12>
+            Balance Value: <span class="pull-right"> {{balance_value}} </span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <span *ngIf="current_page <= last_page" >
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </span>
 
 </ion-content>

@@ -14,7 +14,31 @@
 
 
 <ion-content fullscreen>
-  <ion-card *ngFor="let l of ledgerDetail">
+
+    <div class="content-container">
+        <div class="row header">
+          <div class="col">{{ledger.ledger_name}}</div>
+          <div class="col">DR</div>
+          <div class="col">CR</div>
+          <!-- <div class="col col-2">UC</div> -->
+          <div class="col">Balance</div>
+        </div>
+        <div class="row" *ngFor="let l of ledgerDetail" >
+          <div class="col">{{l.miti}} </div>
+          <div class="col">{{l.dr_amount}}</div>
+          <div class="col">{{l.cr_amount}}</div>
+          <!-- <div class="col col-2">{{l.uc_amount}}</div> -->
+          <div class="col">{{l.balance}}</div>
+        </div>
+        <div class="row footer" *ngIf="ledgerDetail">
+          <div class="col">Total</div>
+          <div class="col">{{dr_amount}}</div>
+          <div class="col">{{cr_amount}}</div>
+          <!-- <div class="col col-2">{{uc_amount}}</div> -->
+          <div class="col">{{balance}}</div>
+        </div>
+      </div>
+  <!-- <ion-card *ngFor="let l of ledgerDetail">
     <ion-card-content>
       <ion-grid>
         <ion-row >
@@ -35,7 +59,6 @@
             UC Amt: <span class="pull-right"> {{l.uc_amount}} </span>
           </ion-col>
         </ion-row>
-        <!-- <hr> -->
       </ion-grid>
     </ion-card-content>
   </ion-card>
@@ -63,7 +86,7 @@
         </ion-row>
       </ion-grid>
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 
   <span *ngIf="current_page <= last_page" >
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
