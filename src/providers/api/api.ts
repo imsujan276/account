@@ -51,12 +51,11 @@ export class ApiProvider {
     return this.http.get(this.ledgerSummaryReportApi, {params: p});
   }
 
-  ledgerDetail(ledger_summary_id, ledger_name, page){
+  ledgerDetail(ledger_id, page){
     let p= new HttpParams().
     set("user_id", this.getUserId()).
     set("company_id", this.getCompanyId()).
-    set('ledger_summary_id', ledger_summary_id).
-    set("ledger_name", ledger_name).
+    set("ledger_id", ledger_id).
     set('page', page);
 
     return new Promise(resolve => {

@@ -20,8 +20,6 @@ export class LedgerSummaryPage {
   ledger;
   filterData;
 
-    opening_dr;
-    opening_cr;
     dr_amount;
     cr_amount;
     balance;
@@ -44,19 +42,17 @@ export class LedgerSummaryPage {
       .subscribe(data => {
         this.func.dismissLoading();
         console.log(data);
-        this.ledger = data;
-        this.filterData = data;
-         this.getTotal(data)
+        this.ledger = data['data'];
+        this.filterData = data['data'];
+         this.getTotal(data['data'])
       })
   }
 
   getTotal(ledger){
-    this.opening_dr = 0; this.opening_cr = 0;this.dr_amount = 0;this.cr_amount = 0;this.balance  =  0;
+    this.dr_amount = 0;this.cr_amount = 0;this.balance  =  0;
     for(let data of ledger) {
-      this.opening_dr += parseFloat(data.opening_dr);
-      this.opening_cr += parseFloat(data.opening_cr);
-      this.dr_amount += parseFloat(data.dr_amount);
-      this.cr_amount += parseFloat(data.cr_amount);
+      this.dr_amount += parseFloat(data.debit);
+      this.cr_amount += parseFloat(data.credit);
       this.balance += parseFloat(data.balance);
     }
   }

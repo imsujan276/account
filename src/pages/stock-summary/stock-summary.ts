@@ -30,7 +30,7 @@ export class StockSummaryPage {
     opening_value: 0,
     rate: 0,
     balance_quantity: 0,
-    balance_value: 0
+    balance_amount: 0
   }
 
   constructor(public navCtrl: NavController, public func: customFunctions, public navParams: NavParams, public api: ApiProvider) {
@@ -46,9 +46,9 @@ export class StockSummaryPage {
     this.api.stockSummaryReport()
       .then(data => {
         this.func.dismissLoading();
-        this.stock = data;
-        this.filterData = data;
-         this.getTotal(data)
+        this.stock = data['data'];
+        this.filterData = data['data'];
+         this.getTotal(data['data'])
       })
   }
 
@@ -63,7 +63,7 @@ export class StockSummaryPage {
       this.data.opening_value += parseFloat(data.opening_value);
       this.data.rate += parseFloat(data.rate);
       this.data.balance_quantity += parseFloat(data.balance_quantity);
-      this.data.balance_value += parseFloat(data.balance_value);
+      this.data.balance_amount += parseFloat(data.balance_amount);
     }
   }
 

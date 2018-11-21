@@ -38,7 +38,7 @@ export class LedgerDetailPage {
 
   getLedgerDetail(){
     this.func.presentLoading('Loading '+this.ledger.ledger_name+' Details...')
-    this.api.ledgerDetail(this.ledger.ledger_summary_id, this.ledger.ledger_name, this.current_page)
+    this.api.ledgerDetail(this.ledger.ledger_id, this.current_page)
       .then(data => {
         console.log(data)
         this.func.dismissLoading();
@@ -50,7 +50,7 @@ export class LedgerDetailPage {
   }
 
   doInfinite(event){
-      this.api.ledgerDetail(this.ledger.ledger_summary_id, this.ledger.ledger_name, this.current_page+1)
+      this.api.ledgerDetail(this.ledger.ledger_id, this.current_page+1)
         .then(data => {
           console.log(data)
           if(data['data'].length > 0){
@@ -71,8 +71,8 @@ export class LedgerDetailPage {
     this.balance = 0; this.uc_amount = 0;this.dr_amount = 0;this.cr_amount = 0;this.balance  =  0;
     for(let data of ledgerDetail) {
       this.uc_amount += parseFloat(data.uc_amount);
-      this.dr_amount += parseFloat(data.dr_amount);
-      this.cr_amount += parseFloat(data.cr_amount);
+      this.dr_amount += parseFloat(data.debit);
+      this.cr_amount += parseFloat(data.credit);
       this.balance += parseFloat(data.balance);
     }
   }

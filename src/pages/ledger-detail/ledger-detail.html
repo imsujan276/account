@@ -24,18 +24,18 @@
           <div class="col">Balance</div>
         </div>
         <div class="row" *ngFor="let l of ledgerDetail" >
-          <div class="col">{{l.miti}} </div>
-          <div class="col">{{l.dr_amount}}</div>
-          <div class="col">{{l.cr_amount}}</div>
+          <div class="col">{{l.date}} </div>
+          <div class="col">{{l.debit | number}}</div>
+          <div class="col">{{l.credit | number}}</div>
           <!-- <div class="col col-2">{{l.uc_amount}}</div> -->
-          <div class="col">{{l.balance}}</div>
+          <div class="col">{{l.balance | number}}</div>
         </div>
         <div class="row footer" *ngIf="ledgerDetail">
           <div class="col">Total</div>
-          <div class="col">{{dr_amount}}</div>
-          <div class="col">{{cr_amount}}</div>
+          <div class="col">{{dr_amount | number}}</div>
+          <div class="col">{{cr_amount | number}}</div>
           <!-- <div class="col col-2">{{uc_amount}}</div> -->
-          <div class="col">{{balance}}</div>
+          <div class="col">{{balance | number}}</div>
         </div>
       </div>
   <!-- <ion-card *ngFor="let l of ledgerDetail">
