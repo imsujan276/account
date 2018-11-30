@@ -20,7 +20,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 })
 export class LoginPage {
 
-	email="patelab15@.com";
+	email="patelab15@gmail.com";
   password="123";
   error;
 

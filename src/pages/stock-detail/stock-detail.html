@@ -9,7 +9,38 @@
 
 
 <ion-content fullscreen>
-  <ion-card *ngFor="let s of stockDetail">
+
+    <div class="content-container">
+        <div class="row header">
+          <div class="col">Date</div>
+          <div class="col">IN Qty</div>
+          <div class="col">IN Amt</div>
+          <div class="col">OUT Qty</div>
+          <div class="col">OUT Amt</div>
+          <div class="col">Qty</div>
+          <div class="col">Amt</div>
+        </div>
+        <div class="row" *ngFor="let l of stockDetail" >
+          <div class="col">{{l.date}} </div>
+          <div class="col">{{l.in_quantity | number}}</div>
+          <div class="col">{{l.in_value | number}}</div>
+          <div class="col">{{l.out_quantity | number}}</div>
+          <div class="col">{{l.out_value | number}}</div>
+          <div class="col">{{l.balance_quantity | number}}</div>
+          <div class="col">{{l.balance_amount | number}}</div>
+        </div>
+        <div class="row footer" *ngIf="stockDetail">
+          <div class="col">Total</div>
+          <div class="col">{{in_quantity | number}}</div>
+          <div class="col">{{in_value | number}}</div>
+          <div class="col">{{out_quantity | number}}</div>
+          <div class="col">{{out_value | number}}</div>
+          <div class="col">{{balance_quantity | number}}</div>
+          <div class="col">{{balance_amount | number}}</div>
+        </div>
+      </div>
+
+  <!-- <ion-card *ngFor="let s of stockDetail">
     <ion-card-content>
       <ion-grid>
         <ion-row >
@@ -43,7 +74,6 @@
             Balance Value: <span class="pull-right"> {{s.balance_value}} </span>
           </ion-col>
         </ion-row>
-        <!-- <hr> -->
       </ion-grid>
     </ion-card-content>
   </ion-card>
@@ -77,7 +107,7 @@
         </ion-row>
       </ion-grid>
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 
   <span *ngIf="current_page <= last_page" >
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">

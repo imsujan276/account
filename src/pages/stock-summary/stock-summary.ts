@@ -53,7 +53,17 @@ export class StockSummaryPage {
   }
 
   getTotal(stock){
-    console.log(stock);
+    this.data= {
+      in_quantity: 0,
+      in_value: 0,
+      out_quantity: 0,
+      out_value: 0,
+      opening_quantity: 0,
+      opening_value: 0,
+      rate: 0,
+      balance_quantity: 0,
+      balance_amount: 0
+    }
     for(let data of stock) {
       this.data.in_quantity += parseFloat(data.in_quantity);
       this.data.in_value += parseFloat(data.in_value);

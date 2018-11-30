@@ -26,7 +26,7 @@ export class StockDetailPage {
   in_value;
   out_value;
   balance_quantity;
-  balance_value;
+  balance_amount;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private api: ApiProvider, private func: customFunctions) {
   	this.stock = this.navParams.get('stock')
@@ -39,7 +39,7 @@ export class StockDetailPage {
 
   getstockDetail(){
     this.func.presentLoading('Loading '+this.stock.stock_name+' Details...')
-    this.api.stockDetailReport(this.stock.stock_summary_id, this.stock.stock_name, this.current_page)
+    this.api.stockDetailReport(this.stock.stock_id, this.current_page)
       .then(data => {
         console.log(data)
         this.func.dismissLoading();
@@ -51,7 +51,7 @@ export class StockDetailPage {
   }
 
   doInfinite(event){
-      this.api.stockDetailReport(this.stock.stock_summary_id, this.stock.stock_name, this.current_page+1)
+      this.api.stockDetailReport(this.stock.stock_id, this.current_page+1)
         .then(data => {
           console.log(data)
           if(data['data'].length > 0){
@@ -69,14 +69,14 @@ export class StockDetailPage {
   }
 
   getTotal(stockDetail){
-    this.in_quantity = 0; this.out_quantity = 0;this.in_value = 0;this.out_value = 0;this.balance_quantity  =  0; this.balance_value = 0;
+    this.in_quantity = 0; this.out_quantity = 0;this.in_value = 0;this.out_value = 0;this.balance_quantity  =  0; this.balance_amount = 0;
     for(let data of stockDetail) {
       this.in_quantity += parseFloat(data.in_quantity);
       this.out_quantity += parseFloat(data.out_quantity);
       this.in_value += parseFloat(data.in_value);
       this.out_value += parseFloat(data.out_value);
       this.balance_quantity += parseFloat(data.balance_quantity);
-      this.balance_value += parseFloat(data.balance_value);
+      this.balance_amount += parseFloat(data.balance_amount);
     }
   }
 

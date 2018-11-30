@@ -71,12 +71,11 @@ export class ApiProvider {
     });
   }
 
-  stockDetailReport(stock_summary_id, stock_name, page){
+  stockDetailReport(stock_id, page){
     let p= new HttpParams().
     set("user_id", this.getUserId()).
     set("company_id", this.getCompanyId()).
-    set('stock_summary_id', stock_summary_id).
-    set("stock_name", stock_name).
+    set("stock_id", stock_id).
     set('page', page);
 
     return new Promise(resolve => {

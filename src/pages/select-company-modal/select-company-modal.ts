@@ -17,7 +17,7 @@ import { customFunctions } from '../../providers/functions';
 })
 export class SelectCompanyModalPage {
 
-  company;
+  company= localStorage.getItem('company_id')
   companies;
   user_id;
   refresh = false;

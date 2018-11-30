@@ -18,11 +18,13 @@
     <div class="content-container">
         <!-- <p>Miti: {{d.miti}}</p> -->
         <div class="row header">
+        <div class="col">Date</div>
           <div class="col">Daybook</div>
           <div class="col">DR</div>
           <div class="col">CR</div>
         </div>
         <div class="row" *ngFor="let d of daybook">
+          <div class="col">{{d.date}}</div>
           <div class="col">{{d.ledger_name}}</div>
           <div class="col">{{d.dr_amount}}</div>
           <div class="col">{{d.cr_amount}}</div>

@@ -41,7 +41,7 @@ export class LedgerSummaryPage {
     this.api.ledgerSummaryReport()
       .subscribe(data => {
         this.func.dismissLoading();
-        console.log(data);
+        console.log(data['data']);
         this.ledger = data['data'];
         this.filterData = data['data'];
          this.getTotal(data['data'])
