@@ -39,6 +39,10 @@ export class StockDetailPage {
     console.log('ionViewDidLoad stockDetailPage');
   }
 
+  ionViewWillLeave(){
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+  }
+
   getstockDetail(){
     this.func.presentLoading('Loading '+this.stock.stock_name+' Details...')
     this.api.stockDetailReport(this.stock.stock_id, this.current_page)

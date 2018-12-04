@@ -38,55 +38,6 @@
           <div class="col">{{balance | number}}</div>
         </div>
       </div>
-  <!-- <ion-card *ngFor="let l of ledgerDetail">
-    <ion-card-content>
-      <ion-grid>
-        <ion-row >
-          <ion-col col-12  style="text-align:center;">
-            Miti: <span> {{l.miti}} </span>
-            <hr>
-          </ion-col>
-          <ion-col col-5>
-            DR Amt: <span class="pull-right"> {{l.dr_amount}} </span>
-          </ion-col>
-          <ion-col offset-2 col-5>
-            CR Amt: <span class="pull-right"> {{l.cr_amount}} </span>
-          </ion-col>
-          <ion-col col-5>
-            Balance: <span class="pull-right"> {{l.balance}} </span>
-          </ion-col>
-          <ion-col offset-2 col-5>
-            UC Amt: <span class="pull-right"> {{l.uc_amount}} </span>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card *ngIf="ledgerDetail">
-    <ion-card-content>
-      <ion-grid>
-        <ion-row >
-          <ion-col col-12  style="text-align:center; font-weight:600; font-size:18px;background: #fe5e00;
-          color: #fff;">
-            Total
-          </ion-col>
-          <ion-col col-12>
-            DR Amt: <span class="pull-right"> {{dr_amount}} </span>
-          </ion-col>
-          <ion-col col-12>
-            CR Amt: <span class="pull-right"> {{cr_amount}} </span>
-          </ion-col>
-          <ion-col col-12>
-            Balance: <span class="pull-right"> {{balance}} </span>
-          </ion-col>
-          <ion-col col-12>
-            UC Amt: <span class="pull-right"> {{uc_amount}} </span>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card-content>
-  </ion-card> -->
 
   <span *ngIf="current_page <= last_page" >
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
