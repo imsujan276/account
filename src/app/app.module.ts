@@ -21,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiProvider } from '../providers/api/api'; 
 import { customFunctions } from '../providers/functions';
 
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -58,7 +60,8 @@ import { customFunctions } from '../providers/functions';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     ApiProvider,
-    customFunctions
+    customFunctions,
+    ScreenOrientation
   ]
 })
 export class AppModule {}

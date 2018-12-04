@@ -22,27 +22,27 @@
   </ion-searchbar>
 
     <div class="content-container">
-      <div class="row header">
-        <div class="col">Stock</div>
-        <div class="col">IN</div>
-        <div class="col">OUT</div>
-        <div class="col">Bal</div>
-        <div class="col">Amt</div>
-      </div>
-      <div class="row" *ngFor="let s of stock" (click)="viewStockDetail(s)">
-        <div class="col">{{s.stock_name}}</div>
-        <div class="col">{{s.in_quantity | number}}</div>
-        <div class="col">{{s.out_quantity | number}}</div>
-        <div class="col">{{s.balance_quantity | number}}</div>
-        <div class="col">{{s.balance_amount | number}}</div>
-      </div>
-      <div class="row footer" *ngIf="stock">
-        <div class="col">Total</div>
-        <div class="col">{{data.in_quantity | number}}</div>
-        <div class="col">{{data.out_quantity | number}}</div>
-        <div class="col">{{data.balance_quantity | number}}</div>
-        <div class="col">{{data.balance_amount | number}}</div>
-      </div>
+      <ion-row class="row header">
+        <ion-col col-4>Stock</ion-col>
+        <ion-col col-2>IN</ion-col>
+        <ion-col col-2>OUT</ion-col>
+        <ion-col col-2>Bal</ion-col>
+        <ion-col col-2>Amt</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let s of stock" (click)="viewStockDetail(s)">
+        <ion-col col-4>{{s.stock_name}}</ion-col>
+        <ion-col col-2>{{s.in_quantity | number}}</ion-col>
+        <ion-col col-2>{{s.out_quantity | number}}</ion-col>
+        <ion-col col-2>{{s.balance_quantity | number}}</ion-col>
+        <ion-col col-2>{{s.balance_amount | number}}</ion-col>
+      </ion-row>
+      <ion-row class="row footer" *ngIf="stock">
+        <ion-col col-4>Total</ion-col>
+        <ion-col col-2>{{data.in_quantity | number}}</ion-col>
+        <ion-col col-2>{{data.out_quantity | number}}</ion-col>
+        <ion-col col-2>{{data.balance_quantity | number}}</ion-col>
+        <ion-col col-2>{{data.balance_amount | number}}</ion-col>
+      </ion-row>
     </div>
 
   <!-- <ion-card *ngFor="let s of stock" (click)="viewStockDetail(s)">

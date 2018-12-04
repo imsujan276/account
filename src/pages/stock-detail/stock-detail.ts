@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {  NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { customFunctions } from '../../providers/functions';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 /**
  * Generated class for the StockDetailPage page.
@@ -28,8 +29,9 @@ export class StockDetailPage {
   balance_quantity;
   balance_amount;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private api: ApiProvider, private func: customFunctions) {
-  	this.stock = this.navParams.get('stock')
+  constructor(private screenOrientation: ScreenOrientation,public navCtrl: NavController, public navParams: NavParams, private api: ApiProvider, private func: customFunctions) {
+  	this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    this.stock = this.navParams.get('stock')
   	this.getstockDetail();
   }
 

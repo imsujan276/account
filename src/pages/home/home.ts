@@ -4,6 +4,7 @@ import { LedgerSummaryPage } from '../ledger-summary/ledger-summary';
 import { ApiProvider } from '../../providers/api/api';
 import { StockSummaryPage } from '../stock-summary/stock-summary';
 import { DaybookReportPage } from '../daybook-report/daybook-report';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   selector: 'page-home',
@@ -12,7 +13,8 @@ import { DaybookReportPage } from '../daybook-report/daybook-report';
 export class HomePage {
 
   company;
-  constructor(public navCtrl: NavController, public api: ApiProvider) {
+  constructor(public navCtrl: NavController, public api: ApiProvider,private screenOrientation: ScreenOrientation) {
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     setInterval(() => {
       this.company = this.api.getCompanyId();
     }, 500)

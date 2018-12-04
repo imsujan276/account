@@ -1,14 +1,15 @@
 webpackJsonp([4],{
 
-/***/ 109:
+/***/ 111:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LedgerDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -22,6 +23,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the LedgerDetailPage page.
  *
@@ -29,13 +31,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var LedgerDetailPage = /** @class */ (function () {
-    function LedgerDetailPage(navCtrl, navParams, api, func) {
+    function LedgerDetailPage(screenOrientation, navCtrl, navParams, api, func) {
+        this.screenOrientation = screenOrientation;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.api = api;
         this.func = func;
         this.current_page = 1;
         this.last_page = 1;
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
         this.ledger = this.navParams.get('ledger');
         this.getLedgerDetail();
     }
@@ -87,9 +91,9 @@ var LedgerDetailPage = /** @class */ (function () {
     };
     LedgerDetailPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-ledger-detail',template:/*ion-inline-start:"D:\Sujan\ionic\account\src\pages\ledger-detail\ledger-detail.html"*/'<!--\n\n  Generated template for the LedgerDetailPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{ledger.ledger_name}} - Detail</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content fullscreen>\n\n\n\n    <div class="content-container">\n\n        <div class="row header">\n\n          <div class="col">Date</div>\n\n          <div class="col">DR</div>\n\n          <div class="col">CR</div>\n\n          <!-- <div class="col col-2">UC</div> -->\n\n          <div class="col">Balance</div>\n\n        </div>\n\n        <div class="row" *ngFor="let l of ledgerDetail" >\n\n          <div class="col">{{l.date}} </div>\n\n          <div class="col">{{l.debit | number}}</div>\n\n          <div class="col">{{l.credit | number}}</div>\n\n          <!-- <div class="col col-2">{{l.uc_amount}}</div> -->\n\n          <div class="col">{{l.balance | number}}</div>\n\n        </div>\n\n        <div class="row footer" *ngIf="ledgerDetail">\n\n          <div class="col">Total</div>\n\n          <div class="col">{{dr_amount | number}}</div>\n\n          <div class="col">{{cr_amount | number}}</div>\n\n          <!-- <div class="col col-2">{{uc_amount}}</div> -->\n\n          <div class="col">{{balance | number}}</div>\n\n        </div>\n\n      </div>\n\n  <!-- <ion-card *ngFor="let l of ledgerDetail">\n\n    <ion-card-content>\n\n      <ion-grid>\n\n        <ion-row >\n\n          <ion-col col-12  style="text-align:center;">\n\n            Miti: <span> {{l.miti}} </span>\n\n            <hr>\n\n          </ion-col>\n\n          <ion-col col-5>\n\n            DR Amt: <span class="pull-right"> {{l.dr_amount}} </span>\n\n          </ion-col>\n\n          <ion-col offset-2 col-5>\n\n            CR Amt: <span class="pull-right"> {{l.cr_amount}} </span>\n\n          </ion-col>\n\n          <ion-col col-5>\n\n            Balance: <span class="pull-right"> {{l.balance}} </span>\n\n          </ion-col>\n\n          <ion-col offset-2 col-5>\n\n            UC Amt: <span class="pull-right"> {{l.uc_amount}} </span>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </ion-card-content>\n\n  </ion-card>\n\n\n\n  <ion-card *ngIf="ledgerDetail">\n\n    <ion-card-content>\n\n      <ion-grid>\n\n        <ion-row >\n\n          <ion-col col-12  style="text-align:center; font-weight:600; font-size:18px;background: #fe5e00;\n\n          color: #fff;">\n\n            Total\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            DR Amt: <span class="pull-right"> {{dr_amount}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            CR Amt: <span class="pull-right"> {{cr_amount}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance: <span class="pull-right"> {{balance}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            UC Amt: <span class="pull-right"> {{uc_amount}} </span>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </ion-card-content>\n\n  </ion-card> -->\n\n\n\n  <span *ngIf="current_page <= last_page" >\n\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n        <ion-infinite-scroll-content></ion-infinite-scroll-content>\n\n    </ion-infinite-scroll>\n\n  </span>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\Sujan\ionic\account\src\pages\ledger-detail\ledger-detail.html"*/,
+            selector: 'page-ledger-detail',template:/*ion-inline-start:"F:\ionic\account\src\pages\ledger-detail\ledger-detail.html"*/'<!--\n\n  Generated template for the LedgerDetailPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{ledger.ledger_name}} - Detail</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content fullscreen>\n\n\n\n    <div class="content-container">\n\n        <div class="row header">\n\n          <div class="col">Date</div>\n\n          <div class="col">DR</div>\n\n          <div class="col">CR</div>\n\n          <!-- <div class="col col-2">UC</div> -->\n\n          <div class="col">Balance</div>\n\n        </div>\n\n        <div class="row" *ngFor="let l of ledgerDetail" >\n\n          <div class="col">{{l.date | date: \'mediumDate\'}} </div>\n\n          <div class="col">{{l.debit | number}}</div>\n\n          <div class="col">{{l.credit | number}}</div>\n\n          <!-- <div class="col col-2">{{l.uc_amount}}</div> -->\n\n          <div class="col">{{l.balance | number}}</div>\n\n        </div>\n\n        <div class="row footer" *ngIf="ledgerDetail">\n\n          <div class="col">Total</div>\n\n          <div class="col">{{dr_amount | number}}</div>\n\n          <div class="col">{{cr_amount | number}}</div>\n\n          <!-- <div class="col col-2">{{uc_amount}}</div> -->\n\n          <div class="col">{{balance | number}}</div>\n\n        </div>\n\n      </div>\n\n  <!-- <ion-card *ngFor="let l of ledgerDetail">\n\n    <ion-card-content>\n\n      <ion-grid>\n\n        <ion-row >\n\n          <ion-col col-12  style="text-align:center;">\n\n            Miti: <span> {{l.miti}} </span>\n\n            <hr>\n\n          </ion-col>\n\n          <ion-col col-5>\n\n            DR Amt: <span class="pull-right"> {{l.dr_amount}} </span>\n\n          </ion-col>\n\n          <ion-col offset-2 col-5>\n\n            CR Amt: <span class="pull-right"> {{l.cr_amount}} </span>\n\n          </ion-col>\n\n          <ion-col col-5>\n\n            Balance: <span class="pull-right"> {{l.balance}} </span>\n\n          </ion-col>\n\n          <ion-col offset-2 col-5>\n\n            UC Amt: <span class="pull-right"> {{l.uc_amount}} </span>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </ion-card-content>\n\n  </ion-card>\n\n\n\n  <ion-card *ngIf="ledgerDetail">\n\n    <ion-card-content>\n\n      <ion-grid>\n\n        <ion-row >\n\n          <ion-col col-12  style="text-align:center; font-weight:600; font-size:18px;background: #fe5e00;\n\n          color: #fff;">\n\n            Total\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            DR Amt: <span class="pull-right"> {{dr_amount}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            CR Amt: <span class="pull-right"> {{cr_amount}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance: <span class="pull-right"> {{balance}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            UC Amt: <span class="pull-right"> {{uc_amount}} </span>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </ion-card-content>\n\n  </ion-card> -->\n\n\n\n  <span *ngIf="current_page <= last_page" >\n\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n        <ion-infinite-scroll-content></ion-infinite-scroll-content>\n\n    </ion-infinite-scroll>\n\n  </span>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic\account\src\pages\ledger-detail\ledger-detail.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_functions__["a" /* customFunctions */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__["a" /* ScreenOrientation */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_functions__["a" /* customFunctions */]])
     ], LedgerDetailPage);
     return LedgerDetailPage;
 }());
@@ -98,7 +102,7 @@ var LedgerDetailPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 121:
+/***/ 123:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -111,20 +115,20 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 121;
+webpackEmptyAsyncContext.id = 123;
 
 /***/ }),
 
-/***/ 163:
+/***/ 165:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/ledger-detail/ledger-detail.module": [
-		286,
+		287,
 		3
 	],
 	"../pages/ledger-summary/ledger-summary.module": [
-		287,
+		288,
 		2
 	],
 	"../pages/login/login.module": [
@@ -132,7 +136,7 @@ var map = {
 		1
 	],
 	"../pages/select-company-modal/select-company-modal.module": [
-		288,
+		290,
 		0
 	]
 };
@@ -147,20 +151,21 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 163;
+webpackAsyncContext.id = 165;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 164:
+/***/ 167:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StockDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -174,6 +179,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the StockDetailPage page.
  *
@@ -181,13 +187,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var StockDetailPage = /** @class */ (function () {
-    function StockDetailPage(navCtrl, navParams, api, func) {
+    function StockDetailPage(screenOrientation, navCtrl, navParams, api, func) {
+        this.screenOrientation = screenOrientation;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.api = api;
         this.func = func;
         this.current_page = 1;
         this.last_page = 1;
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
         this.stock = this.navParams.get('stock');
         this.getstockDetail();
     }
@@ -242,9 +250,9 @@ var StockDetailPage = /** @class */ (function () {
     };
     StockDetailPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-stock-detail',template:/*ion-inline-start:"D:\Sujan\ionic\account\src\pages\stock-detail\stock-detail.html"*/'\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{stock.stock_name}} - Detail</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content fullscreen>\n\n\n\n    <div class="content-container">\n\n        <div class="row header">\n\n          <div class="col">Date</div>\n\n          <div class="col">IN Qty</div>\n\n          <div class="col">IN Amt</div>\n\n          <div class="col">OUT Qty</div>\n\n          <div class="col">OUT Amt</div>\n\n          <div class="col">Qty</div>\n\n          <div class="col">Amt</div>\n\n        </div>\n\n        <div class="row" *ngFor="let l of stockDetail" >\n\n          <div class="col">{{l.date}} </div>\n\n          <div class="col">{{l.in_quantity | number}}</div>\n\n          <div class="col">{{l.in_value | number}}</div>\n\n          <div class="col">{{l.out_quantity | number}}</div>\n\n          <div class="col">{{l.out_value | number}}</div>\n\n          <div class="col">{{l.balance_quantity | number}}</div>\n\n          <div class="col">{{l.balance_amount | number}}</div>\n\n        </div>\n\n        <div class="row footer" *ngIf="stockDetail">\n\n          <div class="col">Total</div>\n\n          <div class="col">{{in_quantity | number}}</div>\n\n          <div class="col">{{in_value | number}}</div>\n\n          <div class="col">{{out_quantity | number}}</div>\n\n          <div class="col">{{out_value | number}}</div>\n\n          <div class="col">{{balance_quantity | number}}</div>\n\n          <div class="col">{{balance_amount | number}}</div>\n\n        </div>\n\n      </div>\n\n\n\n  <!-- <ion-card *ngFor="let s of stockDetail">\n\n    <ion-card-content>\n\n      <ion-grid>\n\n        <ion-row >\n\n          <ion-col col-12  style="text-align:center;">\n\n            Miti: <span> {{s.nepali_date}} ({{s.date}}) </span>\n\n            <hr>\n\n          </ion-col>\n\n          <ion-col col-5 >\n\n            IN Quantity: <span class="pull-right"> {{s.in_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-5 offset-2>\n\n            OUT Quantity: <span class="pull-right"> {{s.out_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-5>\n\n            IN Value: <span class="pull-right"> {{s.in_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-5 offset-2>\n\n            OUT Value: <span class="pull-right"> {{s.out_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-5>\n\n            IN rate: <span class="pull-right"> {{s.in_rate}} </span>\n\n          </ion-col>\n\n          <ion-col col-6></ion-col>\n\n          <ion-col col-12>\n\n            Category: <span class="pull-right"> {{s.page_name}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Quantity: <span class="pull-right"> {{s.balance_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Value: <span class="pull-right"> {{s.balance_value}} </span>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </ion-card-content>\n\n  </ion-card>\n\n\n\n  <ion-card *ngIf="stockDetail">\n\n    <ion-card-content>\n\n      <ion-grid>\n\n        <ion-row >\n\n          <ion-col col-12  style="text-align:center; font-weight:600; font-size:18px;background: #fe5e00;\n\n          color: #fff;">\n\n            Total\n\n          </ion-col>\n\n          <ion-col col-12 >\n\n            IN Quantity: <span class="pull-right"> {{in_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            OUT Quantity: <span class="pull-right"> {{out_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            IN Value: <span class="pull-right"> {{in_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            OUT Value: <span class="pull-right"> {{out_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Quantity: <span class="pull-right"> {{balance_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Value: <span class="pull-right"> {{balance_value}} </span>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </ion-card-content>\n\n  </ion-card> -->\n\n\n\n  <span *ngIf="current_page <= last_page" >\n\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n        <ion-infinite-scroll-content></ion-infinite-scroll-content>\n\n    </ion-infinite-scroll>\n\n  </span>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\Sujan\ionic\account\src\pages\stock-detail\stock-detail.html"*/,
+            selector: 'page-stock-detail',template:/*ion-inline-start:"F:\ionic\account\src\pages\stock-detail\stock-detail.html"*/'\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{stock.stock_name}} - Detail</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content fullscreen>\n\n\n\n    <div class="content-container">\n\n        <div class="row header">\n\n          <div class="col">Date</div>\n\n          <div class="col">IN Qty</div>\n\n          <div class="col">IN Amt</div>\n\n          <div class="col">OUT Qty</div>\n\n          <div class="col">OUT Amt</div>\n\n          <div class="col">Qty</div>\n\n          <div class="col">Amt</div>\n\n        </div>\n\n        <div class="row" *ngFor="let l of stockDetail" >\n\n          <div class="col">{{l.date | date: \'mediumDate\'}} </div>\n\n          <div class="col">{{l.in_quantity | number}}</div>\n\n          <div class="col">{{l.in_value | number}}</div>\n\n          <div class="col">{{l.out_quantity | number}}</div>\n\n          <div class="col">{{l.out_value | number}}</div>\n\n          <div class="col">{{l.balance_quantity | number}}</div>\n\n          <div class="col">{{l.balance_amount | number}}</div>\n\n        </div>\n\n        <div class="row footer" *ngIf="stockDetail">\n\n          <div class="col">Total</div>\n\n          <div class="col">{{in_quantity | number}}</div>\n\n          <div class="col">{{in_value | number}}</div>\n\n          <div class="col">{{out_quantity | number}}</div>\n\n          <div class="col">{{out_value | number}}</div>\n\n          <div class="col">{{balance_quantity | number}}</div>\n\n          <div class="col">{{balance_amount | number}}</div>\n\n        </div>\n\n      </div>\n\n\n\n  <!-- <ion-card *ngFor="let s of stockDetail">\n\n    <ion-card-content>\n\n      <ion-grid>\n\n        <ion-row >\n\n          <ion-col col-12  style="text-align:center;">\n\n            Miti: <span> {{s.nepali_date}} ({{s.date}}) </span>\n\n            <hr>\n\n          </ion-col>\n\n          <ion-col col-5 >\n\n            IN Quantity: <span class="pull-right"> {{s.in_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-5 offset-2>\n\n            OUT Quantity: <span class="pull-right"> {{s.out_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-5>\n\n            IN Value: <span class="pull-right"> {{s.in_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-5 offset-2>\n\n            OUT Value: <span class="pull-right"> {{s.out_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-5>\n\n            IN rate: <span class="pull-right"> {{s.in_rate}} </span>\n\n          </ion-col>\n\n          <ion-col col-6></ion-col>\n\n          <ion-col col-12>\n\n            Category: <span class="pull-right"> {{s.page_name}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Quantity: <span class="pull-right"> {{s.balance_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Value: <span class="pull-right"> {{s.balance_value}} </span>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </ion-card-content>\n\n  </ion-card>\n\n\n\n  <ion-card *ngIf="stockDetail">\n\n    <ion-card-content>\n\n      <ion-grid>\n\n        <ion-row >\n\n          <ion-col col-12  style="text-align:center; font-weight:600; font-size:18px;background: #fe5e00;\n\n          color: #fff;">\n\n            Total\n\n          </ion-col>\n\n          <ion-col col-12 >\n\n            IN Quantity: <span class="pull-right"> {{in_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            OUT Quantity: <span class="pull-right"> {{out_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            IN Value: <span class="pull-right"> {{in_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            OUT Value: <span class="pull-right"> {{out_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Quantity: <span class="pull-right"> {{balance_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Value: <span class="pull-right"> {{balance_value}} </span>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </ion-card-content>\n\n  </ion-card> -->\n\n\n\n  <span *ngIf="current_page <= last_page" >\n\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n        <ion-infinite-scroll-content></ion-infinite-scroll-content>\n\n    </ion-infinite-scroll>\n\n  </span>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic\account\src\pages\stock-detail\stock-detail.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_functions__["a" /* customFunctions */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__["a" /* ScreenOrientation */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_functions__["a" /* customFunctions */]])
     ], StockDetailPage);
     return StockDetailPage;
 }());
@@ -253,13 +261,13 @@ var StockDetailPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 208:
+/***/ 209:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(229);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(230);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -267,36 +275,38 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 229:
+/***/ 230:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(276);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_list_list__ = __webpack_require__(285);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(285);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_list_list__ = __webpack_require__(286);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_ledger_summary_ledger_summary__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_ledger_detail_ledger_detail__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_stock_summary_stock_summary__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_daybook_report_daybook_report__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_stock_detail_stock_detail__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_select_company_modal_select_company_modal__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_status_bar__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_splash_screen__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_auth_auth__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_common_http__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_api_api__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_functions__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_ledger_summary_ledger_summary__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_ledger_detail_ledger_detail__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_stock_summary_stock_summary__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_daybook_report_daybook_report__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_stock_detail_stock_detail__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_select_company_modal_select_company_modal__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_status_bar__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_splash_screen__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_auth_auth__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_common_http__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_api_api__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_functions__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_screen_orientation__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -340,8 +350,8 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/ledger-detail/ledger-detail.module#LedgerDetailPageModule', name: 'LedgerDetailPage', segment: 'ledger-detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/ledger-summary/ledger-summary.module#LedgerSummaryPageModule', name: 'LedgerSummaryPage', segment: 'ledger-summary', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/select-company-modal/select-company-modal.module#SelectCompanyModalPageModule', name: 'SelectCompanyModalPage', segment: 'select-company-modal', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/select-company-modal/select-company-modal.module#SelectCompanyModalPageModule', name: 'SelectCompanyModalPage', segment: 'select-company-modal', priority: 'low', defaultHistory: [] }
                     ]
                 }),
             ],
@@ -364,7 +374,8 @@ var AppModule = /** @class */ (function () {
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicErrorHandler */] },
                 __WEBPACK_IMPORTED_MODULE_15__providers_auth_auth__["a" /* AuthProvider */],
                 __WEBPACK_IMPORTED_MODULE_17__providers_api_api__["a" /* ApiProvider */],
-                __WEBPACK_IMPORTED_MODULE_18__providers_functions__["a" /* customFunctions */]
+                __WEBPACK_IMPORTED_MODULE_18__providers_functions__["a" /* customFunctions */],
+                __WEBPACK_IMPORTED_MODULE_19__ionic_native_screen_orientation__["a" /* ScreenOrientation */]
             ]
         })
     ], AppModule);
@@ -375,12 +386,12 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 26:
+/***/ 27:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(83);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -505,7 +516,7 @@ var ApiProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 27:
+/***/ 28:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -602,22 +613,22 @@ var customFunctions = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 276:
+/***/ 285:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_ledger_summary_ledger_summary__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_stock_summary_stock_summary__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_daybook_report_daybook_report__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_ledger_summary_ledger_summary__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_stock_summary_stock_summary__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_daybook_report_daybook_report__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_auth_auth__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_select_company_modal_select_company_modal__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_functions__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_auth_auth__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_select_company_modal_select_company_modal__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_functions__ = __webpack_require__(28);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -690,7 +701,7 @@ var MyApp = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\Sujan\ionic\account\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n          <ion-icon name="{{p.logo}}" style="color: #FE5E00;"></ion-icon> {{p.title}}\n\n      </button>\n\n      <button menuClose ion-item (click)="changeCompany()">\n\n        <ion-icon name="podium"  style="color: #FE5E00;"></ion-icon> Change Company\n\n      </button>\n\n      <button menuClose ion-item (click)="logout()">\n\n          <ion-icon name="log-out"  style="color: #FE5E00;"></ion-icon> Logout\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"D:\Sujan\ionic\account\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"F:\ionic\account\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n          <ion-icon name="{{p.logo}}" style="color: #FE5E00;"></ion-icon> {{p.title}}\n\n      </button>\n\n      <button menuClose ion-item (click)="changeCompany()">\n\n        <ion-icon name="podium"  style="color: #FE5E00;"></ion-icon> Change Company\n\n      </button>\n\n      <button menuClose ion-item (click)="logout()">\n\n          <ion-icon name="log-out"  style="color: #FE5E00;"></ion-icon> Logout\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"F:\ionic\account\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_10__providers_functions__["a" /* customFunctions */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_8__providers_auth_auth__["a" /* AuthProvider */]])
     ], MyApp);
@@ -701,7 +712,7 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 285:
+/***/ 286:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -746,7 +757,7 @@ var ListPage = /** @class */ (function () {
     };
     ListPage = ListPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-list',template:/*ion-inline-start:"D:\Sujan\ionic\account\src\pages\list\list.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>List</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-list>\n\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n\n      <ion-icon [name]="item.icon" item-start></ion-icon>\n\n      {{item.title}}\n\n      <div class="item-note" item-end>\n\n        {{item.note}}\n\n      </div>\n\n    </button>\n\n  </ion-list>\n\n  <div *ngIf="selectedItem" padding>\n\n    You navigated here from <b>{{selectedItem.title}}</b>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\Sujan\ionic\account\src\pages\list\list.html"*/
+            selector: 'page-list',template:/*ion-inline-start:"F:\ionic\account\src\pages\list\list.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>List</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-start></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-end>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n  <div *ngIf="selectedItem" padding>\n    You navigated here from <b>{{selectedItem.title}}</b>\n  </div>\n</ion-content>\n'/*ion-inline-end:"F:\ionic\account\src\pages\list\list.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], ListPage);
@@ -758,16 +769,17 @@ var ListPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 52:
+/***/ 53:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LedgerSummaryPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_functions__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_functions__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ledger_detail_ledger_detail__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ledger_detail_ledger_detail__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -782,6 +794,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the LedgerSummaryPage page.
  *
@@ -789,11 +802,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var LedgerSummaryPage = /** @class */ (function () {
-    function LedgerSummaryPage(navCtrl, navParams, api, func) {
+    function LedgerSummaryPage(navCtrl, navParams, api, func, screenOrientation) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.api = api;
         this.func = func;
+        this.screenOrientation = screenOrientation;
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
         this.getLedgerSummaryReport();
     }
     LedgerSummaryPage.prototype.ionViewDidLoad = function () {
@@ -845,110 +860,18 @@ var LedgerSummaryPage = /** @class */ (function () {
     };
     LedgerSummaryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-ledger-summary',template:/*ion-inline-start:"D:\Sujan\ionic\account\src\pages\ledger-summary\ledger-summary.html"*/'<!--\n\n  Generated template for the LedgerSummaryPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title >Ledger Summary</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content fullscreen>\n\n      \n\n  <ion-searchbar \n\n          (ionInput)="search($event)" \n\n          placeholder="Search by Ledger"\n\n          (ionCancel)="onSearchCancel($event)"\n\n          >\n\n  </ion-searchbar>\n\n\n\n  <div class="content-container">\n\n    <div class="row header">\n\n      <div class="col">Ledger</div>\n\n      <div class="col">DR</div>\n\n      <div class="col">CR</div>\n\n      <div class="col">Balance</div>\n\n    </div>\n\n    <div class="row" *ngFor="let l of ledger" (click)="viewLedgerDetail(l)">\n\n      <div class="col">{{l.ledger_name}}</div>\n\n      <div class="col">{{l.debit | number}}</div>\n\n      <div class="col">{{l.credit | number}}</div>\n\n      <div class="col">{{l.balance | number}}</div>\n\n    </div>\n\n    <div class="row footer" *ngIf="ledger">\n\n      <div class="col">Total</div>\n\n      <div class="col">{{dr_amount | number}}</div>\n\n      <div class="col">{{cr_amount | number}}</div>\n\n      <div class="col">{{balance | number}}</div>\n\n    </div>\n\n  </div>\n\n\n\n<!-- \n\n  <ion-card *ngFor="let l of ledger" (click)="viewLedgerDetail(l)">\n\n    <ion-card-content>\n\n      <ion-grid>\n\n        <ion-row >\n\n          <ion-col col-12>\n\n            Ledger Name: <span class="pull-right"> {{l.ledger_name}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Opening DR: <span class="pull-right"> {{l.opening_dr}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Opening CR: <span class="pull-right"> {{l.opening_cr}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            DR Amount: <span class="pull-right"> {{l.dr_amount}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            CR Amount: <span class="pull-right"> {{l.cr_amount}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance: <span class="pull-right"> {{l.balance}} </span>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </ion-card-content>\n\n  </ion-card>\n\n\n\n\n\n  <ion-card *ngIf="ledger">\n\n    <ion-card-content>\n\n      <ion-grid>\n\n        <ion-row >\n\n          <ion-col col-12  style="text-align:center; font-weight:600; font-size:18px;background: #fe5e00;\n\n          color: #fff;">\n\n            Total\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Opening DR: <span class="pull-right"> {{opening_dr}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Opening CR: <span class="pull-right"> {{opening_cr}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            DR Amount: <span class="pull-right"> {{dr_amount}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            CR Amount: <span class="pull-right"> {{cr_amount}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance: <span class="pull-right"> {{balance}} </span>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </ion-card-content>\n\n  </ion-card> -->\n\n<!-- \n\n  <ion-footer padding class="footer">\n\n    <ion-grid>\n\n      <ion-row >\n\n        <ion-col col-6>\n\n          Opening DR: <span class="pull-right"> {{opening_dr}} </span>\n\n        </ion-col>\n\n        <ion-col col-6>\n\n          Opening CR: <span class="pull-right"> {{opening_cr}} </span>\n\n        </ion-col>\n\n        <ion-col col-6>\n\n          DR Amount: <span class="pull-right"> {{dr_amount}} </span>\n\n        </ion-col>\n\n        <ion-col col-6>\n\n          CR Amount: <span class="pull-right"> {{cr_amount}} </span>\n\n        </ion-col>\n\n        <ion-col col-6>\n\n          Balance: <span class="pull-right"> {{balance}} </span>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </ion-footer>\n\n   -->\n\n</ion-content>\n\n'/*ion-inline-end:"D:\Sujan\ionic\account\src\pages\ledger-summary\ledger-summary.html"*/,
+            selector: 'page-ledger-summary',template:/*ion-inline-start:"F:\ionic\account\src\pages\ledger-summary\ledger-summary.html"*/'<!--\n\n  Generated template for the LedgerSummaryPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title >Ledger Summary</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content fullscreen>\n\n      \n\n  <ion-searchbar \n\n          (ionInput)="search($event)" \n\n          placeholder="Search by Ledger"\n\n          (ionCancel)="onSearchCancel($event)"\n\n          >\n\n  </ion-searchbar>\n\n\n\n  <div class="content-container">\n\n    <div class="row header">\n\n      <div class="col">Ledger</div>\n\n      <div class="col">DR</div>\n\n      <div class="col">CR</div>\n\n      <div class="col">Balance</div>\n\n    </div>\n\n    <div class="row" *ngFor="let l of ledger" (click)="viewLedgerDetail(l)">\n\n      <div class="col">{{l.ledger_name}}</div>\n\n      <div class="col">{{l.debit | number}}</div>\n\n      <div class="col">{{l.credit | number}}</div>\n\n      <div class="col">{{l.balance | number}}</div>\n\n    </div>\n\n    <div class="row footer" *ngIf="ledger">\n\n      <div class="col">Total</div>\n\n      <div class="col">{{dr_amount | number}}</div>\n\n      <div class="col">{{cr_amount | number}}</div>\n\n      <div class="col">{{balance | number}}</div>\n\n    </div>\n\n  </div>\n\n\n\n<!-- \n\n  <ion-card *ngFor="let l of ledger" (click)="viewLedgerDetail(l)">\n\n    <ion-card-content>\n\n      <ion-grid>\n\n        <ion-row >\n\n          <ion-col col-12>\n\n            Ledger Name: <span class="pull-right"> {{l.ledger_name}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Opening DR: <span class="pull-right"> {{l.opening_dr}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Opening CR: <span class="pull-right"> {{l.opening_cr}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            DR Amount: <span class="pull-right"> {{l.dr_amount}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            CR Amount: <span class="pull-right"> {{l.cr_amount}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance: <span class="pull-right"> {{l.balance}} </span>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </ion-card-content>\n\n  </ion-card>\n\n\n\n\n\n  <ion-card *ngIf="ledger">\n\n    <ion-card-content>\n\n      <ion-grid>\n\n        <ion-row >\n\n          <ion-col col-12  style="text-align:center; font-weight:600; font-size:18px;background: #fe5e00;\n\n          color: #fff;">\n\n            Total\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Opening DR: <span class="pull-right"> {{opening_dr}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Opening CR: <span class="pull-right"> {{opening_cr}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            DR Amount: <span class="pull-right"> {{dr_amount}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            CR Amount: <span class="pull-right"> {{cr_amount}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance: <span class="pull-right"> {{balance}} </span>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </ion-card-content>\n\n  </ion-card> -->\n\n<!-- \n\n  <ion-footer padding class="footer">\n\n    <ion-grid>\n\n      <ion-row >\n\n        <ion-col col-6>\n\n          Opening DR: <span class="pull-right"> {{opening_dr}} </span>\n\n        </ion-col>\n\n        <ion-col col-6>\n\n          Opening CR: <span class="pull-right"> {{opening_cr}} </span>\n\n        </ion-col>\n\n        <ion-col col-6>\n\n          DR Amount: <span class="pull-right"> {{dr_amount}} </span>\n\n        </ion-col>\n\n        <ion-col col-6>\n\n          CR Amount: <span class="pull-right"> {{cr_amount}} </span>\n\n        </ion-col>\n\n        <ion-col col-6>\n\n          Balance: <span class="pull-right"> {{balance}} </span>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </ion-footer>\n\n   -->\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic\account\src\pages\ledger-summary\ledger-summary.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */],
-            __WEBPACK_IMPORTED_MODULE_0__providers_functions__["a" /* customFunctions */]])
+            __WEBPACK_IMPORTED_MODULE_0__providers_functions__["a" /* customFunctions */],
+            __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__["a" /* ScreenOrientation */]])
     ], LedgerSummaryPage);
     return LedgerSummaryPage;
 }());
 
 //# sourceMappingURL=ledger-summary.js.map
-
-/***/ }),
-
-/***/ 53:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelectCompanyModalPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_functions__ = __webpack_require__(27);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-/**
- * Generated class for the SelectCompanyModalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var SelectCompanyModalPage = /** @class */ (function () {
-    function SelectCompanyModalPage(navCtrl, navParams, viewCtrl, api, func) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.viewCtrl = viewCtrl;
-        this.api = api;
-        this.func = func;
-        this.company = localStorage.getItem('company_id');
-        this.refresh = false;
-        this.user_id = this.navParams.get('user_id') ? this.navParams.get('user_id') : localStorage.getItem('user_id');
-        this.refresh = this.navParams.get('refresh') ? true : false;
-        this.getCompanies(this.user_id);
-    }
-    SelectCompanyModalPage.prototype.getCompanies = function (user_id) {
-        var _this = this;
-        console.log(user_id);
-        this.api.getUserCompanies(user_id)
-            .subscribe(function (data) {
-            console.log(data);
-            _this.companies = data;
-        });
-    };
-    SelectCompanyModalPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad SelectCompanyModalPage');
-    };
-    SelectCompanyModalPage.prototype.dismiss = function () {
-        var data = { 'status': false };
-        this.viewCtrl.dismiss(data);
-    };
-    SelectCompanyModalPage.prototype.dismissWithData = function () {
-        var _this = this;
-        var data = this.company == undefined ? { 'status': false } : { 'status': true };
-        this.func.presentLoading('Setting Company Name...');
-        setTimeout(function () {
-            _this.func.dismissLoading();
-            if (data['status'] == true) {
-                localStorage.setItem('company_id', _this.company);
-            }
-            if (_this.refresh) {
-                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
-            }
-            else {
-                _this.viewCtrl.dismiss(data);
-            }
-        }, 1000);
-    };
-    SelectCompanyModalPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-select-company-modal',template:/*ion-inline-start:"D:\Sujan\ionic\account\src\pages\select-company-modal\select-company-modal.html"*/'<!--\n\n  Generated template for the SelectCompanyModalPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<!-- <ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Select CompanyModal</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header> -->\n\n\n\n\n\n<ion-content padding>\n\n  <h3 style="text-align:center;     \n\n              background: #FE5E00;\n\n              color: white;\n\n              padding: 10px;\n\n              border-radius: 5px;">\n\n    Select Company\n\n  </h3>\n\n<hr>\n\n<br>\n\n<ion-list radio-group [(ngModel)]="company">\n\n    <ion-item *ngFor="let c of companies">\n\n      <ion-label>{{c}}</ion-label>\n\n      <ion-radio value="{{c}}"></ion-radio>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n<ion-grid>\n\n  <ion-row>\n\n    <ion-col col-5>\n\n        <button ion-button color="danger" (click)="dismiss()" block>Cancel</button>\n\n    </ion-col>\n\n    <ion-col offset-2 col-5>\n\n        <button ion-button (click)="dismissWithData()" block style="background-color:#FE5E00;">Select</button>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"D:\Sujan\ionic\account\src\pages\select-company-modal\select-company-modal.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_functions__["a" /* customFunctions */]])
-    ], SelectCompanyModalPage);
-    return SelectCompanyModalPage;
-}());
-
-//# sourceMappingURL=select-company-modal.js.map
 
 /***/ }),
 
@@ -959,9 +882,10 @@ var SelectCompanyModalPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__select_company_modal_select_company_modal__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__select_company_modal_select_company_modal__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -977,6 +901,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -984,17 +909,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var LoginPage = /** @class */ (function () {
-    function LoginPage(modalCtrl, navCtrl, auth, navParams, loadingCtrl) {
+    function LoginPage(modalCtrl, navCtrl, auth, navParams, loadingCtrl, screenOrientation) {
         this.modalCtrl = modalCtrl;
         this.navCtrl = navCtrl;
         this.auth = auth;
         this.navParams = navParams;
         this.loadingCtrl = loadingCtrl;
+        this.screenOrientation = screenOrientation;
         this.email = "patelab15@gmail.com";
         this.password = "123";
         this.loading = this.loadingCtrl.create({
             content: 'Please wait...'
         });
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
         if (localStorage.getItem('user_id') && localStorage.getItem('company_id') && localStorage.getItem('email')) {
             this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
         }
@@ -1051,13 +978,14 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = LoginPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"D:\Sujan\ionic\account\src\pages\login\login.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<!-- <ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>User Login</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header> -->\n\n\n\n<ion-content padding style="border-top: 20px solid #FE5E00;border-bottom: 20px solid #FE5E00;">\n\n\n\n	<ion-grid style="padding-top: 10%;">\n\n		<ion-row>\n\n			<!-- <ion-col col-12>\n\n				<p style="font-size: 25px; text-align: center;">\n\n					Log In to View Your Reports.\n\n				</p>\n\n			</ion-col> -->\n\n			<ion-col col-8 offset-2>\n\n				<img src="assets/icon/pflogo.png">\n\n			</ion-col>\n\n			<ion-col col-12>\n\n				<p *ngIf="error" style="color:red; text-align:center"> {{error}} </p>\n\n				<form (ngSubmit)="login()">\n\n					<ion-item>\n\n				        <ion-label floating>Email</ion-label>\n\n				        <ion-input type="email" [(ngModel)]="email" required name="email"></ion-input>\n\n				     </ion-item>\n\n				     <ion-item>\n\n				        <ion-label floating>Password</ion-label>\n\n				        <ion-input type="password" [(ngModel)]="password" required name="password"></ion-input>\n\n						 </ion-item>\n\n						 <!-- <ion-item>\n\n							<ion-label floating>Company ID</ion-label>\n\n							<ion-input type="text" [(ngModel)]="company_id" required name="password"></ion-input>\n\n					 </ion-item> -->\n\n				     <br>\n\n				     <button ion-button type="submit" block>Login</button>\n\n				</form>\n\n			</ion-col>\n\n		</ion-row>\n\n	</ion-grid>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\Sujan\ionic\account\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"F:\ionic\account\src\pages\login\login.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<!-- <ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>User Login</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header> -->\n\n\n\n<ion-content padding style="border-top: 20px solid #FE5E00;border-bottom: 20px solid #FE5E00;">\n\n\n\n	<ion-grid style="padding-top: 10%;">\n\n		<ion-row>\n\n			<!-- <ion-col col-12>\n\n				<p style="font-size: 25px; text-align: center;">\n\n					Log In to View Your Reports.\n\n				</p>\n\n			</ion-col> -->\n\n			<ion-col col-8 offset-2>\n\n				<img src="assets/icon/pflogo.png">\n\n			</ion-col>\n\n			<ion-col col-12>\n\n				<p *ngIf="error" style="color:red; text-align:center"> {{error}} </p>\n\n				<form (ngSubmit)="login()">\n\n					<ion-item>\n\n				        <ion-label floating>Email</ion-label>\n\n				        <ion-input type="email" [(ngModel)]="email" required name="email"></ion-input>\n\n				     </ion-item>\n\n				     <ion-item>\n\n				        <ion-label floating>Password</ion-label>\n\n				        <ion-input type="password" [(ngModel)]="password" required name="password"></ion-input>\n\n						 </ion-item>\n\n						 <!-- <ion-item>\n\n							<ion-label floating>Company ID</ion-label>\n\n							<ion-input type="text" [(ngModel)]="company_id" required name="password"></ion-input>\n\n					 </ion-item> -->\n\n				     <br>\n\n				     <button ion-button type="submit" block>Login</button>\n\n				</form>\n\n			</ion-col>\n\n		</ion-row>\n\n	</ion-grid>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic\account\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__["a" /* AuthProvider */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__["a" /* ScreenOrientation */]])
     ], LoginPage);
     return LoginPage;
     var LoginPage_1;
@@ -1067,17 +995,17 @@ var LoginPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 83:
+/***/ 55:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelectCompanyModalPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ledger_summary_ledger_summary__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__stock_summary_stock_summary__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__daybook_report_daybook_report__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_functions__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1093,11 +1021,113 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+/**
+ * Generated class for the SelectCompanyModalPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var SelectCompanyModalPage = /** @class */ (function () {
+    function SelectCompanyModalPage(navCtrl, navParams, viewCtrl, api, func, screenOrientation) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
+        this.api = api;
+        this.func = func;
+        this.screenOrientation = screenOrientation;
+        this.company = localStorage.getItem('company_id');
+        this.refresh = false;
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+        this.user_id = this.navParams.get('user_id') ? this.navParams.get('user_id') : localStorage.getItem('user_id');
+        this.refresh = this.navParams.get('refresh') ? true : false;
+        this.getCompanies(this.user_id);
+    }
+    SelectCompanyModalPage.prototype.getCompanies = function (user_id) {
+        var _this = this;
+        console.log(user_id);
+        this.api.getUserCompanies(user_id)
+            .subscribe(function (data) {
+            console.log(data);
+            _this.companies = data;
+        });
+    };
+    SelectCompanyModalPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SelectCompanyModalPage');
+    };
+    SelectCompanyModalPage.prototype.dismiss = function () {
+        var data = { 'status': false };
+        this.viewCtrl.dismiss(data);
+    };
+    SelectCompanyModalPage.prototype.dismissWithData = function () {
+        var _this = this;
+        var data = this.company == undefined ? { 'status': false } : { 'status': true };
+        this.func.presentLoading('Setting Company Name...');
+        setTimeout(function () {
+            _this.func.dismissLoading();
+            if (data['status'] == true) {
+                localStorage.setItem('company_id', _this.company);
+            }
+            if (_this.refresh) {
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
+            }
+            else {
+                _this.viewCtrl.dismiss(data);
+            }
+        }, 1000);
+    };
+    SelectCompanyModalPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-select-company-modal',template:/*ion-inline-start:"F:\ionic\account\src\pages\select-company-modal\select-company-modal.html"*/'<!--\n  Generated template for the SelectCompanyModalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!-- <ion-header>\n\n  <ion-navbar>\n    <ion-title>Select CompanyModal</ion-title>\n  </ion-navbar>\n\n</ion-header> -->\n\n\n<ion-content padding>\n  <h3 style="text-align:center;     \n              background: #FE5E00;\n              color: white;\n              padding: 10px;\n              border-radius: 5px;">\n    Select Company\n  </h3>\n<hr>\n<br>\n<ion-list radio-group [(ngModel)]="company">\n    <ion-item *ngFor="let c of companies">\n      <ion-label>{{c}}</ion-label>\n      <ion-radio value="{{c}}"></ion-radio>\n    </ion-item>\n  </ion-list>\n\n<ion-grid>\n  <ion-row>\n    <ion-col col-5>\n        <button ion-button color="danger" (click)="dismiss()" block>Cancel</button>\n    </ion-col>\n    <ion-col offset-2 col-5>\n        <button ion-button (click)="dismissWithData()" block style="background-color:#FE5E00;">Select</button>\n    </ion-col>\n  </ion-row>\n</ion-grid>\n  \n</ion-content>\n'/*ion-inline-end:"F:\ionic\account\src\pages\select-company-modal\select-company-modal.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_functions__["a" /* customFunctions */],
+            __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__["a" /* ScreenOrientation */]])
+    ], SelectCompanyModalPage);
+    return SelectCompanyModalPage;
+}());
+
+//# sourceMappingURL=select-company-modal.js.map
+
+/***/ }),
+
+/***/ 86:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ledger_summary_ledger_summary__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__stock_summary_stock_summary__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__daybook_report_daybook_report__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__ = __webpack_require__(21);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
 var HomePage = /** @class */ (function () {
-    function HomePage(navCtrl, api) {
+    function HomePage(navCtrl, api, screenOrientation) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.api = api;
+        this.screenOrientation = screenOrientation;
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
         setInterval(function () {
             _this.company = _this.api.getCompanyId();
         }, 500);
@@ -1113,9 +1143,9 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"D:\Sujan\ionic\account\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Reports - <small>{{company}}</small></ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content fullscreen> \n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-12>\n\n        <p class="heading"> Select The report You want to View. </p>\n\n        <hr>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <ion-card>\n\n    <ion-card-content (click)="gotoLedgerSummary()" class="component">\n\n        <ion-icon name="document" style="font-size:30px; color:#FE5E00;"></ion-icon>\n\n            Ledger Summary Report\n\n    </ion-card-content>\n\n  </ion-card>\n\n\n\n  <ion-card>\n\n      <ion-card-content  class="component" (click)="gotoDaybookReport()">\n\n          <ion-icon name="book" style="font-size:30px; color:#FE5E00;"></ion-icon>\n\n          DayBook Report\n\n      </ion-card-content>\n\n    </ion-card>\n\n\n\n    <ion-card>\n\n        <ion-card-content  class="component" (click)="gotoStockSummary()">\n\n            <ion-icon name="logo-buffer" style="font-size:30px; color:#FE5E00;"></ion-icon>\n\n            Stock Summary Report\n\n        </ion-card-content>\n\n      </ion-card>\n\n  \n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\Sujan\ionic\account\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"F:\ionic\account\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Reports - <small>{{company}}</small></ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content fullscreen> \n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-12>\n\n        <p class="heading"> Select The report You want to View. </p>\n\n        <hr>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <ion-card>\n\n    <ion-card-content (click)="gotoLedgerSummary()" class="component">\n\n        <ion-icon name="document" style="font-size:30px; color:#FE5E00;"></ion-icon>\n\n            Ledger Summary Report\n\n    </ion-card-content>\n\n  </ion-card>\n\n\n\n  <ion-card>\n\n      <ion-card-content  class="component" (click)="gotoDaybookReport()">\n\n          <ion-icon name="book" style="font-size:30px; color:#FE5E00;"></ion-icon>\n\n          DayBook Report\n\n      </ion-card-content>\n\n    </ion-card>\n\n\n\n    <ion-card>\n\n        <ion-card-content  class="component" (click)="gotoStockSummary()">\n\n            <ion-icon name="logo-buffer" style="font-size:30px; color:#FE5E00;"></ion-icon>\n\n            Stock Summary Report\n\n        </ion-card-content>\n\n      </ion-card>\n\n  \n\n\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic\account\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__["a" /* ScreenOrientation */]])
     ], HomePage);
     return HomePage;
 }());
@@ -1124,16 +1154,17 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 84:
+/***/ 87:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StockSummaryPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_functions__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_functions__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__stock_detail_stock_detail__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__stock_detail_stock_detail__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1148,6 +1179,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the StockSummaryPage page.
  *
@@ -1155,7 +1187,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var StockSummaryPage = /** @class */ (function () {
-    function StockSummaryPage(navCtrl, func, navParams, api) {
+    function StockSummaryPage(screenOrientation, navCtrl, func, navParams, api) {
+        this.screenOrientation = screenOrientation;
         this.navCtrl = navCtrl;
         this.func = func;
         this.navParams = navParams;
@@ -1171,6 +1204,7 @@ var StockSummaryPage = /** @class */ (function () {
             balance_quantity: 0,
             balance_amount: 0
         };
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
         this.getstockSummaryReport();
     }
     StockSummaryPage.prototype.ionViewDidLoad = function () {
@@ -1235,9 +1269,9 @@ var StockSummaryPage = /** @class */ (function () {
     };
     StockSummaryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-stock-summary',template:/*ion-inline-start:"D:\Sujan\ionic\account\src\pages\stock-summary\stock-summary.html"*/'<!--\n\n  Generated template for the StockSummaryPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Stock Sumamry</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content fullscreen>\n\n  <ion-searchbar \n\n    (ionInput)="search($event)" \n\n    placeholder="Search by Stock Name"\n\n    (ionCancel)="onSearchCancel($event)"\n\n    >\n\n  </ion-searchbar>\n\n\n\n    <div class="content-container">\n\n      <div class="row header">\n\n        <div class="col">Stock</div>\n\n        <div class="col">IN</div>\n\n        <div class="col">OUT</div>\n\n        <div class="col">Bal</div>\n\n        <div class="col">Amt</div>\n\n      </div>\n\n      <div class="row" *ngFor="let s of stock" (click)="viewStockDetail(s)">\n\n        <div class="col">{{s.stock_name}}</div>\n\n        <div class="col">{{s.in_quantity | number}}</div>\n\n        <div class="col">{{s.out_quantity | number}}</div>\n\n        <div class="col">{{s.balance_quantity | number}}</div>\n\n        <div class="col">{{s.balance_amount | number}}</div>\n\n      </div>\n\n      <div class="row footer" *ngIf="stock">\n\n        <div class="col">Total</div>\n\n        <div class="col">{{data.in_quantity | number}}</div>\n\n        <div class="col">{{data.out_quantity | number}}</div>\n\n        <div class="col">{{data.balance_quantity | number}}</div>\n\n        <div class="col">{{data.balance_amount | number}}</div>\n\n      </div>\n\n    </div>\n\n\n\n  <!-- <ion-card *ngFor="let s of stock" (click)="viewStockDetail(s)">\n\n    <ion-card-content>\n\n      <ion-grid>\n\n        <ion-row >\n\n\n\n          <ion-col col-12 style="text-align:center;">\n\n            <strong>Stock Name: <span> {{s.stock_name}} </span></strong>\n\n            <hr>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            IN Quantity: <span class="pull-right"> {{s.in_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            IN Value: <span class="pull-right"> {{s.in_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            OUT Quantity: <span class="pull-right"> {{s.out_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            OUT Value: <span class="pull-right"> {{s.out_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Opening Quantity: <span class="pull-right"> {{s.opening_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Opening Value: <span class="pull-right"> {{s.opening_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Rate: <span class="pull-right"> {{s.rate}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Quantity: <span class="pull-right"> {{s.balance_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Value: <span class="pull-right"> {{s.balance_value}} </span>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </ion-card-content>\n\n  </ion-card>\n\n\n\n  <ion-card *ngIf="stock">\n\n    <ion-card-content>\n\n      <ion-grid>\n\n        <ion-row >\n\n          <ion-col col-12  style="text-align:center; font-weight:600; font-size:18px;background: #fe5e00;\n\n          color: #fff;">\n\n            Total\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            IN Quantity: <span class="pull-right"> {{data.in_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            IN Value: <span class="pull-right"> {{data.in_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            OUT Quantity: <span class="pull-right"> {{data.out_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            OUT Value: <span class="pull-right"> {{data.out_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Opening Quantity: <span class="pull-right"> {{data.opening_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Opening Value: <span class="pull-right"> {{data.opening_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Rate: <span class="pull-right"> {{data.rate}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Quantity: <span class="pull-right"> {{data.balance_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Value: <span class="pull-right"> {{data.balance_value}} </span>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </ion-card-content>\n\n  </ion-card> -->\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\Sujan\ionic\account\src\pages\stock-summary\stock-summary.html"*/,
+            selector: 'page-stock-summary',template:/*ion-inline-start:"F:\ionic\account\src\pages\stock-summary\stock-summary.html"*/'<!--\n\n  Generated template for the StockSummaryPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Stock Sumamry</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content fullscreen>\n\n  <ion-searchbar \n\n    (ionInput)="search($event)" \n\n    placeholder="Search by Stock Name"\n\n    (ionCancel)="onSearchCancel($event)"\n\n    >\n\n  </ion-searchbar>\n\n\n\n    <div class="content-container">\n\n      <ion-row class="row header">\n\n        <ion-col col-4>Stock</ion-col>\n\n        <ion-col col-2>IN</ion-col>\n\n        <ion-col col-2>OUT</ion-col>\n\n        <ion-col col-2>Bal</ion-col>\n\n        <ion-col col-2>Amt</ion-col>\n\n      </ion-row>\n\n      <ion-row *ngFor="let s of stock" (click)="viewStockDetail(s)">\n\n        <ion-col col-4>{{s.stock_name}}</ion-col>\n\n        <ion-col col-2>{{s.in_quantity | number}}</ion-col>\n\n        <ion-col col-2>{{s.out_quantity | number}}</ion-col>\n\n        <ion-col col-2>{{s.balance_quantity | number}}</ion-col>\n\n        <ion-col col-2>{{s.balance_amount | number}}</ion-col>\n\n      </ion-row>\n\n      <ion-row class="row footer" *ngIf="stock">\n\n        <ion-col col-4>Total</ion-col>\n\n        <ion-col col-2>{{data.in_quantity | number}}</ion-col>\n\n        <ion-col col-2>{{data.out_quantity | number}}</ion-col>\n\n        <ion-col col-2>{{data.balance_quantity | number}}</ion-col>\n\n        <ion-col col-2>{{data.balance_amount | number}}</ion-col>\n\n      </ion-row>\n\n    </div>\n\n\n\n  <!-- <ion-card *ngFor="let s of stock" (click)="viewStockDetail(s)">\n\n    <ion-card-content>\n\n      <ion-grid>\n\n        <ion-row >\n\n\n\n          <ion-col col-12 style="text-align:center;">\n\n            <strong>Stock Name: <span> {{s.stock_name}} </span></strong>\n\n            <hr>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            IN Quantity: <span class="pull-right"> {{s.in_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            IN Value: <span class="pull-right"> {{s.in_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            OUT Quantity: <span class="pull-right"> {{s.out_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            OUT Value: <span class="pull-right"> {{s.out_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Opening Quantity: <span class="pull-right"> {{s.opening_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Opening Value: <span class="pull-right"> {{s.opening_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Rate: <span class="pull-right"> {{s.rate}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Quantity: <span class="pull-right"> {{s.balance_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Value: <span class="pull-right"> {{s.balance_value}} </span>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </ion-card-content>\n\n  </ion-card>\n\n\n\n  <ion-card *ngIf="stock">\n\n    <ion-card-content>\n\n      <ion-grid>\n\n        <ion-row >\n\n          <ion-col col-12  style="text-align:center; font-weight:600; font-size:18px;background: #fe5e00;\n\n          color: #fff;">\n\n            Total\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            IN Quantity: <span class="pull-right"> {{data.in_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            IN Value: <span class="pull-right"> {{data.in_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            OUT Quantity: <span class="pull-right"> {{data.out_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            OUT Value: <span class="pull-right"> {{data.out_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Opening Quantity: <span class="pull-right"> {{data.opening_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Opening Value: <span class="pull-right"> {{data.opening_value}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Rate: <span class="pull-right"> {{data.rate}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Quantity: <span class="pull-right"> {{data.balance_quantity}} </span>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            Balance Value: <span class="pull-right"> {{data.balance_value}} </span>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </ion-card-content>\n\n  </ion-card> -->\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic\account\src\pages\stock-summary\stock-summary.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_0__providers_functions__["a" /* customFunctions */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__["a" /* ScreenOrientation */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_0__providers_functions__["a" /* customFunctions */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */]])
     ], StockSummaryPage);
     return StockSummaryPage;
 }());
@@ -1246,15 +1280,16 @@ var StockSummaryPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 85:
+/***/ 88:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DaybookReportPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1268,14 +1303,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var DaybookReportPage = /** @class */ (function () {
-    function DaybookReportPage(navCtrl, navParams, api, func) {
+    function DaybookReportPage(navCtrl, navParams, api, func, screenOrientation) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.api = api;
         this.func = func;
+        this.screenOrientation = screenOrientation;
         this.current_page = 1;
         this.last_page = 1;
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
         this.getdayBookReport();
     }
     DaybookReportPage.prototype.ionViewDidLoad = function () {
@@ -1312,12 +1350,13 @@ var DaybookReportPage = /** @class */ (function () {
     };
     DaybookReportPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-daybook-report',template:/*ion-inline-start:"D:\Sujan\ionic\account\src\pages\daybook-report\daybook-report.html"*/'<!--\n\n  Generated template for the DaybookReportPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>DayBook Report</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n\n\n<ion-content fullscreen>\n\n    <div class="content-container">\n\n        <!-- <p>Miti: {{d.miti}}</p> -->\n\n        <div class="row header">\n\n        <div class="col">Date</div>\n\n          <div class="col">Daybook</div>\n\n          <div class="col">DR</div>\n\n          <div class="col">CR</div>\n\n        </div>\n\n        <div class="row" *ngFor="let d of daybook">\n\n          <div class="col">{{d.date}}</div>\n\n          <div class="col">{{d.ledger_name}}</div>\n\n          <div class="col">{{d.dr_amount}}</div>\n\n          <div class="col">{{d.cr_amount}}</div>\n\n        </div>\n\n    </div>\n\n\n\n    <!-- <ion-card *ngFor="let d of daybook">\n\n      <ion-card-content>\n\n        <ion-grid>\n\n          <ion-row >\n\n  \n\n            <ion-col col-12 style="text-align:center;">\n\n              <strong>Ledger Name: <span> {{d.ledger_name}} </span></strong>\n\n              <hr>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                Miti: <span class="pull-right"> {{d.miti}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                Reference Number: <span class="pull-right"> {{d.reference_number}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                Page From: <span class="pull-right"> {{d.page_from}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                Open Close: <span class="pull-right"> {{d.open_close}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                DR Amount: <span class="pull-right"> {{d.dr_amount}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                CR Amount: <span class="pull-right"> {{d.cr_amount}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n              Rate: <span class="pull-right"> {{d.rate}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n              Narration: <span class="pull-right"> {{d.narration}} </span>\n\n            </ion-col>\n\n        </ion-grid>\n\n      </ion-card-content>\n\n    </ion-card> -->\n\n\n\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n        <ion-infinite-scroll-content></ion-infinite-scroll-content>\n\n     </ion-infinite-scroll>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"D:\Sujan\ionic\account\src\pages\daybook-report\daybook-report.html"*/,
+            selector: 'page-daybook-report',template:/*ion-inline-start:"F:\ionic\account\src\pages\daybook-report\daybook-report.html"*/'<!--\n\n  Generated template for the DaybookReportPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>DayBook Report</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n\n\n<ion-content fullscreen>\n\n    <div class="content-container">\n\n        <!-- <p>Miti: {{d.miti}}</p> -->\n\n        <div class="row header">\n\n        <div class="col">Date</div>\n\n          <div class="col">Daybook</div>\n\n          <div class="col">DR</div>\n\n          <div class="col">CR</div>\n\n        </div>\n\n        <div class="row" *ngFor="let d of daybook">\n\n          <div class="col">{{d.date | date: \'mediumDate\'}}</div>\n\n          <div class="col">{{d.ledger_name}}</div>\n\n          <div class="col">{{d.dr_amount}}</div>\n\n          <div class="col">{{d.cr_amount}}</div>\n\n        </div>\n\n    </div>\n\n\n\n    <!-- <ion-card *ngFor="let d of daybook">\n\n      <ion-card-content>\n\n        <ion-grid>\n\n          <ion-row >\n\n  \n\n            <ion-col col-12 style="text-align:center;">\n\n              <strong>Ledger Name: <span> {{d.ledger_name}} </span></strong>\n\n              <hr>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                Miti: <span class="pull-right"> {{d.miti}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                Reference Number: <span class="pull-right"> {{d.reference_number}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                Page From: <span class="pull-right"> {{d.page_from}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                Open Close: <span class="pull-right"> {{d.open_close}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                DR Amount: <span class="pull-right"> {{d.dr_amount}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                CR Amount: <span class="pull-right"> {{d.cr_amount}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n              Rate: <span class="pull-right"> {{d.rate}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n              Narration: <span class="pull-right"> {{d.narration}} </span>\n\n            </ion-col>\n\n        </ion-grid>\n\n      </ion-card-content>\n\n    </ion-card> -->\n\n\n\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n        <ion-infinite-scroll-content></ion-infinite-scroll-content>\n\n     </ion-infinite-scroll>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic\account\src\pages\daybook-report\daybook-report.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_functions__["a" /* customFunctions */]])
+            __WEBPACK_IMPORTED_MODULE_3__providers_functions__["a" /* customFunctions */],
+            __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__["a" /* ScreenOrientation */]])
     ], DaybookReportPage);
     return DaybookReportPage;
 }());
@@ -1326,12 +1365,12 @@ var DaybookReportPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 86:
+/***/ 89:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(83);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_login_login__ = __webpack_require__(54);
@@ -1391,5 +1430,5 @@ var AuthProvider = /** @class */ (function () {
 
 /***/ })
 
-},[208]);
+},[209]);
 //# sourceMappingURL=main.js.map

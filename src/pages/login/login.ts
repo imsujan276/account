@@ -6,6 +6,7 @@ import { HomePage } from '../home/home';
 import { SelectCompanyModalPage } from '../select-company-modal/select-company-modal';
 
 import { AuthProvider } from '../../providers/auth/auth';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 /**
  * Generated class for the LoginPage page.
  *
@@ -32,8 +33,10 @@ export class LoginPage {
               public navCtrl: NavController, 
               public auth:AuthProvider, 
               public navParams: NavParams, 
-              public loadingCtrl: LoadingController
+              public loadingCtrl: LoadingController,
+              private screenOrientation: ScreenOrientation
               ) {
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     if(localStorage.getItem('user_id') && localStorage.getItem('company_id') && localStorage.getItem('email')){
       this.navCtrl.setRoot(HomePage)
     }
