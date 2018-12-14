@@ -30,16 +30,11 @@ export class ApiProvider {
   getCompanyId(){
     return localStorage.getItem('company_id');
   }
-
-  // return new Promise( resolve => {
-  //   this.http.post(this.update_vehicle_damage_api, info, { headers: headers})
-  //     .subscribe( data => {
-  //         resolve(data['message']);
-  //     });
-  // });
-  getUserCompanies(user_id){
+  
+  getUserCompanies(user_id?){
+    let user = user_id ? user_id : localStorage.getItem('user_id');
     let p= new HttpParams().
-    set("user_id", user_id);
+    set("user_id", user);
     return this.http.get(this.getCompanies, {params: p});
   }
 

@@ -3,13 +3,23 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Reports - <small>{{company}}</small></ion-title>
+    <ion-title>Reports - <small>{{company_id}}</small></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content fullscreen> 
   <ion-grid>
     <ion-row>
+        <!-- <ion-grid *ngIf="company && (company.company_start_date || company.company_end_date)" style="color:gray;margin-bottom: -20px;">
+          <ion-row>
+            <ion-col col-6 *ngIf="company.company_start_date">
+              From: {{company.company_start_date | date: 'mediumDate'}}
+            </ion-col>
+            <ion-col col-6 text-right *ngIf="company.company_end_date">
+              To: {{company.company_end_date | date: 'mediumDate'}}
+            </ion-col>
+          </ion-row>
+        </ion-grid> -->
       <ion-col col-12>
         <p class="heading"> Select The report You want to View. </p>
         <hr>

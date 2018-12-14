@@ -23,12 +23,12 @@
           <!-- <div class="col col-2">UC</div> -->
           <div class="col">Balance</div>
         </div>
-        <div class="row" *ngFor="let l of ledgerDetail" >
+        <div class="row" *ngFor="let l of ledgerDetail; let i=index" >
           <div class="col">{{l.date | date: 'mediumDate'}} </div>
           <div class="col">{{l.debit | number}}</div>
           <div class="col">{{l.credit | number}}</div>
           <!-- <div class="col col-2">{{l.uc_amount}}</div> -->
-          <div class="col">{{l.balance | number}}</div>
+          <div class="col">{{ledgerDetail | runningTotal: i | number}}</div>
         </div>
         <div class="row footer" *ngIf="ledgerDetail">
           <div class="col">Total</div>

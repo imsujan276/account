@@ -24,8 +24,13 @@
           <div class="col">CR</div>
         </div>
         <div class="row" *ngFor="let d of daybook">
-          <div class="col">{{d.date | date: 'mediumDate'}}</div>
-          <div class="col">{{d.ledger_name}}</div>
+          <div class="col" *ngIf="d.ledger_name != 'TOTAL' || d.ledger_name == 'Total'">{{d.date | date: 'mediumDate'}}</div>
+          <div class="col" *ngIf="d.ledger_name == 'TOTAL' || d.ledger_name == 'Total'"></div>
+          
+          <div class="col" *ngIf="d.ledger_name != 'TOTAL' || d.ledger_name == 'Total'">{{d.ledger_name}}</div>
+          <div class="col" *ngIf="d.ledger_name == 'TOTAL' || d.ledger_name == 'Total'"><b>{{d.ledger_name}}</b></div>
+          
+          <!-- <div class="col">{{d.ledger_name}}</div> -->
           <div class="col">{{d.dr_amount}}</div>
           <div class="col">{{d.cr_amount}}</div>
         </div>

@@ -13,12 +13,29 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 export class HomePage {
 
   company;
+  company_id;
+  companies;
   constructor(public navCtrl: NavController, public api: ApiProvider,private screenOrientation: ScreenOrientation) {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-    setInterval(() => {
-      this.company = this.api.getCompanyId();
-    }, 500)
+    
+    setTimeout(()=> {
+      // this.getCompanies();
+      this.company_id = localStorage.getItem('company_id')
+    },500)
   }
+
+  getCompanies(){
+    this.api.getUserCompanies()
+      .subscribe(data => {
+        this.companies = data;
+        let c = this.companies.filter((company) => {
+          return (company.company_id.toLowerCase().indexOf(this.company_id.toLowerCase()) > -1);
+        })
+        this.company = c[0];
+        console.log(this.company)
+      })
+  }
+
 
   gotoLedgerSummary(){
     this.navCtrl.push(LedgerSummaryPage)

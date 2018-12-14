@@ -22,6 +22,7 @@ import { ApiProvider } from '../providers/api/api';
 import { customFunctions } from '../providers/functions';
 
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { RunningTotalPipe } from '../pipes/running-total/running-total';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
     StockSummaryPage,
     StockDetailPage,
     SelectCompanyModalPage,
+    RunningTotalPipe,
   ],
   imports: [
     HttpClientModule,

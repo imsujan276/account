@@ -23,12 +23,32 @@
   </h3>
 <hr>
 <br>
-<ion-list radio-group [(ngModel)]="company">
+
+<ion-grid>
+    <ion-row *ngFor="let c of companies">
+      <ion-col col-6 >
+        <b>{{c.company_id}}</b>
+      </ion-col>
+      <ion-col col-6 text-right>
+        <input type="radio" value="{{c.company_id}}" [(ngModel)]="company">
+          <!-- <ion-radio value="{{c.company_id}}" [(ngModel)]="company" name="company_id" ngDefaultControl></ion-radio> -->
+      </ion-col>
+      <ion-col col-6 style="color:grey; font-size: 14px;">
+          From: {{c.company_start_date | date: 'mediumDate'}}
+      </ion-col>
+      <ion-col col-6 text-right style="color:grey; font-size: 14px;">
+          To: {{c.company_end_date | date: 'mediumDate'}}
+      </ion-col>
+      <hr>
+    </ion-row>
+  </ion-grid>
+
+<!-- <ion-list radio-group [(ngModel)]="company">
     <ion-item *ngFor="let c of companies">
-      <ion-label>{{c}}</ion-label>
-      <ion-radio value="{{c}}"></ion-radio>
+      <ion-label>{{c.company_id}}</ion-label>
+      <ion-radio value="{{c.company_id}}"></ion-radio>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
 
 <ion-grid>
   <ion-row>

@@ -7,8 +7,8 @@ webpackJsonp([4],{
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LedgerDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -91,7 +91,7 @@ var LedgerDetailPage = /** @class */ (function () {
     };
     LedgerDetailPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-ledger-detail',template:/*ion-inline-start:"D:\Sujan\ionic\account\src\pages\ledger-detail\ledger-detail.html"*/'<!--\n\n  Generated template for the LedgerDetailPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{ledger.ledger_name}} - Detail</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content fullscreen>\n\n\n\n    <div class="content-container">\n\n        <div class="row header">\n\n          <div class="col">Date</div>\n\n          <div class="col">DR</div>\n\n          <div class="col">CR</div>\n\n          <!-- <div class="col col-2">UC</div> -->\n\n          <div class="col">Balance</div>\n\n        </div>\n\n        <div class="row" *ngFor="let l of ledgerDetail" >\n\n          <div class="col">{{l.date | date: \'mediumDate\'}} </div>\n\n          <div class="col">{{l.debit | number}}</div>\n\n          <div class="col">{{l.credit | number}}</div>\n\n          <!-- <div class="col col-2">{{l.uc_amount}}</div> -->\n\n          <div class="col">{{l.balance | number}}</div>\n\n        </div>\n\n        <div class="row footer" *ngIf="ledgerDetail">\n\n          <div class="col">Total</div>\n\n          <div class="col">{{dr_amount | number}}</div>\n\n          <div class="col">{{cr_amount | number}}</div>\n\n          <!-- <div class="col col-2">{{uc_amount}}</div> -->\n\n          <div class="col">{{balance | number}}</div>\n\n        </div>\n\n      </div>\n\n\n\n  <span *ngIf="current_page <= last_page" >\n\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n        <ion-infinite-scroll-content></ion-infinite-scroll-content>\n\n    </ion-infinite-scroll>\n\n  </span>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\Sujan\ionic\account\src\pages\ledger-detail\ledger-detail.html"*/,
+            selector: 'page-ledger-detail',template:/*ion-inline-start:"D:\Sujan\ionic\account\src\pages\ledger-detail\ledger-detail.html"*/'<!--\n\n  Generated template for the LedgerDetailPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{ledger.ledger_name}} - Detail</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content fullscreen>\n\n\n\n    <div class="content-container">\n\n        <div class="row header">\n\n          <div class="col">Date</div>\n\n          <div class="col">DR</div>\n\n          <div class="col">CR</div>\n\n          <!-- <div class="col col-2">UC</div> -->\n\n          <div class="col">Balance</div>\n\n        </div>\n\n        <div class="row" *ngFor="let l of ledgerDetail; let i=index" >\n\n          <div class="col">{{l.date | date: \'mediumDate\'}} </div>\n\n          <div class="col">{{l.debit | number}}</div>\n\n          <div class="col">{{l.credit | number}}</div>\n\n          <!-- <div class="col col-2">{{l.uc_amount}}</div> -->\n\n          <div class="col">{{ledgerDetail | runningTotal: i | number}}</div>\n\n        </div>\n\n        <div class="row footer" *ngIf="ledgerDetail">\n\n          <div class="col">Total</div>\n\n          <div class="col">{{dr_amount | number}}</div>\n\n          <div class="col">{{cr_amount | number}}</div>\n\n          <!-- <div class="col col-2">{{uc_amount}}</div> -->\n\n          <div class="col">{{balance | number}}</div>\n\n        </div>\n\n      </div>\n\n\n\n  <span *ngIf="current_page <= last_page" >\n\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n        <ion-infinite-scroll-content></ion-infinite-scroll-content>\n\n    </ion-infinite-scroll>\n\n  </span>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\Sujan\ionic\account\src\pages\ledger-detail\ledger-detail.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__["a" /* ScreenOrientation */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_functions__["a" /* customFunctions */]])
     ], LedgerDetailPage);
@@ -124,7 +124,7 @@ webpackEmptyAsyncContext.id = 123;
 
 var map = {
 	"../pages/ledger-detail/ledger-detail.module": [
-		287,
+		291,
 		3
 	],
 	"../pages/ledger-summary/ledger-summary.module": [
@@ -163,8 +163,8 @@ module.exports = webpackAsyncContext;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StockDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -300,15 +300,17 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_splash_screen__ = __webpack_require__(208);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_auth_auth__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_common_http__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_api_api__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_functions__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_api_api__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_functions__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_screen_orientation__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pipes_running_total_running_total__ = __webpack_require__(287);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -345,16 +347,17 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_9__pages_stock_summary_stock_summary__["a" /* StockSummaryPage */],
                 __WEBPACK_IMPORTED_MODULE_11__pages_stock_detail_stock_detail__["a" /* StockDetailPage */],
                 __WEBPACK_IMPORTED_MODULE_12__pages_select_company_modal_select_company_modal__["a" /* SelectCompanyModalPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pipes_running_total_running_total__["a" /* RunningTotalPipe */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_16__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/ledger-detail/ledger-detail.module#LedgerDetailPageModule', name: 'LedgerDetailPage', segment: 'ledger-detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/ledger-summary/ledger-summary.module#LedgerSummaryPageModule', name: 'LedgerSummaryPage', segment: 'ledger-summary', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/select-company-modal/select-company-modal.module#SelectCompanyModalPageModule', name: 'SelectCompanyModalPage', segment: 'select-company-modal', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/select-company-modal/select-company-modal.module#SelectCompanyModalPageModule', name: 'SelectCompanyModalPage', segment: 'select-company-modal', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/ledger-detail/ledger-detail.module#LedgerDetailPageModule', name: 'LedgerDetailPage', segment: 'ledger-detail', priority: 'low', defaultHistory: [] }
                     ]
                 }),
             ],
@@ -390,136 +393,6 @@ var AppModule = /** @class */ (function () {
 /***/ }),
 
 /***/ 27:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/*
-  Generated class for the ApiProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var ApiProvider = /** @class */ (function () {
-    function ApiProvider(http) {
-        this.http = http;
-        this.url = "http://www.progressive.nepgeeks.com/api/app/";
-        this.getCompanies = this.url + "getCompanies";
-        this.ledgerSummaryReportApi = this.url + 'ledgerSummaryReport';
-        this.ledgerDetailApi = this.url + 'ledgerDetail';
-        this.stockSummaryReportApi = this.url + 'stockSummaryReport';
-        this.stockDetailReportApi = this.url + 'stockSummaryDetail';
-        this.dayBookReportApi = this.url + 'dayBookReport';
-    }
-    ApiProvider.prototype.getUserId = function () {
-        return localStorage.getItem('user_id');
-    };
-    ApiProvider.prototype.getCompanyId = function () {
-        return localStorage.getItem('company_id');
-    };
-    // return new Promise( resolve => {
-    //   this.http.post(this.update_vehicle_damage_api, info, { headers: headers})
-    //     .subscribe( data => {
-    //         resolve(data['message']);
-    //     });
-    // });
-    ApiProvider.prototype.getUserCompanies = function (user_id) {
-        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
-            set("user_id", user_id);
-        return this.http.get(this.getCompanies, { params: p });
-    };
-    ApiProvider.prototype.ledgerSummaryReport = function () {
-        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
-            set("user_id", this.getUserId()).
-            set("company_id", this.getCompanyId());
-        return this.http.get(this.ledgerSummaryReportApi, { params: p });
-    };
-    ApiProvider.prototype.ledgerDetail = function (ledger_id, page) {
-        var _this = this;
-        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
-            set("user_id", this.getUserId()).
-            set("company_id", this.getCompanyId()).
-            set("ledger_id", ledger_id).
-            set('page', page);
-        return new Promise(function (resolve) {
-            _this.http.get(_this.ledgerDetailApi, { params: p })
-                .subscribe(function (data) {
-                resolve(data);
-            }, function (error) {
-                resolve(error.statusText);
-            });
-        });
-    };
-    ApiProvider.prototype.stockDetailReport = function (stock_id, page) {
-        var _this = this;
-        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
-            set("user_id", this.getUserId()).
-            set("company_id", this.getCompanyId()).
-            set("stock_id", stock_id).
-            set('page', page);
-        return new Promise(function (resolve) {
-            _this.http.get(_this.stockDetailReportApi, { params: p })
-                .subscribe(function (data) {
-                resolve(data);
-            }, function (error) {
-                resolve(error.statusText);
-            });
-        });
-    };
-    ApiProvider.prototype.stockSummaryReport = function () {
-        var _this = this;
-        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
-            set("user_id", this.getUserId()).
-            set("company_id", this.getCompanyId());
-        return new Promise(function (resolve) {
-            _this.http.get(_this.stockSummaryReportApi, { params: p })
-                .subscribe(function (data) {
-                resolve(data);
-            }, function (error) {
-                resolve(error.statusText);
-            });
-        });
-    };
-    ApiProvider.prototype.dayBookReport = function (page) {
-        var _this = this;
-        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
-            set("user_id", this.getUserId()).
-            set("company_id", this.getCompanyId()).
-            set('page', page);
-        return new Promise(function (resolve) {
-            _this.http.get(_this.dayBookReportApi, { params: p })
-                .subscribe(function (data) {
-                resolve(data);
-            }, function (error) {
-                resolve(error.statusText);
-            });
-        });
-    };
-    ApiProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
-    ], ApiProvider);
-    return ApiProvider;
-}());
-
-//# sourceMappingURL=api.js.map
-
-/***/ }),
-
-/***/ 28:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -616,6 +489,131 @@ var customFunctions = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 28:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/*
+  Generated class for the ApiProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var ApiProvider = /** @class */ (function () {
+    function ApiProvider(http) {
+        this.http = http;
+        this.url = "http://www.progressive.nepgeeks.com/api/app/";
+        this.getCompanies = this.url + "getCompanies";
+        this.ledgerSummaryReportApi = this.url + 'ledgerSummaryReport';
+        this.ledgerDetailApi = this.url + 'ledgerDetail';
+        this.stockSummaryReportApi = this.url + 'stockSummaryReport';
+        this.stockDetailReportApi = this.url + 'stockSummaryDetail';
+        this.dayBookReportApi = this.url + 'dayBookReport';
+    }
+    ApiProvider.prototype.getUserId = function () {
+        return localStorage.getItem('user_id');
+    };
+    ApiProvider.prototype.getCompanyId = function () {
+        return localStorage.getItem('company_id');
+    };
+    ApiProvider.prototype.getUserCompanies = function (user_id) {
+        var user = user_id ? user_id : localStorage.getItem('user_id');
+        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
+            set("user_id", user);
+        return this.http.get(this.getCompanies, { params: p });
+    };
+    ApiProvider.prototype.ledgerSummaryReport = function () {
+        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
+            set("user_id", this.getUserId()).
+            set("company_id", this.getCompanyId());
+        return this.http.get(this.ledgerSummaryReportApi, { params: p });
+    };
+    ApiProvider.prototype.ledgerDetail = function (ledger_id, page) {
+        var _this = this;
+        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
+            set("user_id", this.getUserId()).
+            set("company_id", this.getCompanyId()).
+            set("ledger_id", ledger_id).
+            set('page', page);
+        return new Promise(function (resolve) {
+            _this.http.get(_this.ledgerDetailApi, { params: p })
+                .subscribe(function (data) {
+                resolve(data);
+            }, function (error) {
+                resolve(error.statusText);
+            });
+        });
+    };
+    ApiProvider.prototype.stockDetailReport = function (stock_id, page) {
+        var _this = this;
+        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
+            set("user_id", this.getUserId()).
+            set("company_id", this.getCompanyId()).
+            set("stock_id", stock_id).
+            set('page', page);
+        return new Promise(function (resolve) {
+            _this.http.get(_this.stockDetailReportApi, { params: p })
+                .subscribe(function (data) {
+                resolve(data);
+            }, function (error) {
+                resolve(error.statusText);
+            });
+        });
+    };
+    ApiProvider.prototype.stockSummaryReport = function () {
+        var _this = this;
+        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
+            set("user_id", this.getUserId()).
+            set("company_id", this.getCompanyId());
+        return new Promise(function (resolve) {
+            _this.http.get(_this.stockSummaryReportApi, { params: p })
+                .subscribe(function (data) {
+                resolve(data);
+            }, function (error) {
+                resolve(error.statusText);
+            });
+        });
+    };
+    ApiProvider.prototype.dayBookReport = function (page) {
+        var _this = this;
+        var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
+            set("user_id", this.getUserId()).
+            set("company_id", this.getCompanyId()).
+            set('page', page);
+        return new Promise(function (resolve) {
+            _this.http.get(_this.dayBookReportApi, { params: p })
+                .subscribe(function (data) {
+                resolve(data);
+            }, function (error) {
+                resolve(error.statusText);
+            });
+        });
+    };
+    ApiProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+    ], ApiProvider);
+    return ApiProvider;
+}());
+
+//# sourceMappingURL=api.js.map
+
+/***/ }),
+
 /***/ 285:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -631,7 +629,7 @@ var customFunctions = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_auth_auth__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_select_company_modal_select_company_modal__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_functions__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_functions__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -772,15 +770,64 @@ var ListPage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 287:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RunningTotalPipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+/**
+ * Generated class for the RunningTotalPipe pipe.
+ *
+ * See https://angular.io/api/core/Pipe for more info on Angular Pipes.
+ */
+var RunningTotalPipe = /** @class */ (function () {
+    function RunningTotalPipe() {
+    }
+    /**
+     * Takes a value and makes it lowercase.
+     */
+    RunningTotalPipe.prototype.transform = function (value, position) {
+        console.log(value, position);
+        var runningTotal = 0;
+        for (var i = 0; i <= position; i++) {
+            if (parseFloat(value[i]['credit']) == 0) {
+                runningTotal += parseFloat(value[i]['debit']);
+            }
+            else {
+                runningTotal -= parseFloat(value[i]['credit']);
+            }
+        }
+        return runningTotal;
+    };
+    RunningTotalPipe = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["S" /* Pipe */])({
+            name: 'runningTotal',
+        })
+    ], RunningTotalPipe);
+    return RunningTotalPipe;
+}());
+
+//# sourceMappingURL=running-total.js.map
+
+/***/ }),
+
 /***/ 53:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LedgerSummaryPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_functions__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_functions__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ledger_detail_ledger_detail__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1005,9 +1052,9 @@ var LoginPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelectCompanyModalPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_functions__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_functions__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1080,7 +1127,7 @@ var SelectCompanyModalPage = /** @class */ (function () {
     };
     SelectCompanyModalPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-select-company-modal',template:/*ion-inline-start:"D:\Sujan\ionic\account\src\pages\select-company-modal\select-company-modal.html"*/'<!--\n\n  Generated template for the SelectCompanyModalPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<!-- <ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Select CompanyModal</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header> -->\n\n\n\n\n\n<ion-content padding>\n\n  <h3 style="text-align:center;     \n\n              background: #FE5E00;\n\n              color: white;\n\n              padding: 10px;\n\n              border-radius: 5px;">\n\n    Select Company\n\n  </h3>\n\n<hr>\n\n<br>\n\n<ion-list radio-group [(ngModel)]="company">\n\n    <ion-item *ngFor="let c of companies">\n\n      <ion-label>{{c}}</ion-label>\n\n      <ion-radio value="{{c}}"></ion-radio>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n<ion-grid>\n\n  <ion-row>\n\n    <ion-col col-5>\n\n        <button ion-button color="danger" (click)="dismiss()" block>Cancel</button>\n\n    </ion-col>\n\n    <ion-col offset-2 col-5>\n\n        <button ion-button (click)="dismissWithData()" block style="background-color:#FE5E00;">Select</button>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"D:\Sujan\ionic\account\src\pages\select-company-modal\select-company-modal.html"*/,
+            selector: 'page-select-company-modal',template:/*ion-inline-start:"D:\Sujan\ionic\account\src\pages\select-company-modal\select-company-modal.html"*/'<!--\n\n  Generated template for the SelectCompanyModalPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<!-- <ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Select CompanyModal</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header> -->\n\n\n\n\n\n<ion-content padding>\n\n  <h3 style="text-align:center;     \n\n              background: #FE5E00;\n\n              color: white;\n\n              padding: 10px;\n\n              border-radius: 5px;">\n\n    Select Company\n\n  </h3>\n\n<hr>\n\n<br>\n\n\n\n<ion-grid>\n\n    <ion-row *ngFor="let c of companies">\n\n      <ion-col col-6 >\n\n        <b>{{c.company_id}}</b>\n\n      </ion-col>\n\n      <ion-col col-6 text-right>\n\n        <input type="radio" value="{{c.company_id}}" [(ngModel)]="company">\n\n          <!-- <ion-radio value="{{c.company_id}}" [(ngModel)]="company" name="company_id" ngDefaultControl></ion-radio> -->\n\n      </ion-col>\n\n      <ion-col col-6 style="color:grey; font-size: 14px;">\n\n          From: {{c.company_start_date | date: \'mediumDate\'}}\n\n      </ion-col>\n\n      <ion-col col-6 text-right style="color:grey; font-size: 14px;">\n\n          To: {{c.company_end_date | date: \'mediumDate\'}}\n\n      </ion-col>\n\n      <hr>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n<!-- <ion-list radio-group [(ngModel)]="company">\n\n    <ion-item *ngFor="let c of companies">\n\n      <ion-label>{{c.company_id}}</ion-label>\n\n      <ion-radio value="{{c.company_id}}"></ion-radio>\n\n    </ion-item>\n\n  </ion-list> -->\n\n\n\n<ion-grid>\n\n  <ion-row>\n\n    <ion-col col-5>\n\n        <button ion-button color="danger" (click)="dismiss()" block>Cancel</button>\n\n    </ion-col>\n\n    <ion-col offset-2 col-5>\n\n        <button ion-button (click)="dismissWithData()" block style="background-color:#FE5E00;">Select</button>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"D:\Sujan\ionic\account\src\pages\select-company-modal\select-company-modal.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -1104,7 +1151,7 @@ var SelectCompanyModalPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ledger_summary_ledger_summary__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__stock_summary_stock_summary__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__daybook_report_daybook_report__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__ = __webpack_require__(21);
@@ -1131,10 +1178,23 @@ var HomePage = /** @class */ (function () {
         this.api = api;
         this.screenOrientation = screenOrientation;
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-        setInterval(function () {
-            _this.company = _this.api.getCompanyId();
+        setTimeout(function () {
+            // this.getCompanies();
+            _this.company_id = localStorage.getItem('company_id');
         }, 500);
     }
+    HomePage.prototype.getCompanies = function () {
+        var _this = this;
+        this.api.getUserCompanies()
+            .subscribe(function (data) {
+            _this.companies = data;
+            var c = _this.companies.filter(function (company) {
+                return (company.company_id.toLowerCase().indexOf(_this.company_id.toLowerCase()) > -1);
+            });
+            _this.company = c[0];
+            console.log(_this.company);
+        });
+    };
     HomePage.prototype.gotoLedgerSummary = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__ledger_summary_ledger_summary__["a" /* LedgerSummaryPage */]);
     };
@@ -1146,7 +1206,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"D:\Sujan\ionic\account\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Reports - <small>{{company}}</small></ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content fullscreen> \n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-12>\n\n        <p class="heading"> Select The report You want to View. </p>\n\n        <hr>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <ion-card>\n\n    <ion-card-content (click)="gotoLedgerSummary()" class="component">\n\n        <ion-icon name="document" style="font-size:30px; color:#FE5E00;"></ion-icon>\n\n            Ledger Summary Report\n\n    </ion-card-content>\n\n  </ion-card>\n\n\n\n  <ion-card>\n\n      <ion-card-content  class="component" (click)="gotoDaybookReport()">\n\n          <ion-icon name="book" style="font-size:30px; color:#FE5E00;"></ion-icon>\n\n          DayBook Report\n\n      </ion-card-content>\n\n    </ion-card>\n\n\n\n    <ion-card>\n\n        <ion-card-content  class="component" (click)="gotoStockSummary()">\n\n            <ion-icon name="logo-buffer" style="font-size:30px; color:#FE5E00;"></ion-icon>\n\n            Stock Summary Report\n\n        </ion-card-content>\n\n      </ion-card>\n\n  \n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\Sujan\ionic\account\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"D:\Sujan\ionic\account\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Reports - <small>{{company_id}}</small></ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content fullscreen> \n\n  <ion-grid>\n\n    <ion-row>\n\n        <!-- <ion-grid *ngIf="company && (company.company_start_date || company.company_end_date)" style="color:gray;margin-bottom: -20px;">\n\n          <ion-row>\n\n            <ion-col col-6 *ngIf="company.company_start_date">\n\n              From: {{company.company_start_date | date: \'mediumDate\'}}\n\n            </ion-col>\n\n            <ion-col col-6 text-right *ngIf="company.company_end_date">\n\n              To: {{company.company_end_date | date: \'mediumDate\'}}\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-grid> -->\n\n      <ion-col col-12>\n\n        <p class="heading"> Select The report You want to View. </p>\n\n        <hr>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <ion-card>\n\n    <ion-card-content (click)="gotoLedgerSummary()" class="component">\n\n        <ion-icon name="document" style="font-size:30px; color:#FE5E00;"></ion-icon>\n\n            Ledger Summary Report\n\n    </ion-card-content>\n\n  </ion-card>\n\n\n\n  <ion-card>\n\n      <ion-card-content  class="component" (click)="gotoDaybookReport()">\n\n          <ion-icon name="book" style="font-size:30px; color:#FE5E00;"></ion-icon>\n\n          DayBook Report\n\n      </ion-card-content>\n\n    </ion-card>\n\n\n\n    <ion-card>\n\n        <ion-card-content  class="component" (click)="gotoStockSummary()">\n\n            <ion-icon name="logo-buffer" style="font-size:30px; color:#FE5E00;"></ion-icon>\n\n            Stock Summary Report\n\n        </ion-card-content>\n\n      </ion-card>\n\n  \n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\Sujan\ionic\account\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__["a" /* ScreenOrientation */]])
     ], HomePage);
@@ -1162,10 +1222,10 @@ var HomePage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StockSummaryPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_functions__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_functions__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__stock_detail_stock_detail__ = __webpack_require__(167);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1290,8 +1350,8 @@ var StockSummaryPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DaybookReportPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1353,7 +1413,7 @@ var DaybookReportPage = /** @class */ (function () {
     };
     DaybookReportPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-daybook-report',template:/*ion-inline-start:"D:\Sujan\ionic\account\src\pages\daybook-report\daybook-report.html"*/'<!--\n\n  Generated template for the DaybookReportPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>DayBook Report</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n\n\n<ion-content fullscreen>\n\n    <div class="content-container">\n\n        <!-- <p>Miti: {{d.miti}}</p> -->\n\n        <div class="row header">\n\n        <div class="col">Date</div>\n\n          <div class="col">Daybook</div>\n\n          <div class="col">DR</div>\n\n          <div class="col">CR</div>\n\n        </div>\n\n        <div class="row" *ngFor="let d of daybook">\n\n          <div class="col">{{d.date | date: \'mediumDate\'}}</div>\n\n          <div class="col">{{d.ledger_name}}</div>\n\n          <div class="col">{{d.dr_amount}}</div>\n\n          <div class="col">{{d.cr_amount}}</div>\n\n        </div>\n\n    </div>\n\n\n\n    <!-- <ion-card *ngFor="let d of daybook">\n\n      <ion-card-content>\n\n        <ion-grid>\n\n          <ion-row >\n\n  \n\n            <ion-col col-12 style="text-align:center;">\n\n              <strong>Ledger Name: <span> {{d.ledger_name}} </span></strong>\n\n              <hr>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                Miti: <span class="pull-right"> {{d.miti}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                Reference Number: <span class="pull-right"> {{d.reference_number}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                Page From: <span class="pull-right"> {{d.page_from}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                Open Close: <span class="pull-right"> {{d.open_close}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                DR Amount: <span class="pull-right"> {{d.dr_amount}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                CR Amount: <span class="pull-right"> {{d.cr_amount}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n              Rate: <span class="pull-right"> {{d.rate}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n              Narration: <span class="pull-right"> {{d.narration}} </span>\n\n            </ion-col>\n\n        </ion-grid>\n\n      </ion-card-content>\n\n    </ion-card> -->\n\n\n\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n        <ion-infinite-scroll-content></ion-infinite-scroll-content>\n\n     </ion-infinite-scroll>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"D:\Sujan\ionic\account\src\pages\daybook-report\daybook-report.html"*/,
+            selector: 'page-daybook-report',template:/*ion-inline-start:"D:\Sujan\ionic\account\src\pages\daybook-report\daybook-report.html"*/'<!--\n\n  Generated template for the DaybookReportPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>DayBook Report</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n\n\n<ion-content fullscreen>\n\n    <div class="content-container">\n\n        <!-- <p>Miti: {{d.miti}}</p> -->\n\n        <div class="row header">\n\n        <div class="col">Date</div>\n\n          <div class="col">Daybook</div>\n\n          <div class="col">DR</div>\n\n          <div class="col">CR</div>\n\n        </div>\n\n        <div class="row" *ngFor="let d of daybook">\n\n          <div class="col" *ngIf="d.ledger_name != \'TOTAL\' || d.ledger_name == \'Total\'">{{d.date | date: \'mediumDate\'}}</div>\n\n          <div class="col" *ngIf="d.ledger_name == \'TOTAL\' || d.ledger_name == \'Total\'"></div>\n\n          \n\n          <div class="col" *ngIf="d.ledger_name != \'TOTAL\' || d.ledger_name == \'Total\'">{{d.ledger_name}}</div>\n\n          <div class="col" *ngIf="d.ledger_name == \'TOTAL\' || d.ledger_name == \'Total\'"><b>{{d.ledger_name}}</b></div>\n\n          \n\n          <!-- <div class="col">{{d.ledger_name}}</div> -->\n\n          <div class="col">{{d.dr_amount}}</div>\n\n          <div class="col">{{d.cr_amount}}</div>\n\n        </div>\n\n    </div>\n\n\n\n    <!-- <ion-card *ngFor="let d of daybook">\n\n      <ion-card-content>\n\n        <ion-grid>\n\n          <ion-row >\n\n  \n\n            <ion-col col-12 style="text-align:center;">\n\n              <strong>Ledger Name: <span> {{d.ledger_name}} </span></strong>\n\n              <hr>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                Miti: <span class="pull-right"> {{d.miti}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                Reference Number: <span class="pull-right"> {{d.reference_number}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                Page From: <span class="pull-right"> {{d.page_from}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                Open Close: <span class="pull-right"> {{d.open_close}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                DR Amount: <span class="pull-right"> {{d.dr_amount}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n                CR Amount: <span class="pull-right"> {{d.cr_amount}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n              Rate: <span class="pull-right"> {{d.rate}} </span>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n              Narration: <span class="pull-right"> {{d.narration}} </span>\n\n            </ion-col>\n\n        </ion-grid>\n\n      </ion-card-content>\n\n    </ion-card> -->\n\n\n\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n        <ion-infinite-scroll-content></ion-infinite-scroll-content>\n\n     </ion-infinite-scroll>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"D:\Sujan\ionic\account\src\pages\daybook-report\daybook-report.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
