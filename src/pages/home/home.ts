@@ -16,7 +16,7 @@ export class HomePage {
   company_id;
   companies;
   constructor(public navCtrl: NavController, public api: ApiProvider,private screenOrientation: ScreenOrientation) {
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     
     setTimeout(()=> {
       // this.getCompanies();

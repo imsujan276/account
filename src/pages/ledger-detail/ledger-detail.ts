@@ -29,7 +29,7 @@ export class LedgerDetailPage {
   uc_amount
 
   constructor(private screenOrientation: ScreenOrientation,public navCtrl: NavController, public navParams: NavParams, private api: ApiProvider, private func: customFunctions) {
-  	this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+  	// this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.ledger = this.navParams.get('ledger')
   	this.getLedgerDetail();
   }

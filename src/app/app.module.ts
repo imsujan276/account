@@ -23,6 +23,7 @@ import { customFunctions } from '../providers/functions';
 
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { RunningTotalPipe } from '../pipes/running-total/running-total';
+import { BrMaskerModule } from 'brmasker-ionic-3';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { RunningTotalPipe } from '../pipes/running-total/running-total';
     HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    BrMaskerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -63,7 +65,7 @@ import { RunningTotalPipe } from '../pipes/running-total/running-total';
     AuthProvider,
     ApiProvider,
     customFunctions,
-    ScreenOrientation
+    ScreenOrientation,
   ]
 })
 export class AppModule {}

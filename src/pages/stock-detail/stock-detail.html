@@ -21,7 +21,8 @@
           <div class="col">Amt</div>
         </div>
         <div class="row" *ngFor="let l of stockDetail" >
-          <div class="col">{{l.date | date: 'mediumDate'}} </div>
+          <!-- <div class="col">{{l.date | date: 'mediumDate'}} </div> -->
+          <div class="col">{{l.miti}} </div>
           <div class="col">{{l.in_quantity | number}}</div>
           <div class="col">{{l.in_value | number}}</div>
           <div class="col">{{l.out_quantity | number}}</div>

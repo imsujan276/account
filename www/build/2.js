@@ -1,6 +1,6 @@
 webpackJsonp([2],{
 
-/***/ 288:
+/***/ 294:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22,7 +22,7 @@ var LedgerSummaryPageModule = /** @class */ (function () {
     function LedgerSummaryPageModule() {
     }
     LedgerSummaryPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_2__ledger_summary__["a" /* LedgerSummaryPage */],
             ],

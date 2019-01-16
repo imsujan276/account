@@ -16,7 +16,16 @@
 
 <ion-content fullscreen>
     <div class="content-container">
-        <!-- <p>Miti: {{d.miti}}</p> -->
+
+        <ion-searchbar 
+          (ionInput)="DateChange($event)" 
+          placeholder="Search by Date"
+          (ionCancel)="onSearchCancel($event)"
+          [brmasker]="{mask:'0000-00-00', len:10, type:'num'}"
+          >
+        </ion-searchbar>
+            
+
         <div class="row header">
         <div class="col">Date</div>
           <div class="col">Daybook</div>
@@ -24,54 +33,23 @@
           <div class="col">CR</div>
         </div>
         <div class="row" *ngFor="let d of daybook">
-          <div class="col" *ngIf="d.ledger_name != 'TOTAL' || d.ledger_name == 'Total'">{{d.date | date: 'mediumDate'}}</div>
+          <!-- <div class="col" *ngIf="d.ledger_name != 'TOTAL' || d.ledger_name == 'Total'">{{d.date | date: 'mediumDate'}}</div> -->
+          <div class="col" *ngIf="d.ledger_name != 'TOTAL'">{{d.miti}}</div>
           <div class="col" *ngIf="d.ledger_name == 'TOTAL' || d.ledger_name == 'Total'"></div>
           
-          <div class="col" *ngIf="d.ledger_name != 'TOTAL' || d.ledger_name == 'Total'">{{d.ledger_name}}</div>
+          <div class="col" *ngIf="d.ledger_name != 'TOTAL'">{{d.ledger_name}}</div>
           <div class="col" *ngIf="d.ledger_name == 'TOTAL' || d.ledger_name == 'Total'"><b>{{d.ledger_name}}</b></div>
           
-          <!-- <div class="col">{{d.ledger_name}}</div> -->
-          <div class="col">{{d.dr_amount}}</div>
-          <div class="col">{{d.cr_amount}}</div>
+          <div class="col" *ngIf="d.ledger_name != 'TOTAL'">{{d.dr_amount}}</div>
+          <div class="col" *ngIf="d.ledger_name == 'TOTAL' || d.ledger_name == 'Total'"><b>{{d.dr_amount}}</b></div>
+
+          <div class="col" *ngIf="d.ledger_name != 'TOTAL'">{{d.cr_amount}}</div>
+          <div class="col" *ngIf="d.ledger_name == 'TOTAL' || d.ledger_name == 'Total'"><b>{{d.cr_amount}}</b></div>
+
+          <!-- <div class="col">{{d.dr_amount}}</div>
+          <div class="col">{{d.cr_amount}}</div> -->
         </div>
     </div>
-
-    <!-- <ion-card *ngFor="let d of daybook">
-      <ion-card-content>
-        <ion-grid>
-          <ion-row >
-  
-            <ion-col col-12 style="text-align:center;">
-              <strong>Ledger Name: <span> {{d.ledger_name}} </span></strong>
-              <hr>
-            </ion-col>
-            <ion-col col-12>
-                Miti: <span class="pull-right"> {{d.miti}} </span>
-            </ion-col>
-            <ion-col col-12>
-                Reference Number: <span class="pull-right"> {{d.reference_number}} </span>
-            </ion-col>
-            <ion-col col-12>
-                Page From: <span class="pull-right"> {{d.page_from}} </span>
-            </ion-col>
-            <ion-col col-12>
-                Open Close: <span class="pull-right"> {{d.open_close}} </span>
-            </ion-col>
-            <ion-col col-12>
-                DR Amount: <span class="pull-right"> {{d.dr_amount}} </span>
-            </ion-col>
-            <ion-col col-12>
-                CR Amount: <span class="pull-right"> {{d.cr_amount}} </span>
-            </ion-col>
-            <ion-col col-12>
-              Rate: <span class="pull-right"> {{d.rate}} </span>
-            </ion-col>
-            <ion-col col-12>
-              Narration: <span class="pull-right"> {{d.narration}} </span>
-            </ion-col>
-        </ion-grid>
-      </ion-card-content>
-    </ion-card> -->
 
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
         <ion-infinite-scroll-content></ion-infinite-scroll-content>

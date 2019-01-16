@@ -31,7 +31,7 @@ export class LedgerSummaryPage {
               public func: customFunctions,
               private screenOrientation: ScreenOrientation
               ) {
-     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    //  this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.getLedgerSummaryReport();
   }
 

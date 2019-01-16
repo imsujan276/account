@@ -20,6 +20,7 @@ export class ApiProvider {
   stockSummaryReportApi = this.url + 'stockSummaryReport';
   stockDetailReportApi = this.url + 'stockSummaryDetail';
   dayBookReportApi = this.url + 'dayBookReport';
+  filterDayBookReportApi = this.url + 'filterDayBookReport';
   
   constructor(public http: HttpClient) {
   }
@@ -123,23 +124,25 @@ export class ApiProvider {
     });
   }
 
-  // dayBookReportNext(page){
-  //   let p= new HttpParams().
-  //   set("user_id", this.getUserId()).
-  //   set("company_id", this.getCompanyId()).
-  //   set('page', page);
-  //   return new Promise(resolve => {
-  //     this.http.get(this.dayBookReportApi, {params: p})
-  //       .subscribe(
-  //         data => {
-  //           resolve(data);
-  //         },
-  //         error => {
-  //           resolve(error.statusText);
-  //         }
-  //       );
-  //   });
-  // }
+  filterDayBookReport(year, month, day){
+    let p= new HttpParams().
+    set("user_id", this.getUserId()).
+    set("company_id", this.getCompanyId()).
+    set('year', year).
+    set('month', month).
+    set('day', day);
+    return new Promise(resolve => {
+      this.http.get(this.filterDayBookReportApi, {params: p})
+        .subscribe(
+          data => {
+            resolve(data);
+          },
+          error => {
+            resolve(error.statusText);
+          }
+        );
+    });
+  }
 
 
 }

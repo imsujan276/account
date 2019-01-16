@@ -28,8 +28,8 @@
 				<p *ngIf="error" style="color:red; text-align:center"> {{error}} </p>
 				<form (ngSubmit)="login()">
 					<ion-item>
-				        <ion-label floating>Email</ion-label>
-				        <ion-input type="email" [(ngModel)]="email" required name="email"></ion-input>
+				        <ion-label floating>User ID</ion-label>
+				        <ion-input type="number" [(ngModel)]="email" required name="email"></ion-input>
 				     </ion-item>
 				     <ion-item>
 				        <ion-label floating>Password</ion-label>

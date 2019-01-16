@@ -13,7 +13,7 @@ export class DaybookReportPage {
   daybook;
   current_page = 1;
   last_page = 1;
-
+myDate;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
@@ -22,8 +22,9 @@ export class DaybookReportPage {
               private screenOrientation: ScreenOrientation
             ) {
     
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.getdayBookReport();
+    this.func.presentLoading("Loading DayBook Reports...")
   }
 
   ionViewDidLoad() {
@@ -31,7 +32,6 @@ export class DaybookReportPage {
   }
 
   getdayBookReport(){
-    this.func.presentLoading("Loading DayBook Reports...")
     this.api.dayBookReport(this.current_page)
       .then(data => {
         console.log(data)
@@ -59,6 +59,36 @@ export class DaybookReportPage {
         }
       )
       }
+  }
+
+  DateChange(ev: any){
+    let input = ev.target.value;
+
+    if(input){
+      if(input.length == 10){
+        let split = input.split('-');
+        let year = split[0];
+        let month = split[1];
+        let day = split[2];
+        this.api.filterDayBookReport(year, month, day)
+          .then(data => {
+            this.daybook = data
+          })
+          .catch(()=>{
+            this.func.presentLoading('Error Occured. Displaying all records.')
+            setTimeout(()=>{
+              this.func.dismissLoading();
+              this.getdayBookReport();
+            },1000)
+          })
+      }
+    }else{
+      this.getdayBookReport()
+    }
+  }
+
+  onSearchCancel(){
+    this.getdayBookReport()
   }
 
 }
