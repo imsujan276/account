@@ -29,13 +29,15 @@ export class LedgerSummaryPage {
   current_page = 1;
   last_page = 1;
 
+  isLoadingMoreData = false;
+
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public api: ApiProvider, 
               public func: customFunctions,
               private screenOrientation: ScreenOrientation
               ) {
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     this.getLedgerSummaryReport();
   }
 
@@ -43,7 +45,7 @@ export class LedgerSummaryPage {
     console.log('ionViewDidLoad LedgerSummaryPage');
   }
   ionViewWillLeave(){
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 
   getLedgerSummaryReport(){
@@ -82,9 +84,11 @@ export class LedgerSummaryPage {
   }
 
   loadMoreData(){
+    this.isLoadingMoreData = true;
     this.api.ledgerSummaryReport(this.current_page+1)
         .subscribe(data => {
           console.log(data)
+          this.isLoadingMoreData = false;;
           if(data['data'].length > 0){
             this.ledger = this.ledger.concat(data['data'])
             this.filterData =this.ledger;
@@ -94,6 +98,7 @@ export class LedgerSummaryPage {
           }
         },
         (err) => {
+          this.isLoadingMoreData = false;
         }
       )
   }

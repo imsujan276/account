@@ -37,7 +37,7 @@
           <div class="col" *ngIf="d.ledger_name != 'TOTAL'">{{d.miti}}</div>
           <div class="col" *ngIf="d.ledger_name == 'TOTAL' || d.ledger_name == 'Total'"></div>
           
-          <div class="col" *ngIf="d.ledger_name != 'TOTAL'">{{d.ledger_name}}</div>
+          <div class="col capitalze-text" *ngIf="d.ledger_name != 'TOTAL'">{{d.ledger_name}}</div>
           <div class="col" *ngIf="d.ledger_name == 'TOTAL' || d.ledger_name == 'Total'"><b>{{d.ledger_name}}</b></div>
           
           <div class="col" *ngIf="d.ledger_name != 'TOTAL'">{{d.dr_amount}}</div>

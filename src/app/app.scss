@@ -1,9 +1,18 @@
 
-.button-md-light {
-    background-color: #FE5E00 !important;
-    color: white !important;
-    font-weight: 500 !important;
-}
+    .button-md-light {
+        background-color: #FE5E00 !important;
+        color: white !important;
+        font-weight: 500 !important;
+    }
+
+    .capitalze-text {
+        text-transform: lowercase;
+    }
+
+    .capitalze-text::first-letter {
+        text-transform: uppercase;
+    }
+
     .content-container{
         padding: 8px;
         

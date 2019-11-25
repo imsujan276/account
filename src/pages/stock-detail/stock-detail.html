@@ -117,7 +117,8 @@
   </span> -->
 
   <div *ngIf="current_page < last_page" padding style="display: flex; align-items: center; justify-content: center;">
-    <button ion-button color="light" round (click)="loadMoreData()">Load More</button>
+    <ion-spinner *ngIf="isLoadingMoreData"></ion-spinner>
+    <button *ngIf="!isLoadingMoreData" ion-button color="light" round (click)="loadMoreData()">Load More</button>
   </div>
 
 

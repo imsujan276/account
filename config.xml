@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.suga.account" version="1.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="np.com.sujangainju.account" version="1.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Account</name>
     <description>Account Report</description>
     <author email="sujangainju01@gmail.com" href="http://sujangainju.com.np/">Sujan Gainju</author>

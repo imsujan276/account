@@ -18,9 +18,11 @@ export class HomePage {
   constructor(public navCtrl: NavController, public api: ApiProvider,private screenOrientation: ScreenOrientation) {
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     
-    setTimeout(()=> {
-      // this.getCompanies();
-      this.company_id = localStorage.getItem('company_id')
+    let interval = setInterval(()=> {
+      if(localStorage.getItem('company_id')){
+        this.company_id = localStorage.getItem('company_id')
+        clearInterval(interval)
+      }
     },500)
   }
 

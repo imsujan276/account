@@ -29,6 +29,8 @@ export class StockDetailPage {
   balance_quantity;
   balance_amount;
 
+  isLoadingMoreData = false;
+
   constructor(private screenOrientation: ScreenOrientation,public navCtrl: NavController, public navParams: NavParams, private api: ApiProvider, private func: customFunctions) {
   	this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     this.stock = this.navParams.get('stock')
@@ -75,8 +77,10 @@ export class StockDetailPage {
   }
 
   loadMoreData(){
+    this.isLoadingMoreData = true;
     this.api.stockDetailReport(this.stock.stock_id, this.current_page+1)
         .then(data => {
+          this.isLoadingMoreData = false;
           console.log(data)
           if(data['data'].length > 0){
             this.stockDetail = this.stockDetail.concat(data['data'])
@@ -86,6 +90,7 @@ export class StockDetailPage {
           }
         },
         (err) => {
+          this.isLoadingMoreData = false;
         }
       )
   }

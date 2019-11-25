@@ -38,8 +38,10 @@ export class StockSummaryPage {
   current_page = 1;
   last_page = 1;
 
+  isLoadingMoreData = false;
+
   constructor(private screenOrientation: ScreenOrientation,public navCtrl: NavController, public func: customFunctions, public navParams: NavParams, public api: ApiProvider) {
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.getstockSummaryReport()
   }
 
@@ -81,9 +83,10 @@ export class StockSummaryPage {
 
 
 loadMoreData(){
+  this.isLoadingMoreData = true;
   this.api.stockSummaryReport(this.current_page+1)
   .then(data => {
-    console.log(data)
+    this.isLoadingMoreData = false;;
     if(data['data'].length > 0){
       this.stock = this.stock.concat(data['data'])
       this.current_page =  parseInt(data['current_page']);
@@ -93,6 +96,7 @@ loadMoreData(){
     }
   },
   (err) => {
+    this.isLoadingMoreData = false;
   }
 )
 }

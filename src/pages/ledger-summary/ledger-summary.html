@@ -29,7 +29,7 @@
       <div class="col">Balance</div>
     </div>
     <div class="row" *ngFor="let l of ledger" (click)="viewLedgerDetail(l)">
-      <div class="col">{{l.ledger_name}}</div>
+      <div class="col capitalze-text">{{l.ledger_name}}</div>
       <div class="col">{{l.debit | number}}</div>
       <div class="col">{{l.credit | number}}</div>
       <div class="col">{{l.balance | number}}</div>
@@ -43,7 +43,8 @@
   </div>
 
   <div *ngIf="current_page < last_page" padding style="display: flex; align-items: center; justify-content: center;">
-    <button ion-button color="light" round (click)="loadMoreData()">Load More</button>
+    <ion-spinner *ngIf="isLoadingMoreData"></ion-spinner>
+    <button *ngIf="!isLoadingMoreData" ion-button color="light" round (click)="loadMoreData()">Load More</button>
   </div>
 
   <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
