@@ -110,10 +110,15 @@
     </ion-card-content>
   </ion-card> -->
 
-  <span *ngIf="current_page <= last_page" >
+  <!-- <span *ngIf="current_page <= last_page" >
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
         <ion-infinite-scroll-content></ion-infinite-scroll-content>
     </ion-infinite-scroll>
-  </span>
+  </span> -->
+
+  <div *ngIf="current_page < last_page" padding style="display: flex; align-items: center; justify-content: center;">
+    <button ion-button color="light" round (click)="loadMoreData()">Load More</button>
+  </div>
+
 
 </ion-content>

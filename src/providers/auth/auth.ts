@@ -12,7 +12,7 @@ import { LoginPage } from '../../pages/login/login';
 @Injectable()
 export class AuthProvider {
 
-  url = "http://www.progressive.nepgeeks.com/api/app/"
+  url = "http://nepgeeks.com//api/app/"
   
   login_api = this.url+ 'user';
 

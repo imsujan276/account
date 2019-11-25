@@ -34,6 +34,10 @@ export class StockSummaryPage {
     balance_amount: 0
   }
 
+
+  current_page = 1;
+  last_page = 1;
+
   constructor(private screenOrientation: ScreenOrientation,public navCtrl: NavController, public func: customFunctions, public navParams: NavParams, public api: ApiProvider) {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.getstockSummaryReport()
@@ -45,14 +49,54 @@ export class StockSummaryPage {
 
   getstockSummaryReport(){
     this.func.presentLoading('Loading Stock Summaries...')
-    this.api.stockSummaryReport()
+    this.api.stockSummaryReport(this.current_page)
       .then(data => {
         this.func.dismissLoading();
         this.stock = data['data'];
         this.filterData = data['data'];
          this.getTotal(data['data'])
+         this.current_page = data['current_page'];
+         this.last_page = data['last_page'];
       })
   }
+
+  doInfinite(event){
+    this.api.stockSummaryReport(this.current_page+1)
+      .then(data => {
+        console.log(data)
+        if(data['data'].length > 0){
+          this.stock = this.stock.concat(data['data'])
+          this.current_page =  parseInt(data['current_page']);
+          this.last_page =  parseInt(data['last_page']);
+          this.filterData = this.stock;
+           this.getTotal(this.stock)
+        }
+        event.complete();
+      },
+      (err) => {
+        event.complete();
+      }
+    )
+}
+
+
+loadMoreData(){
+  this.api.stockSummaryReport(this.current_page+1)
+  .then(data => {
+    console.log(data)
+    if(data['data'].length > 0){
+      this.stock = this.stock.concat(data['data'])
+      this.current_page =  parseInt(data['current_page']);
+      this.last_page =  parseInt(data['last_page']);
+      this.filterData = this.stock;
+       this.getTotal(this.stock)
+    }
+  },
+  (err) => {
+  }
+)
+}
+
 
   getTotal(stock){
     this.data= {

@@ -25,30 +25,77 @@ export class LedgerSummaryPage {
     cr_amount;
     balance;
 
+
+  current_page = 1;
+  last_page = 1;
+
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public api: ApiProvider, 
               public func: customFunctions,
               private screenOrientation: ScreenOrientation
               ) {
-    //  this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     this.getLedgerSummaryReport();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LedgerSummaryPage');
   }
+  ionViewWillLeave(){
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+  }
 
   getLedgerSummaryReport(){
     this.func.presentLoading('Loading Ledger Summaries...');
-    this.api.ledgerSummaryReport()
+    this.api.ledgerSummaryReport(this.current_page)
       .subscribe(data => {
         this.func.dismissLoading();
         console.log(data['data']);
         this.ledger = data['data'];
         this.filterData = data['data'];
          this.getTotal(data['data'])
+         this.current_page = data['current_page'];
+         this.last_page = data['last_page'];
       })
+  }
+
+  doInfinite(event){
+    if(this.current_page <= this.last_page){
+      this.api.ledgerSummaryReport(this.current_page+1)
+        .subscribe(data => {
+          console.log(data)
+          if(data['data'].length > 0){
+            this.ledger = this.ledger.concat(data['data'])
+            this.filterData =this.ledger;
+            this.getTotal(this.ledger)
+            this.current_page = data['current_page'];
+            this.last_page = data['last_page'];
+          }
+          event.complete();
+        },
+        (err) => {
+          event.complete();
+        }
+      )
+      }
+  }
+
+  loadMoreData(){
+    this.api.ledgerSummaryReport(this.current_page+1)
+        .subscribe(data => {
+          console.log(data)
+          if(data['data'].length > 0){
+            this.ledger = this.ledger.concat(data['data'])
+            this.filterData =this.ledger;
+            this.getTotal(this.ledger)
+            this.current_page = data['current_page'];
+            this.last_page = data['last_page'];
+          }
+        },
+        (err) => {
+        }
+      )
   }
 
   getTotal(ledger){

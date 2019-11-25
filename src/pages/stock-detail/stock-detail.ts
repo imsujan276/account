@@ -74,6 +74,22 @@ export class StockDetailPage {
       )
   }
 
+  loadMoreData(){
+    this.api.stockDetailReport(this.stock.stock_id, this.current_page+1)
+        .then(data => {
+          console.log(data)
+          if(data['data'].length > 0){
+            this.stockDetail = this.stockDetail.concat(data['data'])
+            this.current_page =  parseInt(data['current_page']);
+            this.last_page =  parseInt(data['last_page']);
+            this.getTotal(this.stockDetail);
+          }
+        },
+        (err) => {
+        }
+      )
+  }
+
   getTotal(stockDetail){
     this.in_quantity = 0; this.out_quantity = 0;this.in_value = 0;this.out_value = 0;this.balance_quantity  =  0; this.balance_amount = 0;
     for(let data of stockDetail) {

@@ -13,7 +13,7 @@ export class ApiProvider {
   user_id;
   company_id;
 
-  url = "http://www.progressive.nepgeeks.com/api/app/"
+  url = "http://nepgeeks.com/api/app/"
   getCompanies = this.url+ "getCompanies";
   ledgerSummaryReportApi = this.url+ 'ledgerSummaryReport';
   ledgerDetailApi = this.url+ 'ledgerDetail';
@@ -40,9 +40,10 @@ export class ApiProvider {
   }
 
 
-  ledgerSummaryReport(){
+  ledgerSummaryReport(page){
     let p= new HttpParams().
     set("user_id", this.getUserId()).
+    set("page", page).
     set("company_id", this.getCompanyId());
     return this.http.get(this.ledgerSummaryReportApi, {params: p});
   }
@@ -88,9 +89,10 @@ export class ApiProvider {
   }
 
 
-  stockSummaryReport(){
+  stockSummaryReport(page){
     let p= new HttpParams().
     set("user_id", this.getUserId()).
+    set("page", page).
     set("company_id", this.getCompanyId());
     return new Promise(resolve => {
       this.http.get(this.stockSummaryReportApi, {params: p})
