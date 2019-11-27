@@ -122,9 +122,10 @@ export class LedgerSummaryPage {
         return (item.ledger_name.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
       this.getTotal(this.ledger)
-    }else{
-      this.getLedgerSummaryReport();
     }
+    // else{
+    //   this.getLedgerSummaryReport();
+    // }
   }
 
   onSearchCancel(){

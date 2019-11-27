@@ -985,9 +985,9 @@ var LedgerSummaryPage = /** @class */ (function () {
             });
             this.getTotal(this.ledger);
         }
-        else {
-            this.getLedgerSummaryReport();
-        }
+        // else{
+        //   this.getLedgerSummaryReport();
+        // }
     };
     LedgerSummaryPage.prototype.onSearchCancel = function () {
         this.getLedgerSummaryReport();
@@ -1448,9 +1448,9 @@ var StockSummaryPage = /** @class */ (function () {
             });
             this.getTotal(this.stock);
         }
-        else {
-            this.getstockSummaryReport();
-        }
+        // else{
+        //   this.getstockSummaryReport();
+        // }
     };
     StockSummaryPage.prototype.onSearchCancel = function () {
         this.getstockSummaryReport();
@@ -1518,6 +1518,7 @@ var DaybookReportPage = /** @class */ (function () {
             console.log(data);
             _this.func.dismissLoading();
             _this.daybook = data['data'];
+            _this.temp_daybook = data['data'];
             _this.current_page = data['current_page'];
             _this.last_page = data['last_page'];
         });
@@ -1530,6 +1531,7 @@ var DaybookReportPage = /** @class */ (function () {
                 console.log(data);
                 if (data['data'].length > 0) {
                     _this.daybook = _this.daybook.concat(data['data']);
+                    _this.temp_daybook = _this.temp_daybook.concat(data['data']);
                     _this.current_page = data['current_page'];
                     _this.last_page = data['last_page'];
                 }
@@ -1544,33 +1546,63 @@ var DaybookReportPage = /** @class */ (function () {
         var input = ev.target.value;
         if (input) {
             if (input.length == 10) {
-                var split = input.split('-');
-                var year = split[0];
-                var month = split[1];
-                var day = split[2];
-                this.api.filterDayBookReport(year, month, day)
-                    .then(function (data) {
-                    _this.daybook = data;
-                })
-                    .catch(function () {
-                    _this.func.presentLoading('Error Occured. Displaying all records.');
-                    setTimeout(function () {
-                        _this.func.dismissLoading();
-                        _this.getdayBookReport();
-                    }, 1000);
-                });
+                var dateParse = Date.parse(input);
+                if (dateParse) {
+                    var dateObj = new Date(dateParse);
+                    var month = dateObj.getMonth() + 1; //months from 1-12
+                    var day = dateObj.getDate();
+                    var year = dateObj.getFullYear();
+                    console.log(year + "/" + month + "/" + day);
+                    this.api.filterDayBookReport(year, month, day)
+                        .then(function (data) {
+                        _this.daybook = data;
+                    })
+                        .catch(function () {
+                        _this.func.presentToast('Error Occured.');
+                        setTimeout(function () {
+                            _this.daybook = _this.temp_daybook;
+                        }, 1000);
+                    });
+                }
+                else {
+                    this.func.presentToast('Invalid Date. Please enter a valid date');
+                }
             }
         }
         else {
-            this.getdayBookReport();
+            this.daybook = this.temp_daybook;
         }
+        // if(input){
+        //   if(input.length == 10){
+        //     let split = input.split('-');
+        //     let year = split[0];
+        //     let month = split[1];
+        //     let day = split[2];
+        //     this.api.filterDayBookReport(year, month, day)
+        //       .then(data => {
+        //         this.daybook = data
+        //       })
+        //       .catch(()=>{
+        //         this.func.presentLoading('Error Occured. Displaying all records.')
+        //         setTimeout(()=>{
+        //           this.func.dismissLoading();
+        //           // this.getdayBookReport();
+        //           this.daybook = this.temp_daybook
+        //         },1000)
+        //       })
+        //   }
+        // }else{
+        //   this.daybook = this.temp_daybook
+        //   // this.getdayBookReport()
+        // }
     };
     DaybookReportPage.prototype.onSearchCancel = function () {
-        this.getdayBookReport();
+        this.daybook = this.temp_daybook;
+        // this.getdayBookReport()
     };
     DaybookReportPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-daybook-report',template:/*ion-inline-start:"/Volumes/D/Ionic/account/src/pages/daybook-report/daybook-report.html"*/'<!--\n  Generated template for the DaybookReportPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>DayBook Report</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content fullscreen>\n    <div class="content-container">\n\n        <ion-searchbar \n          (ionInput)="DateChange($event)" \n          placeholder="Search by Date"\n          (ionCancel)="onSearchCancel($event)"\n          [brmasker]="{mask:\'0000-00-00\', len:10, type:\'num\'}"\n          >\n        </ion-searchbar>\n            \n\n        <div class="row header">\n        <div class="col">Date</div>\n          <div class="col">Daybook</div>\n          <div class="col">DR</div>\n          <div class="col">CR</div>\n        </div>\n        <div class="row" *ngFor="let d of daybook">\n          <!-- <div class="col" *ngIf="d.ledger_name != \'TOTAL\' || d.ledger_name == \'Total\'">{{d.date | date: \'mediumDate\'}}</div> -->\n          <div class="col" *ngIf="d.ledger_name != \'TOTAL\'">{{d.miti}}</div>\n          <div class="col" *ngIf="d.ledger_name == \'TOTAL\' || d.ledger_name == \'Total\'"></div>\n          \n          <div class="col capitalze-text" *ngIf="d.ledger_name != \'TOTAL\'">{{d.ledger_name}}</div>\n          <div class="col" *ngIf="d.ledger_name == \'TOTAL\' || d.ledger_name == \'Total\'"><b>{{d.ledger_name}}</b></div>\n          \n          <div class="col" *ngIf="d.ledger_name != \'TOTAL\'">{{d.dr_amount}}</div>\n          <div class="col" *ngIf="d.ledger_name == \'TOTAL\' || d.ledger_name == \'Total\'"><b>{{d.dr_amount}}</b></div>\n\n          <div class="col" *ngIf="d.ledger_name != \'TOTAL\'">{{d.cr_amount}}</div>\n          <div class="col" *ngIf="d.ledger_name == \'TOTAL\' || d.ledger_name == \'Total\'"><b>{{d.cr_amount}}</b></div>\n\n          <!-- <div class="col">{{d.dr_amount}}</div>\n          <div class="col">{{d.cr_amount}}</div> -->\n        </div>\n    </div>\n\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n        <ion-infinite-scroll-content></ion-infinite-scroll-content>\n     </ion-infinite-scroll>\n  \n</ion-content>\n'/*ion-inline-end:"/Volumes/D/Ionic/account/src/pages/daybook-report/daybook-report.html"*/,
+            selector: 'page-daybook-report',template:/*ion-inline-start:"/Volumes/D/Ionic/account/src/pages/daybook-report/daybook-report.html"*/'<!--\n  Generated template for the DaybookReportPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>DayBook Report</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content fullscreen>\n    <div class="content-container">\n\n        <ion-searchbar \n          (ionInput)="DateChange($event)" \n          placeholder="Search by Date"\n          (ionCancel)="onSearchCancel($event)"\n          \n          >\n        </ion-searchbar>\n        <!-- [brmasker]="{mask:\'0000-00-00\', len:10, type:\'num\'}" -->\n\n        <div class="row header">\n        <div class="col">Date</div>\n          <div class="col">Daybook</div>\n          <div class="col">DR</div>\n          <div class="col">CR</div>\n        </div>\n        <div class="row" *ngFor="let d of daybook">\n          <!-- <div class="col" *ngIf="d.ledger_name != \'TOTAL\' || d.ledger_name == \'Total\'">{{d.date | date: \'mediumDate\'}}</div> -->\n          <div class="col" *ngIf="d.ledger_name != \'TOTAL\'">{{d.miti}}</div>\n          <div class="col" *ngIf="d.ledger_name == \'TOTAL\' || d.ledger_name == \'Total\'"></div>\n          \n          <div class="col capitalze-text" *ngIf="d.ledger_name != \'TOTAL\'">{{d.ledger_name}}</div>\n          <div class="col" *ngIf="d.ledger_name == \'TOTAL\' || d.ledger_name == \'Total\'"><b>{{d.ledger_name}}</b></div>\n          \n          <div class="col" *ngIf="d.ledger_name != \'TOTAL\'">{{d.dr_amount}}</div>\n          <div class="col" *ngIf="d.ledger_name == \'TOTAL\' || d.ledger_name == \'Total\'"><b>{{d.dr_amount}}</b></div>\n\n          <div class="col" *ngIf="d.ledger_name != \'TOTAL\'">{{d.cr_amount}}</div>\n          <div class="col" *ngIf="d.ledger_name == \'TOTAL\' || d.ledger_name == \'Total\'"><b>{{d.cr_amount}}</b></div>\n\n          <!-- <div class="col">{{d.dr_amount}}</div>\n          <div class="col">{{d.cr_amount}}</div> -->\n        </div>\n    </div>\n\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n        <ion-infinite-scroll-content></ion-infinite-scroll-content>\n     </ion-infinite-scroll>\n  \n</ion-content>\n'/*ion-inline-end:"/Volumes/D/Ionic/account/src/pages/daybook-report/daybook-report.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],

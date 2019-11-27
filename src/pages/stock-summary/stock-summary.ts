@@ -137,9 +137,10 @@ loadMoreData(){
         return (item.stock_name.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
       this.getTotal(this.stock)
-    }else{
-      this.getstockSummaryReport();
     }
+    // else{
+    //   this.getstockSummaryReport();
+    // }
   }
 
   onSearchCancel(){
