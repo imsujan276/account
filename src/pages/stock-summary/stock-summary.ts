@@ -40,6 +40,8 @@ export class StockSummaryPage {
 
   isLoadingMoreData = false;
 
+  isSearching = false;
+
   constructor(private screenOrientation: ScreenOrientation,public navCtrl: NavController, public func: customFunctions, public navParams: NavParams, public api: ApiProvider) {
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.getstockSummaryReport()
@@ -133,18 +135,25 @@ loadMoreData(){
     console.log(val)
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
+      this.isSearching = true;
+
       this.stock = this.filterData.filter((item) => {
         return (item.stock_name.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
       this.getTotal(this.stock)
     }
-    // else{
-    //   this.getstockSummaryReport();
-    // }
+    else{
+      // this.getstockSummaryReport();
+      this.isSearching = false;
+      this.stock = this.filterData
+    }
+
   }
 
   onSearchCancel(){
-    this.getstockSummaryReport();
+    // this.getstockSummaryReport();
+    this.stock = this.filterData
+    this.isSearching = false;
   }
 
   viewStockDetail(stock){

@@ -25,7 +25,7 @@ export class AuthProvider {
          set("email",data.email).
          set("password", data.password);
 
-  	return this.http.get(this.login_api, {params: p});
+  	return this.http.get('http://nepgeeks.com//api/app/user', {params: p});
   }
 
 

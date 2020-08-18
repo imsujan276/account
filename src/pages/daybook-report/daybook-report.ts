@@ -14,7 +14,8 @@ export class DaybookReportPage {
   temp_daybook;
   current_page = 1;
   last_page = 1;
-myDate;
+
+  isSearching = false;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
@@ -45,6 +46,10 @@ myDate;
   }
 
   doInfinite(event){
+    if(this.isSearching){
+      event.complete();
+      return;
+    }
     if(this.current_page <= this.last_page){
       this.api.dayBookReport(this.current_page+1)
         .then(data => {
@@ -70,6 +75,7 @@ myDate;
       if(input.length == 10){
         let dateParse = Date.parse(input);
         if(dateParse){
+          this.isSearching = true;
           let dateObj = new Date(dateParse)
           let month = dateObj.getMonth() + 1; //months from 1-12
           let day = dateObj.getDate();
@@ -83,6 +89,7 @@ myDate;
             this.func.presentToast('Error Occured.')
             setTimeout(()=>{
               this.daybook = this.temp_daybook
+              this.isSearching = false;
             },1000)
           })
         }
@@ -92,6 +99,7 @@ myDate;
       }
     }else{
       this.daybook = this.temp_daybook
+      this.isSearching = false;
     }
 
     // if(input){
@@ -121,6 +129,7 @@ myDate;
 
   onSearchCancel(){
     this.daybook = this.temp_daybook
+    this.isSearching = false;
     // this.getdayBookReport()
   }
 

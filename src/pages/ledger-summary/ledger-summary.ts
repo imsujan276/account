@@ -30,6 +30,7 @@ export class LedgerSummaryPage {
   last_page = 1;
 
   isLoadingMoreData = false;
+  isSearching = false;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -118,18 +119,23 @@ export class LedgerSummaryPage {
     console.log(val)
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
+      this.isSearching = true;
       this.ledger = this.filterData.filter((item) => {
         return (item.ledger_name.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
       this.getTotal(this.ledger)
     }
-    // else{
-    //   this.getLedgerSummaryReport();
-    // }
+    else{
+      // this.getLedgerSummaryReport();
+      this.ledger = this.filterData;
+      this.isSearching = false;
+    }
   }
 
   onSearchCancel(){
-    this.getLedgerSummaryReport();
+    this.ledger = this.filterData
+    // this.getLedgerSummaryReport();
+    this.isSearching = false;
   }
 
   viewLedgerDetail(ledger){

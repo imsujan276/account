@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ModalController } from 'ionic-angular';
-// import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { HomePage } from '../home/home';
 import { SelectCompanyModalPage } from '../select-company-modal/select-company-modal';
 
 import { AuthProvider } from '../../providers/auth/auth';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
 /**
  * Generated class for the LoginPage page.
  *
@@ -34,15 +32,10 @@ export class LoginPage {
               public auth:AuthProvider, 
               public navParams: NavParams, 
               public loadingCtrl: LoadingController,
-              private screenOrientation: ScreenOrientation
               ) {
-    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     if(localStorage.getItem('user_id') && localStorage.getItem('company_id') && localStorage.getItem('email')){
       this.navCtrl.setRoot(HomePage)
     }
-    // if(!localStorage.getItem('company_id')){
-    //   this.auth.logout();
-    // }
     this.error = this.navParams.get('error') ? this.navParams.get('error') : '';
   }
 
@@ -61,18 +54,15 @@ export class LoginPage {
     this.loading.present();
 
     this.auth.login(data)
-    .subscribe(data => {
+    .subscribe(
+      data => {
         this.loading.dismiss();
         if(data['status'] == 'success'){
           let user = data['message'][0];
-          // if(localStorage.getItem('company_id')){
-          //   this.saveUser(user);
-          // }else{
             let SelectCompanyModal = this.modalCtrl.create(SelectCompanyModalPage, { user_id: user.user_id });
             SelectCompanyModal.onDidDismiss(data => {
               console.log(data);
               if(data['status'] == true){
-                // localStorage.setItem('company_id', data['company_id']);
                 this.saveUser(user);
               }else{
                 this.error = 'Please select the company to proceed';
@@ -86,7 +76,14 @@ export class LoginPage {
           this.error = data['message'];
           this.navCtrl.setRoot(LoginPage, {error: data['message']});
         }
-      })
+      },
+      error => {
+        this.loading.dismiss();
+        console.log(error);
+        alert(JSON.stringify(error))
+        this.error = 'Unable to login.'
+      }
+    )
   }
 
 

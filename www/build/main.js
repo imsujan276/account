@@ -7,9 +7,9 @@ webpackJsonp([4],{
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LedgerDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__ = __webpack_require__(28);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -163,9 +163,9 @@ module.exports = webpackAsyncContext;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StockDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__ = __webpack_require__(28);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -318,9 +318,9 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_splash_screen__ = __webpack_require__(208);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_auth_auth__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_common_http__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_api_api__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_functions__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_screen_orientation__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_api_api__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_functions__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_screen_orientation__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pipes_running_total_running_total__ = __webpack_require__(289);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_brmasker_ionic_3__ = __webpack_require__(290);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -413,7 +413,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 27:
+/***/ 26:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -558,7 +558,7 @@ var ApiProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 28:
+/***/ 27:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -670,7 +670,7 @@ var customFunctions = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_auth_auth__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_select_company_modal_select_company_modal__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_functions__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_functions__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -865,12 +865,12 @@ var RunningTotalPipe = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LedgerSummaryPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_functions__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_functions__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ledger_detail_ledger_detail__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(28);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -902,6 +902,7 @@ var LedgerSummaryPage = /** @class */ (function () {
         this.current_page = 1;
         this.last_page = 1;
         this.isLoadingMoreData = false;
+        this.isSearching = false;
         // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
         this.getLedgerSummaryReport();
     }
@@ -980,24 +981,29 @@ var LedgerSummaryPage = /** @class */ (function () {
         console.log(val);
         // if the value is an empty string don't filter the items
         if (val && val.trim() != '') {
+            this.isSearching = true;
             this.ledger = this.filterData.filter(function (item) {
                 return (item.ledger_name.toLowerCase().indexOf(val.toLowerCase()) > -1);
             });
             this.getTotal(this.ledger);
         }
-        // else{
-        //   this.getLedgerSummaryReport();
-        // }
+        else {
+            // this.getLedgerSummaryReport();
+            this.ledger = this.filterData;
+            this.isSearching = false;
+        }
     };
     LedgerSummaryPage.prototype.onSearchCancel = function () {
-        this.getLedgerSummaryReport();
+        this.ledger = this.filterData;
+        // this.getLedgerSummaryReport();
+        this.isSearching = false;
     };
     LedgerSummaryPage.prototype.viewLedgerDetail = function (ledger) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__ledger_detail_ledger_detail__["a" /* LedgerDetailPage */], { ledger: ledger });
     };
     LedgerSummaryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["n" /* Component */])({
-            selector: 'page-ledger-summary',template:/*ion-inline-start:"/Volumes/D/Ionic/account/src/pages/ledger-summary/ledger-summary.html"*/'<!--\n  Generated template for the LedgerSummaryPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title >Ledger Summary</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content fullscreen>\n      \n  <ion-searchbar \n          (ionInput)="search($event)" \n          placeholder="Search by Ledger"\n          (ionCancel)="onSearchCancel($event)"\n          >\n  </ion-searchbar>\n\n  <div class="content-container">\n    <div class="row header">\n      <div class="col">Ledger</div>\n      <div class="col">DR</div>\n      <div class="col">CR</div>\n      <div class="col">Balance</div>\n    </div>\n    <div class="row" *ngFor="let l of ledger" (click)="viewLedgerDetail(l)">\n      <div class="col capitalze-text">{{l.ledger_name}}</div>\n      <div class="col">{{l.debit | number}}</div>\n      <div class="col">{{l.credit | number}}</div>\n      <div class="col">{{l.balance | number}}</div>\n    </div>\n    <div class="row footer" *ngIf="ledger">\n      <div class="col">Total</div>\n      <div class="col">{{dr_amount | number}}</div>\n      <div class="col">{{cr_amount | number}}</div>\n      <div class="col">{{balance | number}}</div>\n    </div>\n  </div>\n\n  <div *ngIf="current_page < last_page" padding style="display: flex; align-items: center; justify-content: center;">\n    <ion-spinner *ngIf="isLoadingMoreData"></ion-spinner>\n    <button *ngIf="!isLoadingMoreData" ion-button color="light" round (click)="loadMoreData()">Load More</button>\n  </div>\n\n  <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n    <ion-infinite-scroll-content></ion-infinite-scroll-content>\n </ion-infinite-scroll> -->\n\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/Ionic/account/src/pages/ledger-summary/ledger-summary.html"*/,
+            selector: 'page-ledger-summary',template:/*ion-inline-start:"/Volumes/D/Ionic/account/src/pages/ledger-summary/ledger-summary.html"*/'<!--\n  Generated template for the LedgerSummaryPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title >Ledger Summary</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content fullscreen>\n      \n  <ion-searchbar \n          (ionInput)="search($event)" \n          placeholder="Search by Ledger"\n          (ionCancel)="onSearchCancel($event)"\n          >\n  </ion-searchbar>\n\n  <div class="content-container">\n    <div class="row header">\n      <div class="col">Ledger</div>\n      <div class="col">DR</div>\n      <div class="col">CR</div>\n      <div class="col">Balance</div>\n    </div>\n    <div class="row" *ngFor="let l of ledger" (click)="viewLedgerDetail(l)">\n      <div class="col capitalze-text">{{l.ledger_name}}</div>\n      <div class="col">{{l.debit | number}}</div>\n      <div class="col">{{l.credit | number}}</div>\n      <div class="col">{{l.balance | number}}</div>\n    </div>\n    <div class="row footer" *ngIf="ledger">\n      <div class="col">Total</div>\n      <div class="col">{{dr_amount | number}}</div>\n      <div class="col">{{cr_amount | number}}</div>\n      <div class="col">{{balance | number}}</div>\n    </div>\n  </div>\n\n  <div *ngIf="!isSearching">\n    <div *ngIf="current_page < last_page" padding style="display: flex; align-items: center; justify-content: center;">\n      <ion-spinner *ngIf="isLoadingMoreData"></ion-spinner>\n      <button *ngIf="!isLoadingMoreData" ion-button color="light" round (click)="loadMoreData()">Load More</button>\n    </div>\n  </div>\n\n\n  <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n    <ion-infinite-scroll-content></ion-infinite-scroll-content>\n </ion-infinite-scroll> -->\n\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/Ionic/account/src/pages/ledger-summary/ledger-summary.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */],
@@ -1022,7 +1028,6 @@ var LedgerSummaryPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__select_company_modal_select_company_modal__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__ = __webpack_require__(89);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1034,8 +1039,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-// import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-
 
 
 
@@ -1046,25 +1049,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var LoginPage = /** @class */ (function () {
-    function LoginPage(modalCtrl, navCtrl, auth, navParams, loadingCtrl, screenOrientation) {
+    function LoginPage(modalCtrl, navCtrl, auth, navParams, loadingCtrl) {
         this.modalCtrl = modalCtrl;
         this.navCtrl = navCtrl;
         this.auth = auth;
         this.navParams = navParams;
         this.loadingCtrl = loadingCtrl;
-        this.screenOrientation = screenOrientation;
         this.email = "";
         this.password = "";
         this.loading = this.loadingCtrl.create({
             content: 'Please wait...'
         });
-        // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
         if (localStorage.getItem('user_id') && localStorage.getItem('company_id') && localStorage.getItem('email')) {
             this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
         }
-        // if(!localStorage.getItem('company_id')){
-        //   this.auth.logout();
-        // }
         this.error = this.navParams.get('error') ? this.navParams.get('error') : '';
     }
     LoginPage_1 = LoginPage;
@@ -1083,14 +1081,10 @@ var LoginPage = /** @class */ (function () {
             _this.loading.dismiss();
             if (data['status'] == 'success') {
                 var user_1 = data['message'][0];
-                // if(localStorage.getItem('company_id')){
-                //   this.saveUser(user);
-                // }else{
                 var SelectCompanyModal = _this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_3__select_company_modal_select_company_modal__["a" /* SelectCompanyModalPage */], { user_id: user_1.user_id });
                 SelectCompanyModal.onDidDismiss(function (data) {
                     console.log(data);
                     if (data['status'] == true) {
-                        // localStorage.setItem('company_id', data['company_id']);
                         _this.saveUser(user_1);
                     }
                     else {
@@ -1106,6 +1100,11 @@ var LoginPage = /** @class */ (function () {
                 _this.error = data['message'];
                 _this.navCtrl.setRoot(LoginPage_1, { error: data['message'] });
             }
+        }, function (error) {
+            _this.loading.dismiss();
+            console.log(error);
+            alert(JSON.stringify(error));
+            _this.error = 'Unable to login.';
         });
     };
     LoginPage.prototype.saveUser = function (user) {
@@ -1120,8 +1119,7 @@ var LoginPage = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__["a" /* AuthProvider */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__["a" /* ScreenOrientation */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */]])
     ], LoginPage);
     return LoginPage;
     var LoginPage_1;
@@ -1138,10 +1136,10 @@ var LoginPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelectCompanyModalPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_functions__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_functions__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(28);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1237,10 +1235,10 @@ var SelectCompanyModalPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ledger_summary_ledger_summary__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__stock_summary_stock_summary__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__daybook_report_daybook_report__ = __webpack_require__(88);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__ = __webpack_require__(28);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1310,12 +1308,12 @@ var HomePage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StockSummaryPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_functions__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_functions__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__stock_detail_stock_detail__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(28);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1358,6 +1356,7 @@ var StockSummaryPage = /** @class */ (function () {
         this.current_page = 1;
         this.last_page = 1;
         this.isLoadingMoreData = false;
+        this.isSearching = false;
         // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
         this.getstockSummaryReport();
     }
@@ -1443,24 +1442,29 @@ var StockSummaryPage = /** @class */ (function () {
         console.log(val);
         // if the value is an empty string don't filter the items
         if (val && val.trim() != '') {
+            this.isSearching = true;
             this.stock = this.filterData.filter(function (item) {
                 return (item.stock_name.toLowerCase().indexOf(val.toLowerCase()) > -1);
             });
             this.getTotal(this.stock);
         }
-        // else{
-        //   this.getstockSummaryReport();
-        // }
+        else {
+            // this.getstockSummaryReport();
+            this.isSearching = false;
+            this.stock = this.filterData;
+        }
     };
     StockSummaryPage.prototype.onSearchCancel = function () {
-        this.getstockSummaryReport();
+        // this.getstockSummaryReport();
+        this.stock = this.filterData;
+        this.isSearching = false;
     };
     StockSummaryPage.prototype.viewStockDetail = function (stock) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__stock_detail_stock_detail__["a" /* StockDetailPage */], { stock: stock });
     };
     StockSummaryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["n" /* Component */])({
-            selector: 'page-stock-summary',template:/*ion-inline-start:"/Volumes/D/Ionic/account/src/pages/stock-summary/stock-summary.html"*/'<!--\n  Generated template for the StockSummaryPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Stock Sumamry</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content fullscreen>\n  <ion-searchbar \n    (ionInput)="search($event)" \n    placeholder="Search by Stock Name"\n    (ionCancel)="onSearchCancel($event)"\n    >\n  </ion-searchbar>\n\n    <div class="content-container">\n      <ion-row class="row header">\n        <ion-col col-4>Stock</ion-col>\n        <ion-col col-2>IN</ion-col>\n        <ion-col col-2>OUT</ion-col>\n        <ion-col col-2>Bal</ion-col>\n        <ion-col col-2>Amt</ion-col>\n      </ion-row>\n      <ion-row *ngFor="let s of stock" (click)="viewStockDetail(s)">\n        <ion-col col-4 class=" capitalze-text">{{s.stock_name}}</ion-col>\n        <ion-col col-2>{{s.in_quantity | number}}</ion-col>\n        <ion-col col-2>{{s.out_quantity | number}}</ion-col>\n        <ion-col col-2>{{s.balance_quantity | number}}</ion-col>\n        <ion-col col-2>{{s.balance_amount | number}}</ion-col>\n      </ion-row>\n      <ion-row class="row footer" *ngIf="stock">\n        <ion-col col-4>Total</ion-col>\n        <ion-col col-2>{{data.in_quantity | number}}</ion-col>\n        <ion-col col-2>{{data.out_quantity | number}}</ion-col>\n        <ion-col col-2>{{data.balance_quantity | number}}</ion-col>\n        <ion-col col-2>{{data.balance_amount | number}}</ion-col>\n      </ion-row>\n    </div>\n\n  <div *ngIf="current_page < last_page" padding style="display: flex; align-items: center; justify-content: center;">\n    <ion-spinner *ngIf="isLoadingMoreData"></ion-spinner>\n    <button *ngIf="!isLoadingMoreData" ion-button color="light" round (click)="loadMoreData()">Load More</button>\n  </div>\n\n  <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n    <ion-infinite-scroll-content></ion-infinite-scroll-content>\n </ion-infinite-scroll> -->\n\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/Ionic/account/src/pages/stock-summary/stock-summary.html"*/,
+            selector: 'page-stock-summary',template:/*ion-inline-start:"/Volumes/D/Ionic/account/src/pages/stock-summary/stock-summary.html"*/'<!--\n  Generated template for the StockSummaryPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Stock Sumamry</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content fullscreen>\n  <ion-searchbar \n    (ionInput)="search($event)" \n    placeholder="Search by Stock Name"\n    (ionCancel)="onSearchCancel($event)"\n    >\n  </ion-searchbar>\n\n    <div class="content-container">\n      <ion-row class="row header">\n        <ion-col col-4>Stock</ion-col>\n        <ion-col col-2>IN</ion-col>\n        <ion-col col-2>OUT</ion-col>\n        <ion-col col-2>Bal</ion-col>\n        <ion-col col-2>Amt</ion-col>\n      </ion-row>\n      <ion-row *ngFor="let s of stock" (click)="viewStockDetail(s)">\n        <ion-col col-4 class=" capitalze-text">{{s.stock_name}}</ion-col>\n        <ion-col col-2>{{s.in_quantity | number}}</ion-col>\n        <ion-col col-2>{{s.out_quantity | number}}</ion-col>\n        <ion-col col-2>{{s.balance_quantity | number}}</ion-col>\n        <ion-col col-2>{{s.balance_amount | number}}</ion-col>\n      </ion-row>\n      <ion-row class="row footer" *ngIf="stock">\n        <ion-col col-4>Total</ion-col>\n        <ion-col col-2>{{data.in_quantity | number}}</ion-col>\n        <ion-col col-2>{{data.out_quantity | number}}</ion-col>\n        <ion-col col-2>{{data.balance_quantity | number}}</ion-col>\n        <ion-col col-2>{{data.balance_amount | number}}</ion-col>\n      </ion-row>\n    </div>\n\n    <div *ngIf="!isSearching">\n      <div *ngIf="current_page < last_page" padding style="display: flex; align-items: center; justify-content: center;">\n        <ion-spinner *ngIf="isLoadingMoreData"></ion-spinner>\n        <button *ngIf="!isLoadingMoreData" ion-button color="light" round (click)="loadMoreData()">Load More</button>\n      </div>\n    </div>\n\n  <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n    <ion-infinite-scroll-content></ion-infinite-scroll-content>\n </ion-infinite-scroll> -->\n\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/Ionic/account/src/pages/stock-summary/stock-summary.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__["a" /* ScreenOrientation */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_0__providers_functions__["a" /* customFunctions */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */]])
     ], StockSummaryPage);
@@ -1478,9 +1482,9 @@ var StockSummaryPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DaybookReportPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__ = __webpack_require__(28);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1504,6 +1508,7 @@ var DaybookReportPage = /** @class */ (function () {
         this.screenOrientation = screenOrientation;
         this.current_page = 1;
         this.last_page = 1;
+        this.isSearching = false;
         // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
         this.getdayBookReport();
         this.func.presentLoading("Loading DayBook Reports...");
@@ -1525,6 +1530,10 @@ var DaybookReportPage = /** @class */ (function () {
     };
     DaybookReportPage.prototype.doInfinite = function (event) {
         var _this = this;
+        if (this.isSearching) {
+            event.complete();
+            return;
+        }
         if (this.current_page <= this.last_page) {
             this.api.dayBookReport(this.current_page + 1)
                 .then(function (data) {
@@ -1548,6 +1557,7 @@ var DaybookReportPage = /** @class */ (function () {
             if (input.length == 10) {
                 var dateParse = Date.parse(input);
                 if (dateParse) {
+                    this.isSearching = true;
                     var dateObj = new Date(dateParse);
                     var month = dateObj.getMonth() + 1; //months from 1-12
                     var day = dateObj.getDate();
@@ -1561,6 +1571,7 @@ var DaybookReportPage = /** @class */ (function () {
                         _this.func.presentToast('Error Occured.');
                         setTimeout(function () {
                             _this.daybook = _this.temp_daybook;
+                            _this.isSearching = false;
                         }, 1000);
                     });
                 }
@@ -1571,6 +1582,7 @@ var DaybookReportPage = /** @class */ (function () {
         }
         else {
             this.daybook = this.temp_daybook;
+            this.isSearching = false;
         }
         // if(input){
         //   if(input.length == 10){
@@ -1598,6 +1610,7 @@ var DaybookReportPage = /** @class */ (function () {
     };
     DaybookReportPage.prototype.onSearchCancel = function () {
         this.daybook = this.temp_daybook;
+        this.isSearching = false;
         // this.getdayBookReport()
     };
     DaybookReportPage = __decorate([
@@ -1657,7 +1670,7 @@ var AuthProvider = /** @class */ (function () {
         var p = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().
             set("email", data.email).
             set("password", data.password);
-        return this.http.get(this.login_api, { params: p });
+        return this.http.get('http://nepgeeks.com//api/app/user', { params: p });
     };
     AuthProvider.prototype.logout = function () {
         if (localStorage.getItem('company_id')) {
