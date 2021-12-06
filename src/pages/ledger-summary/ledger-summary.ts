@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { LedgerDetailPage } from '../ledger-detail/ledger-detail';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
 /**
  * Generated class for the LedgerSummaryPage page.
  *
@@ -35,10 +34,8 @@ export class LedgerSummaryPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public api: ApiProvider, 
-              public func: customFunctions,
-              private screenOrientation: ScreenOrientation
+              public func: customFunctions
               ) {
-    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     this.getLedgerSummaryReport();
   }
 
@@ -46,7 +43,6 @@ export class LedgerSummaryPage {
     console.log('ionViewDidLoad LedgerSummaryPage');
   }
   ionViewWillLeave(){
-    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 
   getLedgerSummaryReport(){

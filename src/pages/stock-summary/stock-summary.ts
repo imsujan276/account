@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import {  NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { StockDetailPage } from '../stock-detail/stock-detail';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 /**
  * Generated class for the StockSummaryPage page.
@@ -42,8 +41,7 @@ export class StockSummaryPage {
 
   isSearching = false;
 
-  constructor(private screenOrientation: ScreenOrientation,public navCtrl: NavController, public func: customFunctions, public navParams: NavParams, public api: ApiProvider) {
-    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+  constructor(public navCtrl: NavController, public func: customFunctions, public navParams: NavParams, public api: ApiProvider) {
     this.getstockSummaryReport()
   }
 

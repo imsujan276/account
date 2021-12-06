@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { customFunctions } from '../../providers/functions';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   selector: 'page-daybook-report',
@@ -21,7 +20,6 @@ export class DaybookReportPage {
               public navParams: NavParams, 
               public api: ApiProvider,
               public func: customFunctions,
-              private screenOrientation: ScreenOrientation
             ) {
     
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);

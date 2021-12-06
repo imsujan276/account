@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 import { ApiProvider } from '../../providers/api/api';
 import { HomePage } from '../home/home';
 import { customFunctions } from '../../providers/functions';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
 /**
  * Generated class for the SelectCompanyModalPage page.
  *
@@ -28,9 +27,7 @@ export class SelectCompanyModalPage {
               public viewCtrl: ViewController,
               public api: ApiProvider,
               public func: customFunctions,
-              private screenOrientation: ScreenOrientation
               ) {
-    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.user_id = this.navParams.get('user_id') ? this.navParams.get('user_id') : localStorage.getItem('user_id');
     this.refresh = this.navParams.get('refresh') ? true : false;
     this.getCompanies(this.user_id);

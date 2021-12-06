@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { customFunctions } from '../../providers/functions';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 /**
  * Generated class for the LedgerDetailPage page.
@@ -28,8 +27,7 @@ export class LedgerDetailPage {
   balance;
   uc_amount
 
-  constructor(private screenOrientation: ScreenOrientation,public navCtrl: NavController, public navParams: NavParams, private api: ApiProvider, private func: customFunctions) {
-    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+  constructor(public navCtrl: NavController, public navParams: NavParams, private api: ApiProvider, private func: customFunctions) {
     this.ledger = this.navParams.get('ledger')
   	this.getLedgerDetail();
   }

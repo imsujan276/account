@@ -1,15 +1,105 @@
-webpackJsonp([4],{
+webpackJsonp([0],{
 
-/***/ 111:
+/***/ 121:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 121;
+
+/***/ }),
+
+/***/ 163:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"../pages/ledger-detail/ledger-detail.module": [
+		164
+	],
+	"../pages/ledger-summary/ledger-summary.module": [
+		166
+	],
+	"../pages/login/login.module": [
+		167
+	],
+	"../pages/select-company-modal/select-company-modal.module": [
+		171
+	]
+};
+function webpackAsyncContext(req) {
+	var ids = map[req];
+	if(!ids)
+		return Promise.reject(new Error("Cannot find module '" + req + "'."));
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
+		return __webpack_require__(ids[0]);
+	});
+};
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = 163;
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
+/***/ 164:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LedgerDetailPageModule", function() { return LedgerDetailPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pipes_pipes_module__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ledger_detail__ = __webpack_require__(165);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+var LedgerDetailPageModule = /** @class */ (function () {
+    function LedgerDetailPageModule() {
+    }
+    LedgerDetailPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_3__ledger_detail__["a" /* LedgerDetailPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__ledger_detail__["a" /* LedgerDetailPage */]),
+                __WEBPACK_IMPORTED_MODULE_2__pipes_pipes_module__["a" /* PipesModule */],
+            ],
+        })
+    ], LedgerDetailPageModule);
+    return LedgerDetailPageModule;
+}());
+
+//# sourceMappingURL=ledger-detail.module.js.map
+
+/***/ }),
+
+/***/ 165:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LedgerDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__ = __webpack_require__(28);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -23,7 +113,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 /**
  * Generated class for the LedgerDetailPage page.
  *
@@ -31,15 +120,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var LedgerDetailPage = /** @class */ (function () {
-    function LedgerDetailPage(screenOrientation, navCtrl, navParams, api, func) {
-        this.screenOrientation = screenOrientation;
+    function LedgerDetailPage(navCtrl, navParams, api, func) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.api = api;
         this.func = func;
         this.current_page = 1;
         this.last_page = 1;
-        // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
         this.ledger = this.navParams.get('ledger');
         this.getLedgerDetail();
     }
@@ -93,7 +180,7 @@ var LedgerDetailPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'page-ledger-detail',template:/*ion-inline-start:"/Volumes/D/Ionic/account/src/pages/ledger-detail/ledger-detail.html"*/'<!--\n  Generated template for the LedgerDetailPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ledger.ledger_name}} - Detail</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content fullscreen>\n\n    <div class="content-container">\n        <div class="row header">\n          <div class="col">Date</div>\n          <div class="col">DR</div>\n          <div class="col">CR</div>\n          <!-- <div class="col col-2">UC</div> -->\n          <div class="col">Balance</div>\n        </div>\n        <div class="row" *ngFor="let l of ledgerDetail; let i=index" >\n          <!-- <div class="col">{{l.date | date: \'mediumDate\'}} </div> -->\n          <div class="col">{{l.miti}} </div>\n          <div class="col">{{l.debit | number}}</div>\n          <div class="col">{{l.credit | number}}</div>\n          <!-- <div class="col col-2">{{l.uc_amount}}</div> -->\n          <div class="col">{{ledgerDetail | runningTotal: i | number}}</div>\n        </div>\n        <div class="row footer" *ngIf="ledgerDetail">\n          <div class="col">Total</div>\n          <div class="col">{{dr_amount | number}}</div>\n          <div class="col">{{cr_amount | number}}</div>\n          <!-- <div class="col col-2">{{uc_amount}}</div> -->\n          <div class="col">{{balance | number}}</div>\n        </div>\n      </div>\n\n  <span *ngIf="current_page <= last_page" >\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n        <ion-infinite-scroll-content></ion-infinite-scroll-content>\n    </ion-infinite-scroll>\n  </span>\n\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/Ionic/account/src/pages/ledger-detail/ledger-detail.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__["a" /* ScreenOrientation */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_functions__["a" /* customFunctions */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_functions__["a" /* customFunctions */]])
     ], LedgerDetailPage);
     return LedgerDetailPage;
 }());
@@ -102,57 +189,41 @@ var LedgerDetailPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 123:
-/***/ (function(module, exports) {
+/***/ 166:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncatched exception popping up in devtools
-	return Promise.resolve().then(function() {
-		throw new Error("Cannot find module '" + req + "'.");
-	});
-}
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 123;
-
-/***/ }),
-
-/***/ 165:
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"../pages/ledger-detail/ledger-detail.module": [
-		293,
-		3
-	],
-	"../pages/ledger-summary/ledger-summary.module": [
-		294,
-		2
-	],
-	"../pages/login/login.module": [
-		295,
-		1
-	],
-	"../pages/select-company-modal/select-company-modal.module": [
-		296,
-		0
-	]
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LedgerSummaryPageModule", function() { return LedgerSummaryPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ledger_summary__ = __webpack_require__(80);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-function webpackAsyncContext(req) {
-	var ids = map[req];
-	if(!ids)
-		return Promise.reject(new Error("Cannot find module '" + req + "'."));
-	return __webpack_require__.e(ids[1]).then(function() {
-		return __webpack_require__(ids[0]);
-	});
-};
-webpackAsyncContext.keys = function webpackAsyncContextKeys() {
-	return Object.keys(map);
-};
-webpackAsyncContext.id = 165;
-module.exports = webpackAsyncContext;
+
+
+
+var LedgerSummaryPageModule = /** @class */ (function () {
+    function LedgerSummaryPageModule() {
+    }
+    LedgerSummaryPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__ledger_summary__["a" /* LedgerSummaryPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__ledger_summary__["a" /* LedgerSummaryPage */]),
+            ],
+        })
+    ], LedgerSummaryPageModule);
+    return LedgerSummaryPageModule;
+}());
+
+//# sourceMappingURL=ledger-summary.module.js.map
 
 /***/ }),
 
@@ -160,12 +231,50 @@ module.exports = webpackAsyncContext;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(81);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var LoginPageModule = /** @class */ (function () {
+    function LoginPageModule() {
+    }
+    LoginPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
+            ],
+        })
+    ], LoginPageModule);
+    return LoginPageModule;
+}());
+
+//# sourceMappingURL=login.module.js.map
+
+/***/ }),
+
+/***/ 168:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StockDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__ = __webpack_require__(169);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -282,47 +391,15 @@ var StockDetailPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 211:
+/***/ 171:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(212);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(232);
-
-
-Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
-//# sourceMappingURL=main.js.map
-
-/***/ }),
-
-/***/ 232:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(287);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_list_list__ = __webpack_require__(288);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_ledger_summary_ledger_summary__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_ledger_detail_ledger_detail__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_stock_summary_stock_summary__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_daybook_report_daybook_report__ = __webpack_require__(88);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_stock_detail_stock_detail__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_select_company_modal_select_company_modal__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_status_bar__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_splash_screen__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_auth_auth__ = __webpack_require__(89);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_common_http__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_api_api__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_functions__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_screen_orientation__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pipes_running_total_running_total__ = __webpack_require__(289);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_brmasker_ionic_3__ = __webpack_require__(290);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectCompanyModalPageModule", function() { return SelectCompanyModalPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__select_company_modal__ = __webpack_require__(87);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -332,10 +409,66 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+var SelectCompanyModalPageModule = /** @class */ (function () {
+    function SelectCompanyModalPageModule() {
+    }
+    SelectCompanyModalPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__select_company_modal__["a" /* SelectCompanyModalPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__select_company_modal__["a" /* SelectCompanyModalPage */]),
+            ],
+        })
+    ], SelectCompanyModalPageModule);
+    return SelectCompanyModalPageModule;
+}());
+
+//# sourceMappingURL=select-company-modal.module.js.map
+
+/***/ }),
+
+/***/ 215:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(216);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(236);
 
 
+Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
 
+/***/ }),
 
+/***/ 236:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(293);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_list_list__ = __webpack_require__(294);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_auth_auth__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_common_http__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_api_api__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_functions__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_screen_orientation__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_brmasker_ionic_3__ = __webpack_require__(295);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__shared_module__ = __webpack_require__(298);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 
@@ -360,17 +493,9 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
                 __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */],
                 __WEBPACK_IMPORTED_MODULE_5__pages_list_list__["a" /* ListPage */],
-                __WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* LoginPage */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_ledger_summary_ledger_summary__["a" /* LedgerSummaryPage */],
-                __WEBPACK_IMPORTED_MODULE_8__pages_ledger_detail_ledger_detail__["a" /* LedgerDetailPage */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_daybook_report_daybook_report__["a" /* DaybookReportPage */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_stock_summary_stock_summary__["a" /* StockSummaryPage */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_stock_detail_stock_detail__["a" /* StockDetailPage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_select_company_modal_select_company_modal__["a" /* SelectCompanyModalPage */],
-                __WEBPACK_IMPORTED_MODULE_20__pipes_running_total_running_total__["a" /* RunningTotalPipe */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_16__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
@@ -380,29 +505,23 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/select-company-modal/select-company-modal.module#SelectCompanyModalPageModule', name: 'SelectCompanyModalPage', segment: 'select-company-modal', priority: 'low', defaultHistory: [] }
                     ]
                 }),
-                __WEBPACK_IMPORTED_MODULE_21_brmasker_ionic_3__["a" /* BrMaskerModule */]
+                __WEBPACK_IMPORTED_MODULE_13_brmasker_ionic_3__["a" /* BrMaskerModule */],
+                __WEBPACK_IMPORTED_MODULE_14__shared_module__["a" /* SharedModule */],
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicApp */]],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
                 __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */],
                 __WEBPACK_IMPORTED_MODULE_5__pages_list_list__["a" /* ListPage */],
-                __WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* LoginPage */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_ledger_summary_ledger_summary__["a" /* LedgerSummaryPage */],
-                __WEBPACK_IMPORTED_MODULE_8__pages_ledger_detail_ledger_detail__["a" /* LedgerDetailPage */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_daybook_report_daybook_report__["a" /* DaybookReportPage */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_stock_summary_stock_summary__["a" /* StockSummaryPage */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_stock_detail_stock_detail__["a" /* StockDetailPage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_select_company_modal_select_company_modal__["a" /* SelectCompanyModalPage */],
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_13__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_14__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__["a" /* SplashScreen */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_15__providers_auth_auth__["a" /* AuthProvider */],
-                __WEBPACK_IMPORTED_MODULE_17__providers_api_api__["a" /* ApiProvider */],
-                __WEBPACK_IMPORTED_MODULE_18__providers_functions__["a" /* customFunctions */],
-                __WEBPACK_IMPORTED_MODULE_19__ionic_native_screen_orientation__["a" /* ScreenOrientation */],
+                __WEBPACK_IMPORTED_MODULE_8__providers_auth_auth__["a" /* AuthProvider */],
+                __WEBPACK_IMPORTED_MODULE_10__providers_api_api__["a" /* ApiProvider */],
+                __WEBPACK_IMPORTED_MODULE_11__providers_functions__["a" /* customFunctions */],
+                __WEBPACK_IMPORTED_MODULE_12__ionic_native_screen_orientation__["a" /* ScreenOrientation */],
             ]
         })
     ], AppModule);
@@ -418,7 +537,7 @@ var AppModule = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -558,13 +677,94 @@ var ApiProvider = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 261:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PipesModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__running_total_running_total__ = __webpack_require__(262);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var PipesModule = /** @class */ (function () {
+    function PipesModule() {
+    }
+    PipesModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_1__running_total_running_total__["a" /* RunningTotalPipe */]],
+            imports: [],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__running_total_running_total__["a" /* RunningTotalPipe */]]
+        })
+    ], PipesModule);
+    return PipesModule;
+}());
+
+//# sourceMappingURL=pipes.module.js.map
+
+/***/ }),
+
+/***/ 262:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RunningTotalPipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+/**
+ * Generated class for the RunningTotalPipe pipe.
+ *
+ * See https://angular.io/api/core/Pipe for more info on Angular Pipes.
+ */
+var RunningTotalPipe = /** @class */ (function () {
+    function RunningTotalPipe() {
+    }
+    /**
+     * Takes a value and makes it lowercase.
+     */
+    RunningTotalPipe.prototype.transform = function (value, position) {
+        console.log(value, position);
+        var runningTotal = 0;
+        for (var i = 0; i <= position; i++) {
+            if (parseFloat(value[i]['credit']) == 0) {
+                runningTotal += parseFloat(value[i]['debit']);
+            }
+            else {
+                runningTotal -= parseFloat(value[i]['credit']);
+            }
+        }
+        return runningTotal;
+    };
+    RunningTotalPipe = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Pipe */])({
+            name: 'runningTotal',
+        })
+    ], RunningTotalPipe);
+    return RunningTotalPipe;
+}());
+
+//# sourceMappingURL=running-total.js.map
+
+/***/ }),
+
 /***/ 27:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return customFunctions; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -655,21 +855,21 @@ var customFunctions = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 287:
+/***/ 293:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_ledger_summary_ledger_summary__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_stock_summary_stock_summary__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_daybook_report_daybook_report__ = __webpack_require__(88);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_auth_auth__ = __webpack_require__(89);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_select_company_modal_select_company_modal__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_ledger_summary_ledger_summary__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_stock_summary_stock_summary__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_daybook_report_daybook_report__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_auth_auth__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_select_company_modal_select_company_modal__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_functions__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -754,13 +954,13 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 288:
+/***/ 294:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -811,12 +1011,19 @@ var ListPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 289:
+/***/ 298:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RunningTotalPipe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SharedModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_daybook_report_daybook_report_module__ = __webpack_require__(299);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_ledger_detail_ledger_detail_module__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_ledger_summary_ledger_summary_module__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login_module__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_select_company_modal_select_company_modal_module__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_stock_detail_stock_detail_module__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_stock_summary_stock_summary_module__ = __webpack_require__(301);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -824,53 +1031,159 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
-/**
- * Generated class for the RunningTotalPipe pipe.
- *
- * See https://angular.io/api/core/Pipe for more info on Angular Pipes.
- */
-var RunningTotalPipe = /** @class */ (function () {
-    function RunningTotalPipe() {
+
+
+
+
+
+
+
+var SharedModule = /** @class */ (function () {
+    function SharedModule() {
     }
-    /**
-     * Takes a value and makes it lowercase.
-     */
-    RunningTotalPipe.prototype.transform = function (value, position) {
-        console.log(value, position);
-        var runningTotal = 0;
-        for (var i = 0; i <= position; i++) {
-            if (parseFloat(value[i]['credit']) == 0) {
-                runningTotal += parseFloat(value[i]['debit']);
-            }
-            else {
-                runningTotal -= parseFloat(value[i]['credit']);
-            }
-        }
-        return runningTotal;
-    };
-    RunningTotalPipe = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Pipe */])({
-            name: 'runningTotal',
+    SharedModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_4__pages_login_login_module__["LoginPageModule"],
+                __WEBPACK_IMPORTED_MODULE_3__pages_ledger_summary_ledger_summary_module__["LedgerSummaryPageModule"],
+                __WEBPACK_IMPORTED_MODULE_2__pages_ledger_detail_ledger_detail_module__["LedgerDetailPageModule"],
+                __WEBPACK_IMPORTED_MODULE_1__pages_daybook_report_daybook_report_module__["a" /* DaybookReportPageModule */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_stock_summary_stock_summary_module__["a" /* StockSummaryPageModule */],
+                __WEBPACK_IMPORTED_MODULE_6__pages_stock_detail_stock_detail_module__["a" /* StockDetailPageModule */],
+                __WEBPACK_IMPORTED_MODULE_5__pages_select_company_modal_select_company_modal_module__["SelectCompanyModalPageModule"],
+            ],
+            declarations: [],
+            exports: []
         })
-    ], RunningTotalPipe);
-    return RunningTotalPipe;
+    ], SharedModule);
+    return SharedModule;
 }());
 
-//# sourceMappingURL=running-total.js.map
+//# sourceMappingURL=shared.module.js.map
 
 /***/ }),
 
-/***/ 53:
+/***/ 299:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DaybookReportPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__daybook_report__ = __webpack_require__(86);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var DaybookReportPageModule = /** @class */ (function () {
+    function DaybookReportPageModule() {
+    }
+    DaybookReportPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__daybook_report__["a" /* DaybookReportPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__daybook_report__["a" /* DaybookReportPage */]),
+            ],
+        })
+    ], DaybookReportPageModule);
+    return DaybookReportPageModule;
+}());
+
+//# sourceMappingURL=daybook-report.module.js.map
+
+/***/ }),
+
+/***/ 300:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StockDetailPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__stock_detail__ = __webpack_require__(168);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var StockDetailPageModule = /** @class */ (function () {
+    function StockDetailPageModule() {
+    }
+    StockDetailPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__stock_detail__["a" /* StockDetailPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__stock_detail__["a" /* StockDetailPage */]),
+            ],
+        })
+    ], StockDetailPageModule);
+    return StockDetailPageModule;
+}());
+
+//# sourceMappingURL=stock-detail.module.js.map
+
+/***/ }),
+
+/***/ 301:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StockSummaryPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__stock_summary__ = __webpack_require__(83);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var StockSummaryPageModule = /** @class */ (function () {
+    function StockSummaryPageModule() {
+    }
+    StockSummaryPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__stock_summary__["a" /* StockSummaryPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__stock_summary__["a" /* StockSummaryPage */]),
+            ],
+        })
+    ], StockSummaryPageModule);
+    return StockSummaryPageModule;
+}());
+
+//# sourceMappingURL=stock-summary.module.js.map
+
+/***/ }),
+
+/***/ 80:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LedgerSummaryPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_functions__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ledger_detail_ledger_detail__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ledger_detail_ledger_detail__ = __webpack_require__(165);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -885,7 +1198,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 /**
  * Generated class for the LedgerSummaryPage page.
  *
@@ -893,24 +1205,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var LedgerSummaryPage = /** @class */ (function () {
-    function LedgerSummaryPage(navCtrl, navParams, api, func, screenOrientation) {
+    function LedgerSummaryPage(navCtrl, navParams, api, func) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.api = api;
         this.func = func;
-        this.screenOrientation = screenOrientation;
         this.current_page = 1;
         this.last_page = 1;
         this.isLoadingMoreData = false;
         this.isSearching = false;
-        // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
         this.getLedgerSummaryReport();
     }
     LedgerSummaryPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad LedgerSummaryPage');
     };
     LedgerSummaryPage.prototype.ionViewWillLeave = function () {
-        // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     };
     LedgerSummaryPage.prototype.getLedgerSummaryReport = function () {
         var _this = this;
@@ -1008,8 +1317,7 @@ var LedgerSummaryPage = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */],
-            __WEBPACK_IMPORTED_MODULE_0__providers_functions__["a" /* customFunctions */],
-            __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__["a" /* ScreenOrientation */]])
+            __WEBPACK_IMPORTED_MODULE_0__providers_functions__["a" /* customFunctions */]])
     ], LedgerSummaryPage);
     return LedgerSummaryPage;
 }());
@@ -1018,16 +1326,16 @@ var LedgerSummaryPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 54:
+/***/ 81:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__select_company_modal_select_company_modal__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__select_company_modal_select_company_modal__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__ = __webpack_require__(88);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1129,116 +1437,17 @@ var LoginPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 55:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelectCompanyModalPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_functions__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(28);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-/**
- * Generated class for the SelectCompanyModalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var SelectCompanyModalPage = /** @class */ (function () {
-    function SelectCompanyModalPage(navCtrl, navParams, viewCtrl, api, func, screenOrientation) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.viewCtrl = viewCtrl;
-        this.api = api;
-        this.func = func;
-        this.screenOrientation = screenOrientation;
-        this.company = localStorage.getItem('company_id');
-        this.refresh = false;
-        // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-        this.user_id = this.navParams.get('user_id') ? this.navParams.get('user_id') : localStorage.getItem('user_id');
-        this.refresh = this.navParams.get('refresh') ? true : false;
-        this.getCompanies(this.user_id);
-    }
-    SelectCompanyModalPage.prototype.getCompanies = function (user_id) {
-        var _this = this;
-        console.log(user_id);
-        this.api.getUserCompanies(user_id)
-            .subscribe(function (data) {
-            console.log(data);
-            _this.companies = data;
-        });
-    };
-    SelectCompanyModalPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad SelectCompanyModalPage');
-    };
-    SelectCompanyModalPage.prototype.dismiss = function () {
-        var data = { 'status': false };
-        this.viewCtrl.dismiss(data);
-    };
-    SelectCompanyModalPage.prototype.dismissWithData = function () {
-        var _this = this;
-        var data = this.company == undefined ? { 'status': false } : { 'status': true };
-        this.func.presentLoading('Setting Company Name...');
-        setTimeout(function () {
-            _this.func.dismissLoading();
-            if (data['status'] == true) {
-                localStorage.setItem('company_id', _this.company);
-            }
-            if (_this.refresh) {
-                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
-            }
-            else {
-                _this.viewCtrl.dismiss(data);
-            }
-        }, 1000);
-    };
-    SelectCompanyModalPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-select-company-modal',template:/*ion-inline-start:"/Volumes/D/Ionic/account/src/pages/select-company-modal/select-company-modal.html"*/'<!--\n  Generated template for the SelectCompanyModalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!-- <ion-header>\n\n  <ion-navbar>\n    <ion-title>Select CompanyModal</ion-title>\n  </ion-navbar>\n\n</ion-header> -->\n\n\n<ion-content padding>\n  <h3 style="text-align:center;     \n              background: #FE5E00;\n              color: white;\n              padding: 10px;\n              border-radius: 5px;">\n    Select Company\n  </h3>\n<hr>\n<br>\n\n<ion-grid>\n    <ion-row *ngFor="let c of companies">\n      <ion-col col-6 >\n        <b>{{c.company_id}}</b>\n      </ion-col>\n      <ion-col col-6 text-right>\n        <input type="radio" value="{{c.company_id}}" [(ngModel)]="company">\n          <!-- <ion-radio value="{{c.company_id}}" [(ngModel)]="company" name="company_id" ngDefaultControl></ion-radio> -->\n      </ion-col>\n      <ion-col col-6 style="color:grey; font-size: 14px;">\n          From: {{c.company_start_date | date: \'mediumDate\'}}\n      </ion-col>\n      <ion-col col-6 text-right style="color:grey; font-size: 14px;">\n          To: {{c.company_end_date | date: \'mediumDate\'}}\n      </ion-col>\n      <hr>\n    </ion-row>\n  </ion-grid>\n\n<!-- <ion-list radio-group [(ngModel)]="company">\n    <ion-item *ngFor="let c of companies">\n      <ion-label>{{c.company_id}}</ion-label>\n      <ion-radio value="{{c.company_id}}"></ion-radio>\n    </ion-item>\n  </ion-list> -->\n\n<ion-grid>\n  <ion-row>\n    <ion-col col-5>\n        <button ion-button color="danger" (click)="dismiss()" block>Cancel</button>\n    </ion-col>\n    <ion-col offset-2 col-5>\n        <button ion-button (click)="dismissWithData()" block style="background-color:#FE5E00;">Select</button>\n    </ion-col>\n  </ion-row>\n</ion-grid>\n  \n</ion-content>\n'/*ion-inline-end:"/Volumes/D/Ionic/account/src/pages/select-company-modal/select-company-modal.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_functions__["a" /* customFunctions */],
-            __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__["a" /* ScreenOrientation */]])
-    ], SelectCompanyModalPage);
-    return SelectCompanyModalPage;
-}());
-
-//# sourceMappingURL=select-company-modal.js.map
-
-/***/ }),
-
-/***/ 86:
+/***/ 82:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ledger_summary_ledger_summary__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ledger_summary_ledger_summary__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__stock_summary_stock_summary__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__daybook_report_daybook_report__ = __webpack_require__(88);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__stock_summary_stock_summary__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__daybook_report_daybook_report__ = __webpack_require__(86);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1248,7 +1457,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -1256,12 +1464,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var HomePage = /** @class */ (function () {
-    function HomePage(navCtrl, api, screenOrientation) {
-        // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    function HomePage(navCtrl, api) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.api = api;
-        this.screenOrientation = screenOrientation;
         var interval = setInterval(function () {
             if (localStorage.getItem('company_id')) {
                 _this.company_id = localStorage.getItem('company_id');
@@ -1294,7 +1500,7 @@ var HomePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"/Volumes/D/Ionic/account/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Reports \n      <p class="sub-title">{{company_id}}</p>\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content fullscreen> \n  <ion-grid>\n    <ion-row>\n        <!-- <ion-grid *ngIf="company && (company.company_start_date || company.company_end_date)" style="color:gray;margin-bottom: -20px;">\n          <ion-row>\n            <ion-col col-6 *ngIf="company.company_start_date">\n              From: {{company.company_start_date | date: \'mediumDate\'}}\n            </ion-col>\n            <ion-col col-6 text-right *ngIf="company.company_end_date">\n              To: {{company.company_end_date | date: \'mediumDate\'}}\n            </ion-col>\n          </ion-row>\n        </ion-grid> -->\n      <ion-col col-12>\n        <p class="heading"> Select The report You want to View. </p>\n        <hr>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n  <ion-card>\n    <ion-card-content (click)="gotoLedgerSummary()" class="component">\n        <ion-icon name="document" style="font-size:30px; color:#FE5E00;"></ion-icon>\n            Ledger Summary Report\n    </ion-card-content>\n  </ion-card>\n\n  <ion-card>\n      <ion-card-content  class="component" (click)="gotoDaybookReport()">\n          <ion-icon name="book" style="font-size:30px; color:#FE5E00;"></ion-icon>\n          DayBook Report\n      </ion-card-content>\n    </ion-card>\n\n    <ion-card>\n        <ion-card-content  class="component" (click)="gotoStockSummary()">\n            <ion-icon name="logo-buffer" style="font-size:30px; color:#FE5E00;"></ion-icon>\n            Stock Summary Report\n        </ion-card-content>\n      </ion-card>\n  \n\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/Ionic/account/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__["a" /* ScreenOrientation */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */]])
     ], HomePage);
     return HomePage;
 }());
@@ -1303,17 +1509,16 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 87:
+/***/ 83:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StockSummaryPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_functions__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__stock_detail_stock_detail__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__stock_detail_stock_detail__ = __webpack_require__(168);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1328,7 +1533,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 /**
  * Generated class for the StockSummaryPage page.
  *
@@ -1336,8 +1540,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var StockSummaryPage = /** @class */ (function () {
-    function StockSummaryPage(screenOrientation, navCtrl, func, navParams, api) {
-        this.screenOrientation = screenOrientation;
+    function StockSummaryPage(navCtrl, func, navParams, api) {
         this.navCtrl = navCtrl;
         this.func = func;
         this.navParams = navParams;
@@ -1357,7 +1560,6 @@ var StockSummaryPage = /** @class */ (function () {
         this.last_page = 1;
         this.isLoadingMoreData = false;
         this.isSearching = false;
-        // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
         this.getstockSummaryReport();
     }
     StockSummaryPage.prototype.ionViewDidLoad = function () {
@@ -1466,7 +1668,7 @@ var StockSummaryPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["n" /* Component */])({
             selector: 'page-stock-summary',template:/*ion-inline-start:"/Volumes/D/Ionic/account/src/pages/stock-summary/stock-summary.html"*/'<!--\n  Generated template for the StockSummaryPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Stock Sumamry</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content fullscreen>\n  <ion-searchbar \n    (ionInput)="search($event)" \n    placeholder="Search by Stock Name"\n    (ionCancel)="onSearchCancel($event)"\n    >\n  </ion-searchbar>\n\n    <div class="content-container">\n      <ion-row class="row header">\n        <ion-col col-4>Stock</ion-col>\n        <ion-col col-2>IN</ion-col>\n        <ion-col col-2>OUT</ion-col>\n        <ion-col col-2>Bal</ion-col>\n        <ion-col col-2>Amt</ion-col>\n      </ion-row>\n      <ion-row *ngFor="let s of stock" (click)="viewStockDetail(s)">\n        <ion-col col-4 class=" capitalze-text">{{s.stock_name}}</ion-col>\n        <ion-col col-2>{{s.in_quantity | number}}</ion-col>\n        <ion-col col-2>{{s.out_quantity | number}}</ion-col>\n        <ion-col col-2>{{s.balance_quantity | number}}</ion-col>\n        <ion-col col-2>{{s.balance_amount | number}}</ion-col>\n      </ion-row>\n      <ion-row class="row footer" *ngIf="stock">\n        <ion-col col-4>Total</ion-col>\n        <ion-col col-2>{{data.in_quantity | number}}</ion-col>\n        <ion-col col-2>{{data.out_quantity | number}}</ion-col>\n        <ion-col col-2>{{data.balance_quantity | number}}</ion-col>\n        <ion-col col-2>{{data.balance_amount | number}}</ion-col>\n      </ion-row>\n    </div>\n\n    <div *ngIf="!isSearching">\n      <div *ngIf="current_page < last_page" padding style="display: flex; align-items: center; justify-content: center;">\n        <ion-spinner *ngIf="isLoadingMoreData"></ion-spinner>\n        <button *ngIf="!isLoadingMoreData" ion-button color="light" round (click)="loadMoreData()">Load More</button>\n      </div>\n    </div>\n\n  <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n    <ion-infinite-scroll-content></ion-infinite-scroll-content>\n </ion-infinite-scroll> -->\n\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/Ionic/account/src/pages/stock-summary/stock-summary.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__["a" /* ScreenOrientation */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_0__providers_functions__["a" /* customFunctions */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_0__providers_functions__["a" /* customFunctions */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */]])
     ], StockSummaryPage);
     return StockSummaryPage;
 }());
@@ -1475,16 +1677,15 @@ var StockSummaryPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 88:
+/***/ 86:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DaybookReportPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_functions__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__ = __webpack_require__(28);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1498,14 +1699,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var DaybookReportPage = /** @class */ (function () {
-    function DaybookReportPage(navCtrl, navParams, api, func, screenOrientation) {
+    function DaybookReportPage(navCtrl, navParams, api, func) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.api = api;
         this.func = func;
-        this.screenOrientation = screenOrientation;
         this.current_page = 1;
         this.last_page = 1;
         this.isSearching = false;
@@ -1620,8 +1819,7 @@ var DaybookReportPage = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_functions__["a" /* customFunctions */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__["a" /* ScreenOrientation */]])
+            __WEBPACK_IMPORTED_MODULE_3__providers_functions__["a" /* customFunctions */]])
     ], DaybookReportPage);
     return DaybookReportPage;
 }());
@@ -1630,15 +1828,108 @@ var DaybookReportPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 89:
+/***/ 87:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelectCompanyModalPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_functions__ = __webpack_require__(27);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+/**
+ * Generated class for the SelectCompanyModalPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var SelectCompanyModalPage = /** @class */ (function () {
+    function SelectCompanyModalPage(navCtrl, navParams, viewCtrl, api, func) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
+        this.api = api;
+        this.func = func;
+        this.company = localStorage.getItem('company_id');
+        this.refresh = false;
+        this.user_id = this.navParams.get('user_id') ? this.navParams.get('user_id') : localStorage.getItem('user_id');
+        this.refresh = this.navParams.get('refresh') ? true : false;
+        this.getCompanies(this.user_id);
+    }
+    SelectCompanyModalPage.prototype.getCompanies = function (user_id) {
+        var _this = this;
+        console.log(user_id);
+        this.api.getUserCompanies(user_id)
+            .subscribe(function (data) {
+            console.log(data);
+            _this.companies = data;
+        });
+    };
+    SelectCompanyModalPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SelectCompanyModalPage');
+    };
+    SelectCompanyModalPage.prototype.dismiss = function () {
+        var data = { 'status': false };
+        this.viewCtrl.dismiss(data);
+    };
+    SelectCompanyModalPage.prototype.dismissWithData = function () {
+        var _this = this;
+        var data = this.company == undefined ? { 'status': false } : { 'status': true };
+        this.func.presentLoading('Setting Company Name...');
+        setTimeout(function () {
+            _this.func.dismissLoading();
+            if (data['status'] == true) {
+                localStorage.setItem('company_id', _this.company);
+            }
+            if (_this.refresh) {
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
+            }
+            else {
+                _this.viewCtrl.dismiss(data);
+            }
+        }, 1000);
+    };
+    SelectCompanyModalPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'page-select-company-modal',template:/*ion-inline-start:"/Volumes/D/Ionic/account/src/pages/select-company-modal/select-company-modal.html"*/'<!--\n  Generated template for the SelectCompanyModalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!-- <ion-header>\n\n  <ion-navbar>\n    <ion-title>Select CompanyModal</ion-title>\n  </ion-navbar>\n\n</ion-header> -->\n\n\n<ion-content padding>\n  <h3 style="text-align:center;     \n              background: #FE5E00;\n              color: white;\n              padding: 10px;\n              border-radius: 5px;">\n    Select Company\n  </h3>\n<hr>\n<br>\n\n<ion-grid>\n    <ion-row *ngFor="let c of companies">\n      <ion-col col-6 >\n        <b>{{c.company_id}}</b>\n      </ion-col>\n      <ion-col col-6 text-right>\n        <input type="radio" value="{{c.company_id}}" [(ngModel)]="company">\n          <!-- <ion-radio value="{{c.company_id}}" [(ngModel)]="company" name="company_id" ngDefaultControl></ion-radio> -->\n      </ion-col>\n      <ion-col col-6 style="color:grey; font-size: 14px;">\n          From: {{c.company_start_date | date: \'mediumDate\'}}\n      </ion-col>\n      <ion-col col-6 text-right style="color:grey; font-size: 14px;">\n          To: {{c.company_end_date | date: \'mediumDate\'}}\n      </ion-col>\n      <hr>\n    </ion-row>\n  </ion-grid>\n\n<!-- <ion-list radio-group [(ngModel)]="company">\n    <ion-item *ngFor="let c of companies">\n      <ion-label>{{c.company_id}}</ion-label>\n      <ion-radio value="{{c.company_id}}"></ion-radio>\n    </ion-item>\n  </ion-list> -->\n\n<ion-grid>\n  <ion-row>\n    <ion-col col-5>\n        <button ion-button color="danger" (click)="dismiss()" block>Cancel</button>\n    </ion-col>\n    <ion-col offset-2 col-5>\n        <button ion-button (click)="dismissWithData()" block style="background-color:#FE5E00;">Select</button>\n    </ion-col>\n  </ion-row>\n</ion-grid>\n  \n</ion-content>\n'/*ion-inline-end:"/Volumes/D/Ionic/account/src/pages/select-company-modal/select-company-modal.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_functions__["a" /* customFunctions */]])
+    ], SelectCompanyModalPage);
+    return SelectCompanyModalPage;
+}());
+
+//# sourceMappingURL=select-company-modal.js.map
+
+/***/ }),
+
+/***/ 88:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_login_login__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_login_login__ = __webpack_require__(81);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1695,5 +1986,5 @@ var AuthProvider = /** @class */ (function () {
 
 /***/ })
 
-},[211]);
+},[215]);
 //# sourceMappingURL=main.js.map
